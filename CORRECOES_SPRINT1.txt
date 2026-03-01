@@ -1,0 +1,75 @@
+1. Tipos e Conversão de Offset Blindada (include/DataTypes.hpp)
+#pragma once
+
+#include <cstdint>
+#include <string>
+
+enum class PriorityLevel { HISTORY = 0, REAL_TIME = 1 };
+enum class DataQuality { GOOD = 0, BAD_TIMEOUT = 1, BAD_CHECKSUM = 2 };
+enum class SourceMode { DISCOVERY = 0, LEGACY_XML = 1 };
+
+struct DTO_Telemetry {
+    uint64_t timestamp_ms;
+    int device_id;
+    int unit_id;
+    int function_code;
+    int offset;
+    uint16_t raw_value;
+    DataQuality quality;
+    SourceMode source_mode;
+    std::string mnemonic;
+};
+
+struct QueueItem {
+    PriorityLevel priority;
+    DTO_Telemetry payload;
+
+    bool operator<(const QueueItem& other) const {
+        return static_cast<int>(priority) < static_cast<int>(other.priority);
+    }
+};
+
+inline int convertAddressToOffset(int raw_address) {
+    if (raw_address <= 0) return -1;
+    const int base = raw_address % 100000;
+    if (base == 0) return -1;
+    return base - 1;
+}
+
+--------------------------------------------------------------------------------
+2. Validações no Módulo de Comunicação (src/ModbusCommunicator.cpp)
+- Validação de function_code (apenas FC3/FC4).
+- Validação de count (1..125).
+- Validação de offset (0..65535).
+- disconnect() com reset seguro de context_.
+- Backoff progressivo com reconexão.
+
+--------------------------------------------------------------------------------
+3. Correção Crítica do Bug de Vetor (src/DataAcquisition.cpp)
+Trecho corrigido:
+if (!readBuffer.empty()) {
+    dto.raw_value = readBuffer[0];
+    dto.quality = DataQuality::GOOD;
+} else {
+    dto.raw_value = 0;
+    dto.quality = DataQuality::BAD_TIMEOUT;
+}
+
+--------------------------------------------------------------------------------
+4. Ajustes no Fila de Gerenciamento (src/QueueManager.cpp)
+- Include explícito de <chrono>.
+- Drenagem segura no consumerLoop(): só finaliza quando isRunning_ == false e dataQueue_ vazia.
+
+--------------------------------------------------------------------------------
+5. Consistência Final (src/main.cpp)
+- Uso dos novos nomes: startSystem(), stopSystem().
+- Construtor QueueManager(std::shared_ptr<DataAcquisition>, std::string xmlMap).
+
+--------------------------------------------------------------------------------
+6. Testes Consolidados (tests/test_engine.cpp)
+- XML temporário criado via std::ofstream.
+- Mock esperado: readData(1, 4, 9, 1).
+- Correção de acesso ao vetor de resultados:
+  EXPECT_EQ(results[0].offset, 9);
+  EXPECT_EQ(results[0].raw_value, 245);
+  EXPECT_EQ(results[0].quality, DataQuality::GOOD);
