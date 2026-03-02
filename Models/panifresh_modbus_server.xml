@@ -1,5 +1,0 @@
-<mbs_configuration>
-  <device addr="1" name="DefaultDevice">
-    <reg type="holding" addr="40010" code="m05_PS_geral" />
-  </device>
-</mbs_configuration>
