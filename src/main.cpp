@@ -4,7 +4,7 @@
 #include <iostream>
 #include <memory>
 
-int main() {
+int main(int argc, char* argv[]) {
     std::cout << "[KRYOS SPRINT 1] Iniciando Motor de Aquisicao C++..." << std::endl;
 
     auto communicator = std::make_shared<ModbusCommunicator>("127.0.0.1", 502);
@@ -12,7 +12,12 @@ int main() {
 
     auto engine = std::make_shared<DataAcquisition>(communicator);
 
-    std::string modelXmlPath = "Models/panifresh_modbus_server.xml";
+    // O XML legado é opcional: não existe modelo default do sistema.
+    const std::string modelXmlPath = (argc > 1) ? argv[1] : "";
+    if (modelXmlPath.empty()) {
+        std::cout << "Modo sem XML legado: nenhum mapa default foi carregado." << std::endl;
+        std::cout << "Para usar legado, execute com caminho do XML como argumento." << std::endl;
+    }
 
     QueueManager kryosQueue(engine, modelXmlPath);
 

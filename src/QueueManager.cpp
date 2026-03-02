@@ -26,6 +26,11 @@ void QueueManager::stopSystem() {
 
 void QueueManager::producerLoop() {
     while (isRunning_.load()) {
+        if (currentXmlMap_.empty()) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            continue;
+        }
+
         const auto capturedArray = acquisitionSystem_->runLegacyMode(currentXmlMap_, 1);
 
         for (const auto& dp : capturedArray) {
