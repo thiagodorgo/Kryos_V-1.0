@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>atvise - next generation</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<style type="text/css">
+body {
+	border: 0;
+	margin: 0;
+}
+
+#errorscreen, #loadingscreen {
+	font-family: Arial;
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+#errorscreen {
+	display: none;
+}
+
+#errormessage {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+}
+
+#errormessage div {
+	background-color: yellow;
+	border: 0.5em solid red;
+	color: red;
+	font-size: 1.8em;
+	height: 5em;
+	left: -10.5em;
+	position: absolute;
+	text-align: center;
+	top: -3em;
+	width: 20em;
+}
+
+#errorscreen b{
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#erroroverlay {
+	background-color: black;
+	filter: alpha(opacity=50);
+	height: 100%;
+	left: 0;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#loadingscreen {
+	background-color: #CCCCCC;
+	cursor: wait;
+}
+		</style>
+		<script src="project.js" type="text/javascript"></script>
+		<script src="webmi.js" type="text/javascript"></script>
+		<script type="text/javascript">/*<![CDATA[*/
+var autofit = webMI.query.autofit;
+var displaytype = webMI.query.displaytype;
+var defaultdisplay = webMI.query.defaultdisplay;
+var defaulturl = webMI.query.defaulturl;
+var language = webMI.query.language;
+var viewportwidth = webMI.query.viewportwidth;
+var isRootDisplay = webMI.display.isRoot();
+
+if (!webMI.inList(displaytype, ["svg", "vml"]))
+	displaytype = (document.implementation && document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1")) ? "svg" : "vml";
+
+if (typeof autofit === "undefined")
+	autofit = !/Mobi/.test(navigator.userAgent);
+else
+	autofit = autofit != "false" && autofit != "0";
+
+if (viewportwidth) {
+	var meta = document.createElement("meta");
+	meta.setAttribute("name", "viewport");
+	meta.setAttribute("content", "width=" + viewportwidth);
+	document.getElementsByTagName('head')[0].appendChild(meta);
+}
+
+if (isRootDisplay) {
+	var bestIndexExtension = "";
+	for (var i in project.extensions) {
+		var arr = project.extensions[i];
+		webMI.setExtension(i, arr[0], arr[1]);
+
+		if (bestIndexExtension != "index" && /(^|\.)index$/.test(i))
+			bestIndexExtension = i;
+	}
+
+	if (bestIndexExtension != "") {
+		var arr = project.extensions[bestIndexExtension];
+		webMI.setExtension("index", arr[0], arr[1]);
+	}
+
+	webMI.setConfig("frame.enableautofit", autofit);
+}
+
+function nodeNameIs(node, value) {
+	if (!node)
+		return false;
+
+	return String(node.nodeName).toLowerCase() == value;
+}
+
+function ForeignObject(frameHandler, element) {
+	this.frameHandler_ = frameHandler;
+	this.element_ = element;
+}
+
+ForeignObject.prototype.isResponsible = function(element) {
+	return this.element_ == element;
+}
+
+ForeignObject.prototype.setAttributes = function() {
+	this.element_.style.left = this.left_ + "px";
+	this.element_.style.top = this.top_ + "px";
+	this.element_.style.width = this.width_ + "px";
+	this.element_.style.height = this.height_ + "px";
+	this.element_.style.fontSize = this.factor_ + "em";
+}
+
+ForeignObject.prototype.setPosition = function(element, left, top, width, height, factor) {
+	if (!this.isResponsible(element))
+		return;
+
+	// Truncate fractional values by Math.floor() to avoid scrollbars on
+	// iframes that have different sizes than their content's document.
+
+	this.left_ = Math.floor(left);
+	this.top_ = Math.floor(top);
+	this.width_ = Math.floor(width);
+	this.height_ = Math.floor(height);
+	this.factor_ = factor;
+
+	var parentFrameHandler = this.frameHandler_.parentFrameHandler_;
+	if (parentFrameHandler)
+		this.factor_ /= parentFrameHandler.factor_;
+
+	this.setAttributes();
+}
+
+function FrameHandler(element, foreignObjectContainer, parentFrameHandler) {
+	var self = this;
+	this.element_ = element;
+	this.foreignObjectContainer_ = foreignObjectContainer;
+	this.parentFrameHandler_ = parentFrameHandler;
+	this.foreignObjects_ = [];
+	this.factor_ = 1;
+	this.subFrames_ = [];
+
+	webMI.display.setForeignObjectHandler(element, { create: function(childElements) {
+		var ret = document.createElement("div");
+		ret.style.position = "absolute";
+		ret.style.overflow = "hidden";
+
+		self.foreignObjects_.push(new ForeignObject(self, ret));
+		for (var i = 0; i < childElements.length; ++i)
+			ret.appendChild(childElements[i]);
+
+		return ret;
+	}, destroy: function(element) {
+		for (var i = 0; i < self.foreignObjects_.length; ++i) {
+			if (self.foreignObjects_[i].isResponsible(element)) {
+				self.foreignObjects_.splice(i, 1);
+				break;
+			}
+		}
+	}, set: function(element, left, top, width, height, factor) {
+		self.factor_ = factor;
+		for (var i = 0; i < self.foreignObjects_.length; ++i)
+			self.foreignObjects_[i].setPosition(element, left, top, width, height, factor);
+	}, add: function(element) {
+		self.foreignObjectContainer_.appendChild(element);
+		handler("addedforeignobject", element);
+	}, remove: function(element) {
+		if (element.parentNode == self.foreignObjectContainer_) {
+			self.foreignObjectContainer_.removeChild(element);
+			handler("removedforeignobject", element);
+		}
+	}, register: function(element, childElements) {
+		for (var i = 0; i < childElements.length; ++i) {
+			var child = childElements[i];
+			if (nodeNameIs(child, "iframe")) {
+				var container = element.ownerDocument.createElement("div");
+				container.style.position = "absolute";
+				element.insertBefore(container, child);
+				self.subFrames_.push(new FrameHandler(child, container, self));
+			}
+		}
+	}, applyOffsetsToMatrix: function(matrix) {
+		matrix.e += self.offsetLeft(true);
+		matrix.f += self.offsetTop(true);
+		return matrix;
+	}});
+
+	webMI.display.setOpenWindowHandler(element, function(value) {
+		var ret = handler("openwindow", value, self.offsetLeft(true), self.offsetTop(true), self.element_.clientWidth, self.element_.clientHeight);
+		var foreignObjectContainer = self.foreignObjectContainer_;
+		if ("getForeignObjectContainer" in ret)
+			foreignObjectContainer = ret.getForeignObjectContainer();
+		if ("getFrame" in ret)
+			self.subFrames_.push(new FrameHandler(ret.getFrame(), foreignObjectContainer, self));
+		return ret;
+	});
+
+	webMI.display.setShowPopupHandler(element, function(x, y, value) {
+		return handler("showpopup", x + self.offsetLeft(true), y + self.offsetTop(true), value);
+	});
+}
+
+FrameHandler.prototype.setSize = function(width, height) {
+	this.width_ = width;
+	this.height_ = height;
+
+	this.element_.style.width = width + "px";
+	this.element_.style.height = height + "px";
+}
+
+FrameHandler.prototype.calculateOffset = function(property, untilBody) {
+	var ret = 0;
+	var element = this.element_;
+
+	while (element && (untilBody || element != this.foreignObjectContainer_) && !nodeNameIs(element, "body")) {
+		ret += element[property];
+		element = element.parentNode;
+	}
+
+	return ret;
+}
+
+FrameHandler.prototype.offsetLeft = function(untilBody) {
+	return this.calculateOffset("offsetLeft", untilBody);
+}
+
+FrameHandler.prototype.offsetTop = function(untilBody) {
+	return this.calculateOffset("offsetTop", untilBody);
+}
+
+var displaysJs;
+var mainFrameHandler;
+var remainingLoadEvents = 2;
+var loadEventLanguage = null;
+var handler = webMI.callExtension("index");
+
+function loadEvent(lng) {
+	var mainframe = document.getElementById("mainframe");
+	var foreignobjects = document.getElementById("foreignobjects");
+	if (!mainFrameHandler && mainframe)
+		mainFrameHandler = new FrameHandler(mainframe, foreignobjects);
+	if (!loadEventLanguage)
+		loadEventLanguage = lng;
+
+	if (--remainingLoadEvents > 0)
+		return;
+
+	var absolutePrefix = location.pathname.substr(0, location.pathname.lastIndexOf("/") + 1);
+	webMI.display.setURLPrefix(absolutePrefix + displaysJs["prefix"]);
+	webMI.display.setURLPostfix(displaysJs["postfix"]);
+
+	var url = defaulturl;
+	if (typeof url === "undefined") {
+		if (typeof defaultdisplay !== "undefined") {
+			for (var i = 0; i < displaysJs.menu.length; ++i) {
+				if (displaysJs.menu[i].name == defaultdisplay)
+					url = webMI.display.createURL(displaysJs.menu[i].display, webMI.query);
+			}
+		}
+		if (typeof url === "undefined") {
+			if ("default" in  displaysJs)
+				url = webMI.display.createURL(displaysJs["default"], webMI.query);
+			else
+				url = loadEventLanguage + "/default.htm";
+		}
+	}
+
+	handler("loaded");
+	mainframe.src = url;
+}
+
+function switchLanguage(lng) {
+	language = lng;
+	if (!(language in project.languages)) {
+		if (typeof language === "string")
+			console.error("Invalid language '" + lng + "'");
+		language = navigator.language ? navigator.language : navigator.browserLanguage;
+		if (!(language in project.languages)) {
+			var pos = language.indexOf("-");
+			if (pos > 0)
+				language = language.substr(0, pos);
+			if (!(language in project.languages)) {
+				for (var i in project.languages) {
+					language = i;
+					break;
+				}
+			}
+		}
+	}
+
+	handler("switchedlanguage", language);
+
+	var xmlHttp = function() {
+		if (!/MSIE/.test(navigator.userAgent))
+			return new XMLHttpRequest();
+
+		// Don't use the XMLHttpRequest object for IE since the
+		// overwritten object by webMI.js won't work in window.open()
+
+		var xhrs = ["Msxml2.XMLHTTP.6.0", "Msxml2.XMLHTTP.3.0", "Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
+
+		for (var i = 0; i < xhrs.length; ++i) {
+			try {
+				return new ActiveXObject(xhrs[i]);
+			} catch (e) {
+			}
+		}
+
+		throw "This browser does not support XMLHttpRequest.";
+	}();
+
+	xmlHttp.open("GET", language + "/" + displaytype + "/displays.js", true);
+	xmlHttp.onreadystatechange = function() {
+		if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+			displaysJs = JSON.parse(xmlHttp.responseText);
+			handler("loadeddisplaysjs", displaysJs);
+			loadEvent(language);
+		}
+	};
+	xmlHttp.send(null);
+}
+
+webMI.addEvent(webMI.data, "statechange", function(state) {
+	document.getElementById("errorscreen").style.display = state < 0 ? "block" : "none";
+});
+
+webMI.addOnresize(function(width, height) {
+	if (mainFrameHandler && !viewportwidth)
+		mainFrameHandler.setSize(width, height);
+});
+
+webMI.addOnload(function() {
+	var mainframe = document.getElementById("mainframe");
+
+	webMI.addEvent(mainframe, "load", function() {
+		document.getElementById("loadingscreen").style.display = "none";
+		handler("loadedmainframe", mainframe);
+	});
+
+	loadEvent();
+	switchLanguage(language);
+});
+/*]]>*/</script>
+	</head>
+	<body>
+		<iframe style="position:absolute;top:0;left:0" id="mainframe" frameborder="0"></iframe>
+		<div id="foreignobjects" style="position:absolute;top:0;left:0"></div>
+		<div id="extensions" style="position:absolute;top:0;left:0"></div>
+		<div id="loadingscreen"></div>
+		<div id="errorscreen"><div id="erroroverlay">&nbsp;</div><div id="errormessage"><div><b>!!! ERROR !!!</b><br /> Maybe a connection error occurred.<br />Please try to refresh your browser.</div></div></div>
+	</body>
+</html>

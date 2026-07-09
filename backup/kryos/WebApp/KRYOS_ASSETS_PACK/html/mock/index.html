@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebApp Mock - Offline</title>
+    <style>
+      :root {
+        --bg-1: #0f1218;
+        --bg-2: #1a1f2a;
+        --panel: #141924;
+        --panel-2: #1d2230;
+        --text: #e6e8ee;
+        --muted: #9aa3b2;
+        --accent: #f5b024;
+        --border: #2a3141;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Bahnschrift", "Trebuchet MS", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(900px 500px at 10% 0%, #21273a 0%, transparent 60%),
+          linear-gradient(140deg, var(--bg-1), var(--bg-2));
+        min-height: 100vh;
+      }
+
+      header {
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(90deg, #131824, #151b28 55%, #0f131c);
+      }
+
+      header h1 {
+        margin: 0 0 6px;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+      }
+
+      header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 16px;
+        padding: 16px 20px 24px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      aside {
+        padding: 16px;
+      }
+
+      aside h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+      }
+
+      .section-title {
+        margin-top: 16px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--muted);
+      }
+
+      label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--muted);
+      }
+
+      select,
+      button,
+      a.button-link {
+        width: 100%;
+        margin-top: 6px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--panel-2);
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      select:focus,
+      button:focus,
+      a.button-link:focus {
+        outline: 2px solid rgba(245, 176, 36, 0.5);
+        outline-offset: 1px;
+      }
+
+      button,
+      a.button-link {
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      button.primary,
+      a.button-link.primary {
+        background: linear-gradient(135deg, #f5b024, #f18d1b);
+        color: #1a1204;
+        border: none;
+        font-weight: 700;
+      }
+
+      .info {
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #101521;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .info strong {
+        color: var(--text);
+      }
+
+      main {
+        padding: 12px;
+      }
+
+      .frame-wrap {
+        height: calc(100vh - 140px);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #0b0e14;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #0b0e14;
+      }
+
+      .hint {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .path {
+        display: block;
+        margin-top: 8px;
+        word-break: break-all;
+        color: var(--accent);
+        font-size: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .frame-wrap {
+          height: 60vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>WebApp Mock (offline)</h1>
+      <p>Este modo abre telas estaticas sem backend. Servlets e dados dinamicos nao estao ativos.</p>
+    </header>
+
+    <div class="layout">
+      <aside class="panel">
+        <h2>Selecao de mapa</h2>
+        <label for="mapSelect">Mapas disponiveis</label>
+        <select id="mapSelect">
+          <option value="../custom/default_maps/mpxone_advanced_modbus/Main/index.htm">
+            mpxone_advanced_modbus
+          </option>
+          <option value="../custom/default_maps/mpxone_advanced_carel/Main/index.htm">
+            mpxone_advanced_carel
+          </option>
+          <option value="../custom/default_maps/HEOS_R290_BLDC_%28Modbus_ext%29_mb/Main/index.htm">
+            HEOS_R290_BLDC_(Modbus_ext)_mb
+          </option>
+        </select>
+
+        <button id="openBtn" class="primary">Abrir em nova aba</button>
+        <a id="pathLink" class="button-link" href="#" target="_blank" rel="noreferrer">
+          Abrir arquivo
+        </a>
+
+        <div class="section-title">Telas mock</div>
+        <a class="button-link primary" href="login.html">Login mock</a>
+        <a class="button-link" href="app.html">App mock</a>
+
+        <div class="info">
+          <strong>Nota:</strong> este mock nao executa <code>/servlet/*</code> nem acessa
+          classes <code>com.carel.supervisor.*</code>. Use para visualizar layout,
+          imagens e mapas estaticos.
+        </div>
+      </aside>
+
+      <main class="panel">
+        <div class="frame-wrap">
+          <iframe id="mapFrame" title="Preview do mapa"></iframe>
+        </div>
+        <div class="hint">
+          Se a tela nao abrir, tente abrir o arquivo direto pelo Explorer.
+          <span id="pathText" class="path"></span>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const mapSelect = document.getElementById("mapSelect");
+      const mapFrame = document.getElementById("mapFrame");
+      const openBtn = document.getElementById("openBtn");
+      const pathLink = document.getElementById("pathLink");
+      const pathText = document.getElementById("pathText");
+
+      function setMap(src) {
+        mapFrame.src = src;
+        pathLink.href = src;
+        pathLink.textContent = src;
+        pathText.textContent = src;
+      }
+
+      mapSelect.addEventListener("change", () => setMap(mapSelect.value));
+      openBtn.addEventListener("click", () => window.open(mapSelect.value, "_blank"));
+
+      setMap(mapSelect.value);
+    </script>
+  </body>
+</html>

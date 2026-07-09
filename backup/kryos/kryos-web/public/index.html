@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kryos MVP Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    .card { border: 1px solid #ddd; padding: 16px; margin-bottom: 16px; border-radius: 8px; }
+    input, button { padding: 8px; margin: 4px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #eee; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Kryos MVP Dashboard</h1>
+
+  <div class="card">
+    <h2>Conexão</h2>
+    <label>API Base URL</label><br />
+    <input id="apiBase" value="http://localhost:8000" style="width: 320px;" />
+  </div>
+
+  <div class="card">
+    <h2>Telemetria (últimas leituras)</h2>
+    <label>Device ID</label><br />
+    <input id="deviceId" value="PLT01-UTIL-CHILLER-02" style="width: 320px;" />
+    <button onclick="loadTelemetry()">Carregar</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Variável</th>
+          <th>Valor</th>
+          <th>Unidade</th>
+          <th>Status</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="telemetryBody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Setpoint</h2>
+    <label>Token (Bearer)</label><br />
+    <input id="token" value="dev-token" style="width: 320px;" />
+    <label>Company ID</label><br />
+    <input id="companyId" value="cmp_001" />
+    <label>Plant ID</label><br />
+    <input id="plantId" value="plt_001" />
+    <label>Device ID</label><br />
+    <input id="deviceIdCmd" value="PLT01-UTIL-CHILLER-02" />
+    <label>Agent ID</label><br />
+    <input id="agentId" value="edge_001" />
+    <label>Variable ID</label><br />
+    <input id="variableId" value="var_010" />
+    <label>Nome</label><br />
+    <input id="name" value="SETPOINT.TEMP" />
+    <label>Valor</label><br />
+    <input id="value" value="6.5" />
+    <label>Unidade</label><br />
+    <input id="unit" value="C" />
+    <label>Requested By</label><br />
+    <input id="requestedBy" value="user_123" />
+    <button onclick="sendSetpoint()">Enviar Setpoint</button>
+    <pre id="setpointResult"></pre>
+  </div>
+
+  <script>
+    async function loadTelemetry() {
+      const apiBase = document.getElementById('apiBase').value;
+      const deviceId = document.getElementById('deviceId').value;
+      const response = await fetch(`${apiBase}/telemetry/latest?device_id=${encodeURIComponent(deviceId)}`);
+      const data = await response.json();
+      const body = document.getElementById('telemetryBody');
+      body.innerHTML = '';
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.name}</td>
+          <td>${row.value}</td>
+          <td>${row.unit}</td>
+          <td>${row.status}</td>
+          <td>${row.captured_at}</td>
+        `;
+        body.appendChild(tr);
+      });
+    }
+
+    async function sendSetpoint() {
+      const apiBase = document.getElementById('apiBase').value;
+      const payload = {
+        version: 'v1.0',
+        timestamp: new Date().toISOString(),
+        company_id: document.getElementById('companyId').value,
+        plant_id: document.getElementById('plantId').value,
+        device_id: document.getElementById('deviceIdCmd').value,
+        agent_id: document.getElementById('agentId').value,
+        command_id: `cmd_${Date.now()}`,
+        variable_id: document.getElementById('variableId').value,
+        name: document.getElementById('name').value,
+        value: Number(document.getElementById('value').value),
+        unit: document.getElementById('unit').value,
+        requested_by: document.getElementById('requestedBy').value
+      };
+      const response = await fetch(`${apiBase}/setpoints`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${document.getElementById('token').value}`
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      document.getElementById('setpointResult').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

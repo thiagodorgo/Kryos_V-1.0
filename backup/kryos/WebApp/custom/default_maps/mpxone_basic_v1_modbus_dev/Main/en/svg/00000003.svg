@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="485.3" version="1.2" height="216" visibility="hidden" atv:oe="2F6FA070J8ABE7GCDDB4N0CDS7M5JB54C7E76G49B5CCGCI8GGP2F9Q75C82995HC" xmlns="http://www.w3.org/2000/svg">
+ <defs/>
+ <metadata/>
+ <line fill="#c39609" id="id_32" stroke="#714e4a" stroke-width="2" x1="466" x2="226" y1="49" y2="103"/>
+ <polygon fill="#08586b" id="id_28" points="243,2 120,93 279,177 313,49 356,76 180,157 " stroke="#875fd0" stroke-width="2"/>
+ <rect fill="#c445df" height="49" id="id_27" stroke="#784eb7" stroke-width="5" width="83" x="387" y="62"/>
+ <rect width="485.024" x="-0.263" y="0.169" fill="none" height="216" stroke="#676766" id="id_0" atv:refpx="248.249" stroke-width="0.7" atv:refpy="51.169"/>
+ <polygon fill="#55c1d9" id="id_15" points="257,169 70,156 109,76 372,54 184,145 294,74 28,190 259,177 29,94 444,119 " stroke="#ae4b94" stroke-width="4"/>
+ <line fill="#96c689" id="id_11" stroke="#86ae54" stroke-width="1" x1="261" x2="286" y1="162" y2="74"/>
+ <ellipse cx="304" cy="183" fill="#3b1987" id="id_10" rx="123" ry="100" stroke="#7bce94" stroke-width="5"/>
+ <rect width="24.7" x="-0.181" y="0" fill="none" height="216" stroke="#676766" id="id_1" atv:refpx="24.169" stroke-width="0.7" atv:refpy="100"/>
+ <rect fill="#6bf94e" height="51" id="id_29" stroke="#751ca7" stroke-width="5" width="6" x="382" y="104"/>
+ <rect fill="#7116fd" height="2" id="id_38" stroke="#aa2b1d" stroke-width="5" width="24" x="451" y="205"/>
+ <rect fill="#29523d" height="88" id="id_23" stroke="#d85ad3" stroke-width="3" width="36" x="370" y="74"/>
+ <text x="-2" y="208.521" fill="#676766" font-family="Roboto-Regular" text-anchor="start" id="id_24" atv:refpx="16.5" atv:refpy="152.489" font-size="23" transform="matrix(0,-1,1,0,-187.521,175.521)">Defrost event</text>
+ <ellipse cx="415" cy="179" fill="#9f8142" id="id_18" rx="63" ry="25" stroke="#5112f7" stroke-width="4"/>
+ <circle cx="95" cy="59" fill="#6dc05a" id="id_6" r="66" stroke="#f9b71b" stroke-width="2"/>
+ <line fill="#f553c2" id="id_4" stroke="#9ff5aa" stroke-width="5" x1="179" x2="182" y1="4" y2="36"/>
+ <text x="51.197" y="93.794" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_26" atv:refpx="-195.34" atv:refpy="15.326" font-size="23">Start time</text>
+ <rect fill="#c63004" height="20" id="id_20" stroke="#e8ce96" stroke-width="4" width="6" x="377" y="169"/>
+ <text x="457.114" y="93.321" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_42" atv:refpx="518.035" atv:refpy="-248.58" font-size="23">00</text>
+ <polyline fill="#fd6c2a" id="id_12" points="264,13 91,115 59,119 282,209 428,57 108,82 291,50 35,195 335,20 " stroke="#6cc5c6" stroke-width="4"/>
+ <text x="411.137" y="92.799" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_43" atv:refpx="472.058" atv:refpy="-249.102" font-size="23">12</text>
+ <line fill="#f0347b" id="id_9" stroke="#77f9c8" stroke-width="2" x1="216" x2="317" y1="84" y2="134"/>
+ <ellipse cx="114" cy="43" fill="#938b99" id="id_37" rx="85" ry="3" stroke="#e830dd" stroke-width="4"/>
+ <text x="457.114" y="93.321" visibility="hidden" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_59" atv:refpx="518.036" atv:refpy="-248.58" font-size="23">00</text>
+ <polyline fill="#8d0376" id="id_13" points="253,31 66,61 0,44 246,87 33,38 132,132 157,159 417,171 441,118 465,213 162,214 313,170 71,35 " stroke="#a1922f" stroke-width="2"/>
+ <text x="411.137" y="92.799" visibility="hidden" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_60" atv:refpx="472.059" atv:refpy="-249.102" font-size="23">00</text>
+ <polygon fill="#344a32" id="id_2" points="274,215 460,198 449,136 90,147 335,72 86,136 453,115 265,22 112,178 483,68 95,130 196,188 245,199 " stroke="#fba43d" stroke-width="4"/>
+ <polygon fill="#f4746a" id="id_22" points="2,117 446,110 317,99 396,14 130,180 328,28 283,126 334,176 350,174 " stroke="#6d04b0" stroke-width="1"/>
+ <text x="424.125" y="93.321" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_44" atv:refpx="455.676" atv:refpy="-248.58" font-size="23">:</text>
+ <rect fill="#e143d5" height="39" id="id_8" stroke="#1f1934" stroke-width="2" width="60" x="209" y="124"/>
+ <polyline fill="#70d347" id="id_5" points="432,155 57,163 121,42 184,173 109,131 213,201 466,214 8,184 357,125 146,131 " stroke="#530a0f" stroke-width="5"/>
+ <circle cx="379" cy="204" fill="#0158b9" id="id_19" r="8" stroke="#11b0fc" stroke-width="3"/>
+ <text x="51.197" y="188.674" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_30" atv:refpx="165.238" atv:refpy="173.624" font-size="23">Power defrost</text>
+ <polyline fill="#3cb173" id="id_17" points="363,50 249,73 371,92 416,109 39,95 400,159 306,82 127,160 386,88 38,109 8,154 82,46 " stroke="#7c3ccf" stroke-width="5"/>
+ <circle cx="308" cy="67" fill="#1992d9" id="id_33" r="118" stroke="#ed85fc" stroke-width="1"/>
+ <text x="51.197" y="45.751" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_34" atv:refpx="-101.91" atv:refpy="-34.316" font-size="23">Days</text>
+ <polyline fill="#13bf1b" id="id_31" points="235,61 169,10 196,137 334,163 173,85 202,176 459,59 125,211 " stroke="#7fa97c" stroke-width="4"/>
+ <text x="457.114" y="45.831" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_36" atv:refpx="495.354" atv:refpy="-297.669" font-size="23">0</text>
+ <ellipse cx="255" cy="64" fill="#404081" id="id_35" rx="171" ry="87" stroke="#9d827e" stroke-width="5"/>
+ <ellipse cx="430" cy="76" fill="#40a625" id="id_25" rx="112" ry="5" stroke="#0cf8d0" stroke-width="5"/>
+ <ellipse cx="159" cy="213" fill="#1f1ff4" id="id_21" rx="141" ry="7" stroke="#944011" stroke-width="5"/>
+ <text x="51.197" y="141.234" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_39" atv:refpx="305.744" atv:refpy="-103.965" font-size="23">Number of daily defrosts</text>
+ <polygon fill="#5d4fad" id="id_14" points="40,60 330,0 277,135 369,102 267,114 458,180 283,194 472,156 340,91 395,60 " stroke="#c27d30" stroke-width="5"/>
+ <rect fill="#714e4a" height="51" id="id_3" stroke="#e45503" stroke-width="4" width="260" x="107" y="163"/>
+ <text x="457.114" y="141.616" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_41" atv:refpx="537.573" atv:refpy="-106.657" font-size="23">0</text>
+ <ellipse cx="120" cy="93" fill="#e87905" id="id_16" rx="46" ry="69" stroke="#24cefd" stroke-width="2"/>
+ <text x="457.114" y="188.072" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_56" atv:refpx="449.015" atv:refpy="180.671" font-size="23">0</text>
+ <rect fill="#4bd675" height="32" id="id_7" stroke="#fe1a33" stroke-width="4" width="66" x="363" y="143"/>
+ <script xlink:href="../../webmi.js" type="text/ecmascript"/>
+ <script xlink:href="../../include_style.js" type="text/ecmascript"/>
+ <script type="text/ecmascript"><![CDATA[webMI.proxy({"":[function(webMI,window,document,self){webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 1 - Giorno/i | BAS_td1_d__", function(e) {
+var id = "id_36";
+var value = e.value;
+if (value == 0)
+	webMI.gfx.setText(id, "Disabled");
+if (value == 1)
+	webMI.gfx.setText(id, "Monday");
+if (value == 2)
+	webMI.gfx.setText(id, "Tuesday");
+if (value == 3)
+	webMI.gfx.setText(id, "Wednesday");
+if (value == 4)
+	webMI.gfx.setText(id, "Thursday");
+if (value == 5)
+	webMI.gfx.setText(id, "Friday");
+if (value == 6)
+	webMI.gfx.setText(id, "Saturday");
+if (value == 7)
+	webMI.gfx.setText(id, "Sunday");
+if (value == 8)
+	webMI.gfx.setText(id, "Monday to Friday");
+if (value == 9)
+	webMI.gfx.setText(id, "Monday to Saturday");
+if (value == 10)
+	webMI.gfx.setText(id, "Saturday and Sunday");
+if (value == 11)
+	webMI.gfx.setText(id, "All days");
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.Numero di defrost distribuiti per la fascia oraria di td1 | BAS_d1S", function(e) {
+var id = "id_41";
+var value = e.value;
+webMI.gfx.setText(id, value);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 1 - Minuto | BAS_td1_m__", function(e) {
+var id = "id_42";
+var value = e.value;
+webMI.gfx.setText(id, value);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 1 - Ora | BAS_td1_h__", function(e) {
+var id = "id_43";
+var value = e.value;
+webMI.gfx.setText(id, value);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Digitals.sbrinamento 1 - Power defrost | BAS_td1_P__", function(e) {
+var id = "id_56";
+var value = e.value;
+if (value == false)
+	webMI.gfx.setText(id, "Disabled");
+if (value == true)
+	webMI.gfx.setText(id, "Enabled");
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 1 - Minuto | BAS_td1_m__", function(e) {
+var id = "id_59";
+var value = e.value;
+if (0 <= value && value < 1)
+	webMI.gfx.setVisible(id, true);
+if (1 <= value && value < 60)
+	webMI.gfx.setVisible(id, false);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 1 - Ora | BAS_td1_h__", function(e) {
+var id = "id_60";
+var value = e.value;
+if (0 <= value && value < 1)
+	webMI.gfx.setVisible(id, true);
+if (1 <= value && value < 23)
+	webMI.gfx.setVisible(id, false);
+
+});
+},{},{}]},window);]]></script>
+</svg>

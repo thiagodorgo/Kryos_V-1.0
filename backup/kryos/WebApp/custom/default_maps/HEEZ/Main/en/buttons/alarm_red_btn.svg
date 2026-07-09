@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg width="50" x="0px" version="1.0" y="0px" xmlns="http://www.w3.org/2000/svg" height="50" xmlns:xlink="http://www.w3.org/1999/xlink" id="Livello_1" enable-background="new 0 0 50 50" xml:space="preserve" xmlns:atv="http://webmi.atvise.com/2007/svgext">
+ <defs>
+  <radialGradient fx="0.5" fy="0.5" cx="0.5" cy="0.5" id="SVGID_1_" r="0.5" gradientUnits="objectBoundingBox">
+   <stop offset="0" stop-color="#DE1817"/>
+   <stop offset="1" stop-color="#DE1817" stop-opacity="0"/>
+  </radialGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig width="20" enabled="false" height="20" gridstyle="lines"/>
+  <atv:snapconfig width="10" enabled="false" height="10"/>
+ </metadata>
+ <circle fill="url(#SVGID_1_)" cx="25" cy="25" r="25" id="id_0" atv:refpx="25" atv:refpy="25"/>
+ <circle fill="#FFFFFF" cx="25" cy="25" r="15" id="id_1" atv:refpx="25" atv:refpy="25"/>
+ <path fill="#DE1817" id="id_2" atv:refpx="25" atv:refpy="25" d="M25,40C16.7,40 10,33.3 10,25C10,16.7 16.7,10 25,10C33.3,10 40,16.7 40,25C40,33.3 33.3,40 25,40M25,10.5C17,10.5 10.5,17 10.5,25C10.5,33 17,39.5 25,39.5C33,39.5 39.5,33 39.5,25C39.5,17 33,10.5 25,10.5"/>
+ <path fill="#666666" id="id_3" atv:refpx="25.01" atv:refpy="25" d="M30.5,28L30,28L30,22.5C30,19.9 28.1,17.8 25.6,17.5C25.6,17.2 25.3,17 25,17C24.7,17 24.4,17.2 24.4,17.5C21.799,17.9 20,20 20,22.5L20,28L19.5,28C19.2,28 19,28.3 19,28.5C19,28.7 19.2,29 19.5,29L30.5,29C30.8,29 31,28.7 31,28.5C31.1,28.3 30.8,28 30.5,28M29.1,28L21.1,28L21,22.5C21,20.5 22.5,18.8 24.5,18.6C24.7,18.6 25,18.5 25.5,18.6L25.6,18.6C27.6,18.9 29.1,20.5 29.1,22.5ZM22.5,30C22.4,30.2 22.4,30.4 22.4,30.5C22.4,31.9 23.5,33 24.9,33C26.299,33 27.4,31.9 27.4,30.5C27.4,30.3 27.4,30.1 27.299,30Z"/>
+</svg>

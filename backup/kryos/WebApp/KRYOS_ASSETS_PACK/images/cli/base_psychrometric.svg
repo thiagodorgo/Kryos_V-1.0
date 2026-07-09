@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:atv="http://webmi.atvise.com/2007/svgext"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="940"
+   version="1.2"
+   height="625"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Psychrometric_Chart.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1373"
+     inkscape:window-height="907"
+     id="namedview139"
+     showgrid="false"
+     inkscape:zoom="0.7552"
+     inkscape:cx="420.77521"
+     inkscape:cy="333.85344"
+     inkscape:window-x="272"
+     inkscape:window-y="76"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3116" />
+  </sodipodi:namedview>
+  <defs
+     id="defs4" />
+  <desc
+     id="desc6">Psychrometic chart that shows the current working point and informations about the currently selected ASHRAE envelope. Ver 1.0.0
+
+
+------------------------------------------------------------------------------------------------------------------------
+This page plots two working points into the Humidity-Ratio VS Dry Bulb Temperature diagram. The humidity is reported in grams of water per kilogram of air. The temperature is reported in Celsius degrees. The graphic refreshes automatically so that the points are plotted in their real position in the diagram on line. The two points can be associated to the physical state of two compressors of the chiller.</desc>
+  <title
+     id="title8">Psychrometic chart</title>
+  <metadata
+     id="metadata10">
+    <atv:parameter
+       desc="Temperature"
+       valuetype="address"
+       group="Point 1"
+       behavior="optional"
+       name="temp1"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Humidity"
+       valuetype="address"
+       group="Point 1"
+       behavior="optional"
+       name="hum1"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Color"
+       valuetype="color"
+       substitute="$COLORP1$"
+       group="Point 1"
+       behavior="optional"
+       name="color1"
+       defaultvalue="#0000ff" />
+    <atv:parameter
+       desc="Tooltip (hover text)"
+       valuetype="string"
+       group="Point 1"
+       behavior="optional"
+       name="tooltip1"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Temperature"
+       valuetype="address"
+       group="Point 2"
+       behavior="optional"
+       name="temp2"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Humidity"
+       valuetype="address"
+       group="Point 2"
+       behavior="optional"
+       name="hum2"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Color"
+       valuetype="color"
+       substitute="$COLORP2$"
+       group="Point 2"
+       behavior="optional"
+       name="color2"
+       defaultvalue="#ff0000" />
+    <atv:parameter
+       desc="Tooltip (hover text)"
+       valuetype="string"
+       group="Point 2"
+       behavior="optional"
+       name="tooltip2"
+       defaultvalue="" />
+    <atv:parameter
+       desc="Color of A1 class envelope"
+       valuetype="color"
+       substitute="$A1COLOR$"
+       group="Envelopes"
+       behavior="optional"
+       name="A1_color"
+       defaultvalue="#24a210" />
+    <atv:parameter
+       desc="Color of A2 class envelope"
+       valuetype="color"
+       substitute="$A2COLOR$"
+       group="Envelopes"
+       behavior="optional"
+       name="A2_color"
+       defaultvalue="#28a197" />
+    <atv:parameter
+       desc="Color of A3 class envelope"
+       valuetype="color"
+       substitute="$A3COLOR$"
+       group="Envelopes"
+       behavior="optional"
+       name="A3_color"
+       defaultvalue="#ba28a2" />
+    <atv:parameter
+       desc="Color of A4 class envelope"
+       valuetype="color"
+       substitute="$A4COLOR$"
+       group="Envelopes"
+       behavior="optional"
+       name="A4_color"
+       defaultvalue="#ff0000" />
+    <atv:parameter
+       desc="Color of reccomended envelope"
+       valuetype="color"
+       substitute="$RENVELCOLOR$"
+       group="Envelopes"
+       behavior="optional"
+       name="rEnvel_color"
+       defaultvalue="#ffc226" />
+    <atv:parameter
+       desc="Active envelope class"
+       valuetype="address"
+       group="Envelopes"
+       behavior="optional"
+       name="active_class"
+       defaultvalue="0" />
+    <atv:parameter
+       desc="Lines width"
+       valuetype="number"
+       substitute="$LINEWIDTH$"
+       group="Appearance"
+       behavior="optional"
+       name="line_width"
+       defaultvalue="1" />
+    <atv:parameter
+       desc="Curves color"
+       valuetype="color"
+       substitute="$LINECOLOR$"
+       group="Appearance"
+       behavior="optional"
+       name="line_color"
+       defaultvalue="#8a887c" />
+    <atv:parameter
+       desc="Grid color"
+       valuetype="color"
+       substitute="$GRIDCOLOR$"
+       group="Appearance"
+       behavior="optional"
+       name="grid_color"
+       defaultvalue="#8a887c" />
+    <atv:parameter
+       desc="Rel.hum. labels color"
+       valuetype="color"
+       substitute="$HUMCOLOR$"
+       group="Appearance"
+       behavior="optional"
+       name="humtext_color"
+       defaultvalue="#8a887c" />
+    <atv:parameter
+       desc="Axis legend color"
+       valuetype="color"
+       substitute="$LEGENDCOLOR$"
+       group="Appearance"
+       behavior="optional"
+       name="axis_legend"
+       defaultvalue="#8a887c" />
+    <atv:gridconfig
+       width="6"
+       enabled="false"
+       height="6"
+       gridstyle="lines" />
+    <atv:snapconfig
+       width="10"
+       enabled="false"
+       height="10" />
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="horizontal"
+     atv:refpx="581.113"
+     atv:refpy="255.81"
+     transform="matrix(1,0,0,1,-184.5836,-5.1264)"
+     style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1">
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_53"
+       stroke-linecap="butt"
+       y1="491.681"
+       atv:refpx="739.61"
+       x1="409.734"
+       y2="491.083"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="491.382"
+       x2="1069.485"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_54"
+       stroke-linecap="butt"
+       y1="410.19"
+       atv:refpx="804.639"
+       x1="539.618"
+       y2="410.4"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="410.295"
+       x2="1069.659"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_55"
+       stroke-linecap="butt"
+       y1="330.555"
+       atv:refpx="844.243"
+       x1="619.756"
+       y2="330.164"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="330.36"
+       x2="1068.73"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_56"
+       stroke-linecap="butt"
+       y1="250.361"
+       atv:refpx="874.638"
+       x1="680.447"
+       y2="249.36"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="249.861"
+       x2="1068.829"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_57"
+       stroke-linecap="butt"
+       y1="169.53"
+       atv:refpx="897.811"
+       x1="727.336"
+       y2="169.273"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="169.401"
+       x2="1068.285"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_58"
+       stroke-linecap="butt"
+       y1="89.129"
+       atv:refpx="916.466"
+       x1="765.105"
+       y2="89.701"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="89.415"
+       x2="1067.827"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_59"
+       stroke-linecap="butt"
+       y1="40.195"
+       atv:refpx="718.158"
+       x1="784.035"
+       y2="40.843"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="45.422"
+       x2="1067.73"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+  </g>
+  <g
+     id="id_1"
+     atv:refpx="490.56"
+     atv:refpy="573.456"
+     transform="matrix(1,0,0,1,-138.5353,-32.3763)"
+     style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">
+    <text
+       x="174.035"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_60"
+       atv:refpx="330.677"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">-10</text>
+    <text
+       x="240.224"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_62"
+       atv:refpx="231.668"
+       atv:refpy="680.85"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">-5</text>
+    <text
+       x="308.9"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_63"
+       atv:refpx="460.259"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">0</text>
+    <text
+       x="374.832"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_64"
+       atv:refpx="526.191"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">5</text>
+    <text
+       x="435.765"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_65"
+       atv:refpx="590.645"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">10</text>
+    <text
+       x="499.697"
+       y="619.961"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_66"
+       atv:refpx="492.901"
+       atv:refpy="680.105"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">15</text>
+    <text
+       x="564.629"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_67"
+       atv:refpx="719.51"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">20</text>
+    <text
+       x="630.561"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_68"
+       atv:refpx="785.442"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">25</text>
+    <text
+       x="694.494"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_69"
+       atv:refpx="849.374"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">30</text>
+    <text
+       x="759.426"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_70"
+       atv:refpx="914.307"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">35</text>
+    <text
+       x="824.358"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_71"
+       atv:refpx="979.239"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">40</text>
+    <text
+       x="889.29"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_72"
+       atv:refpx="1044.171"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">45</text>
+    <text
+       x="953.223"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_73"
+       atv:refpx="1108.103"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">50</text>
+    <text
+       x="1019.155"
+       y="620.705"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_74"
+       atv:refpx="1174.036"
+       atv:refpy="710.197"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">55</text>
+  </g>
+  <g
+     id="vertical"
+     atv:refpx="490.201"
+     atv:refpy="296.514"
+     transform="matrix(1,0,0,1,-184.5836,-5.1264)"
+     style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1">
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_37"
+       stroke-linecap="butt"
+       y1="572.925"
+       atv:refpx="292.274"
+       x1="292.386"
+       y2="532.689"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="552.807"
+       x2="292.163"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_39"
+       stroke-linecap="butt"
+       y1="512.923"
+       atv:refpx="150.05"
+       x1="357.728"
+       y2="572.584"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="547.657"
+       x2="357.819"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_40"
+       stroke-linecap="butt"
+       y1="484.554"
+       atv:refpx="423.528"
+       x1="423.494"
+       y2="572.525"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="528.539"
+       x2="423.562"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_41"
+       stroke-linecap="butt"
+       y1="400.113"
+       atv:refpx="551.668"
+       x1="551.673"
+       y2="572.642"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="486.378"
+       x2="551.664"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_42"
+       stroke-linecap="butt"
+       y1="448.211"
+       atv:refpx="487.808"
+       x1="487.871"
+       y2="572.438"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="510.325"
+       x2="487.744"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_43"
+       stroke-linecap="butt"
+       y1="333.867"
+       atv:refpx="616.643"
+       x1="616.607"
+       y2="572.584"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="453.226"
+       x2="616.68"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_44"
+       stroke-linecap="butt"
+       y1="249.274"
+       atv:refpx="681.169"
+       x1="680.64"
+       y2="571.826"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="410.55"
+       x2="681.698"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_45"
+       stroke-linecap="butt"
+       y1="132.692"
+       atv:refpx="745.963"
+       x1="745.362"
+       y2="572.598"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="352.645"
+       x2="746.564"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_46"
+       stroke-linecap="butt"
+       y1="572.368"
+       atv:refpx="810.453"
+       x1="811.3"
+       y2="39.929"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="306.149"
+       x2="809.605"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_47"
+       stroke-linecap="butt"
+       y1="572.277"
+       atv:refpx="875.24"
+       x1="876.112"
+       y2="40.433"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="306.355"
+       x2="874.369"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_48"
+       stroke-linecap="butt"
+       y1="40.609"
+       atv:refpx="939.684"
+       x1="938.696"
+       y2="572.369"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="306.489"
+       x2="940.672"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_49"
+       stroke-linecap="butt"
+       y1="572.14"
+       atv:refpx="1004.01"
+       x1="1004.879"
+       y2="40.946"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="306.543"
+       x2="1003.14"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_50"
+       stroke-linecap="butt"
+       y1="572.255"
+       atv:refpx="1068.686"
+       x1="1069.544"
+       y2="40.973"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="306.614"
+       x2="1067.827"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+    <line
+       stroke="$GRIDCOLOR$"
+       id="id_6"
+       y1="545.08"
+       atv:refpx="228.051"
+       x1="228.023"
+       y2="573.354"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="559.217"
+       x2="228.079"
+       style="stroke:#828282;stroke-opacity:1;fill:none;fill-opacity:1" />
+  </g>
+  <g
+     id="y_scale"
+     atv:refpx="927.129"
+     atv:refpy="320.951"
+     transform="matrix(1,0,0,1,-184.5836,-5.1264)"
+     style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">
+    <text
+       x="1079.212"
+       y="576.542"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_11"
+       atv:refpx="1082.212"
+       atv:refpy="572.042"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">0</text>
+    <text
+       x="1079.212"
+       y="495.543"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_15"
+       atv:refpx="1082.212"
+       atv:refpy="491.043"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">5</text>
+    <text
+       x="1079.212"
+       y="414.464"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_18"
+       atv:refpx="1085.712"
+       atv:refpy="409.964"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">10</text>
+    <text
+       x="1079.212"
+       y="334.767"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_24"
+       atv:refpx="1085.712"
+       atv:refpy="330.267"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">15</text>
+    <text
+       x="1079.212"
+       y="253.997"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_26"
+       atv:refpx="1085.712"
+       atv:refpy="249.497"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">20</text>
+    <text
+       x="1079.212"
+       y="174.082"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_31"
+       atv:refpx="1085.712"
+       atv:refpy="169.582"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">25</text>
+    <text
+       x="1079.212"
+       y="94.613"
+       fill="$LEGENDCOLOR$"
+       font-family="Arial"
+       id="id_35"
+       atv:refpx="1085.712"
+       atv:refpy="90.113"
+       font-size="12"
+       style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">30</text>
+  </g>
+  <text
+     x="426.478"
+     y="612.529"
+     fill="$LEGENDCOLOR$"
+     font-family="Arial"
+     id="id_51"
+     atv:refpx="487.978"
+     atv:refpy="609.03"
+     font-size="18"
+     style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">Dry Bulb Temperature (°C)</text>
+  <g
+     id="curves"
+     atv:refpx="464.167"
+     atv:refpy="301.402"
+     transform="matrix(1,0,0,1,-184.5836,-5.1264)"
+     style="stroke:#828282;stroke-opacity:1">
+    <path
+       id="id_2"
+       atv:refpx="611.018"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="498.298"
+       d="M228.823,570.041C228.823,570.041 570.211,569.134 749.04,530.714"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_4"
+       atv:refpx="956.668"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="452.886"
+       d="M747.377,531.103C747.507,530.623 921.531,505.752 1069.9,412.705"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_5"
+       atv:refpx="325.862"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="509.028"
+       d="M228.825,566.875C228.825,566.875 556.104,567.611 746.953,487.472"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_7"
+       atv:refpx="944.616"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="357.22"
+       d="M743.724,489.006C743.724,489.006 925.582,433.321 1069.13,252.526"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_8"
+       atv:refpx="530.569"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="481.107"
+       d="M228.755,564.081C228.755,564.081 565.501,557.096 746.932,445.526"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_10"
+       atv:refpx="906.214"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="266.32"
+       d="M744.512,446.959C744.512,446.959 928.796,359.223 1067.92,85.681"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_12"
+       atv:refpx="650.743"
+       atv:refpy="284.087"
+       d="M0,0"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke-width="2"
+       stroke="#3426ff"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_13"
+       atv:refpx="647.129"
+       atv:refpy="288.057"
+       d="M0,0"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke-width="2"
+       stroke="#3426ff"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_14"
+       atv:refpx="577.093"
+       atv:refpy="390.159"
+       d="M0,0"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke-width="2"
+       stroke="#3426ff"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_16"
+       atv:refpx="522.391"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="469.549"
+       d="M228.643,561.71C228.643,561.71 522.048,551.824 683.512,443.235"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_17"
+       atv:refpx="897.774"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="200.048"
+       d="M681.787,444.807C681.787,444.807 882.571,339.384 1011.59,41.476"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_19"
+       atv:refpx="513.838"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="465.357"
+       d="M228.7,558.405C228.7,558.405 519.131,547.927 682.97,411.109"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_20"
+       atv:refpx="833.53"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="216.326"
+       d="M681.709,412.246C681.709,412.246 839.082,310.392 955.307,40.773"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_21"
+       atv:refpx="497.661"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="451.133"
+       d="M228.576,555.699C228.576,555.699 500.007,548.55 682.208,380.723"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_22"
+       atv:refpx="811.618"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="194.425"
+       d="M681.519,381.622C681.519,381.622 803.608,283.105 909.169,41.13"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_23"
+       atv:refpx="409.212"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="492.278"
+       d="M228.452,553.018C228.452,553.018 508.59,541.493 681.137,349.39"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_25"
+       atv:refpx="775.747"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="195.725"
+       d="M680.049,350.668C680.049,350.668 784.304,247.113 871.623,40.603"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_27"
+       atv:refpx="456.792"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="443.513"
+       d="M228.444,550.394C228.444,550.394 449.671,538.581 617.547,383.393"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_28"
+       atv:refpx="745.077"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="202.28"
+       d="M616.403,384.483C616.403,384.483 737.437,287.198 839.94,40.516"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_29"
+       atv:refpx="438.328"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="448.159"
+       d="M228.361,548.142C228.361,548.142 458.328,530.796 616.942,358.272"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_30"
+       atv:refpx="716.948"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="197.414"
+       d="M615.87,359.828C615.87,359.828 729.933,247.631 811.228,40.744"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_32"
+       atv:refpx="425.535"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="392.153"
+       d="M228.231,546.1C228.231,546.1 462.518,521.186 616.123,333.559"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <path
+       id="id_33"
+       atv:refpx="716.562"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="180.482"
+       d="M614.498,335.265C614.498,335.265 713.561,232.623 784.235,39.839"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$"
+       fill-opacity="0"
+       fill="#ffffff" />
+    <line
+       id="id_34"
+       y1="572.718"
+       atv:refpx="440.58"
+       x1="228.102"
+       y2="572.557"
+       stroke-width="$LINEWIDTH$"
+       atv:refpy="577.539"
+       x2="1068.58"
+       style="stroke:#828282;stroke-opacity:1"
+       stroke-linecap="butt"
+       stroke="$LINECOLOR$" />
+  </g>
+  <g
+     id="hum_percent"
+     atv:refpx="574.16"
+     atv:refpy="409.767"
+     transform="matrix(1,0,0,1,-139.0006,-46.2006)"
+     style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">
+    <text
+       x="782.708"
+       y="608.851"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_76"
+       font-weight="bold"
+       atv:refpx="937.35"
+       atv:refpy="699.343"
+       font-size="10"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">0%</text>
+    <text
+       x="772.042"
+       y="553.449"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_77"
+       font-weight="bold"
+       atv:refpx="932.251"
+       atv:refpy="638.806"
+       font-size="10"
+       transform="matrix(0.9495,-0.3138,0.3138,0.9495,-130.5181,268.0969)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">10%</text>
+    <text
+       x="752.536"
+       y="498.478"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_78"
+       font-weight="bold"
+       atv:refpx="913.25"
+       atv:refpy="581.996"
+       font-size="10"
+       transform="matrix(0.9094,-0.4159,0.4159,0.9094,-133.7222,355.002)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">20%</text>
+    <text
+       x="725.987"
+       y="458.219"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_79"
+       font-weight="bold"
+       atv:refpx="886.971"
+       atv:refpy="539.439"
+       font-size="10"
+       transform="matrix(0.8495,-0.5276,0.5276,0.8495,-125.7863,447.5116)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">30%</text>
+    <text
+       x="704.011"
+       y="429.867"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_80"
+       font-weight="bold"
+       atv:refpx="865.011"
+       atv:refpy="509.227"
+       font-size="10"
+       transform="matrix(0.7882,-0.6155,0.6155,0.7882,-107.8099,518.6298)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">40%</text>
+    <text
+       x="679.01"
+       y="408.607"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_81"
+       font-weight="bold"
+       atv:refpx="870.853"
+       atv:refpy="451.891"
+       font-size="10"
+       transform="matrix(0.6781,-0.735,0.735,0.6781,-72.7502,623.1559)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">50% Relative Humidity</text>
+    <text
+       x="658.829"
+       y="389.764"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_82"
+       font-weight="bold"
+       atv:refpx="819.323"
+       atv:refpy="465.143"
+       font-size="10"
+       transform="matrix(0.6323,-0.7747,0.7747,0.6323,-50.5075,645.0775)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">60%</text>
+    <text
+       x="639.179"
+       y="375.447"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_83"
+       font-weight="bold"
+       atv:refpx="799.624"
+       atv:refpy="450.844"
+       font-size="10"
+       transform="matrix(0.6323,-0.7747,0.7747,0.6323,-46.6413,624.5896)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">70%</text>
+    <text
+       x="623.495"
+       y="362.321"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_84"
+       font-weight="bold"
+       atv:refpx="783.578"
+       atv:refpy="436.465"
+       font-size="10"
+       transform="matrix(0.5733,-0.8193,0.8193,0.5733,-21.2541,655.7709)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">80%</text>
+    <text
+       x="600.694"
+       y="358.062"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_85"
+       font-weight="bold"
+       atv:refpx="770.792"
+       atv:refpy="413.063"
+       font-size="10"
+       transform="matrix(0.542,-0.8404,0.8404,0.542,-16.0886,658.5935)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">90%</text>
+    <text
+       x="576.7"
+       y="349.929"
+       fill="$HUMCOLOR$"
+       font-family="Arial"
+       id="id_86"
+       font-weight="bold"
+       atv:refpx="737.501"
+       atv:refpy="423.531"
+       font-size="10"
+       transform="matrix(0.5828,-0.8125,0.8125,0.5828,-34.2206,605.0618)"
+       style="stroke:none;stroke-opacity:1;fill:#828282;fill-opacity:1">100%</text>
+  </g>
+  <text
+     x="908.905"
+     y="537.432"
+     fill="$LEGENDCOLOR$"
+     font-family="Arial"
+     id="id_3"
+     atv:refpx="919.981"
+     atv:refpy="329.476"
+     font-size="18"
+     transform="matrix(0.0032,-1,1,0.0032,385.0789,1419.1843)"
+     style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">Humidity Ratio - grams of water per kilograms of air</text>
+  <script
+     type="text/ecmascript"
+     id="script137">/*
+	Psychrometric Chart DISPLAY
+	1.0.0 - 16/02/2016
+	
+	Copyright CAREL Industries s.p.a
+*/
+
+var pressione = 101325;
+var trugiada = -5800.2206;
+var tpartenza = 1.3914993;
+var percarr = -0.048640239;
+var Dt = 4.17648e-5;
+var tempo = -1.44521e-8;
+var efficienza = 0;
+var stimaPL = 6.5459673;
+
+var xPos = 0;
+var yPos = 0;
+		
+var load_ok = true;
+
+if(webMI.query[&quot;temp1&quot;] != &quot;&quot; &amp;&amp; webMI.query[&quot;hum1&quot;] != &quot;&quot;)	{
+	/*if(webMI.query[&quot;tooltip1&quot;]!=&quot;&quot;){
+		webMI.gfx.setText(&quot;descr_1&quot;, webMI.query[&quot;tooltip1&quot;]);
+	}*/		
+	plotPoints(1);
+	plotPoints(2);
+}else{
+	/*webMI.gfx.setVisible(&quot;legend1&quot;,false);		
+	webMI.gfx.setText(&quot;descr_1&quot;, &quot;&quot;);*/
+}
+
+
+
+function plotPoints(pointnum){
+	webMI.data.subscribeBlock([webMI.query[&quot;temp&quot;+pointnum],webMI.query[&quot;hum&quot;+pointnum],webMI.query[&quot;active_class&quot;]], [], function(e){
+		load_ok = true;
+		for (i=0;i&lt;e.length;i++){
+			if (e[i].value==&quot;NaN&quot; || typeof(e[i])==&quot;undefined&quot; || e[i].value==&quot;undefined&quot;){
+				load_ok = false;
+				break;
+			}
+		}
+		
+		var temp = e[0].value;
+		var hum = e[1].value;
+		var active_class = e[2].value; 
+		var specificHum = calculateHum(temp, hum);
+	
+		//webMI.gfx.setText(&quot;hum_shown&quot;+pointnum, specificHum);
+		
+		xPos = parseFloat(webMI.gfx.getCenterX(&quot;point0_0&quot;)) + webMI.translate(temp,0,55,0,parseFloat(webMI.gfx.getCenterX(&quot;point55_0&quot;))-parseFloat(webMI.gfx.getCenterX(&quot;point0_0&quot;)));	
+		yPos = parseFloat(webMI.gfx.getCenterY(&quot;point55_0&quot;)) - webMI.translate(specificHum,0,30,0,parseFloat(webMI.gfx.getCenterY(&quot;point55_0&quot;))-parseFloat(webMI.gfx.getCenterY(&quot;point55_30&quot;)));
+
+		webMI.gfx.setVisible(&quot;reference&quot;+pointnum, true);
+		webMI.gfx.setMoveX(&quot;reference&quot;+pointnum, xPos);
+		webMI.gfx.setMoveY(&quot;reference&quot;+pointnum, yPos);
+
+		//area_class setting
+		if (active_class == 0){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, false);
+		}else if (active_class == 1){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, true);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, false);
+		}else if (active_class == 2){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, true);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, false);
+		}else if (active_class == 3){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, true);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, false);
+		}else if (active_class == 4){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, true);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, false);
+		}else if (active_class == 5){
+			webMI.gfx.setVisible(&quot;recommended_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A1_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A2_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A3_envelope&quot;, false);
+			webMI.gfx.setVisible(&quot;A4_envelope&quot;, true);
+		}
+		//hiding/showing loading
+		if (load_ok){
+			webMI.gfx.setVisible(&quot;loading_bg&quot;, false);
+		}else{
+			webMI.gfx.setVisible(&quot;loading_bg&quot;, true);
+		}
+	});
+}
+
+function calculateHum(temp, hum){
+	// this calculation is valid for temp &gt; 0	
+	var TtOA = 273.15+temp;
+	var PvstOA = Math.exp((trugiada/TtOA)+tpartenza+(percarr*TtOA)+(Dt*Math.pow(TtOA,2)+(tempo*Math.pow(TtOA,3))+(efficienza*Math.pow(TtOA,4))+(stimaPL*Math.log(TtOA))));
+	var xOA = 0.62198*hum*0.01*PvstOA/(pressione-hum*0.01*PvstOA);
+	var specHum = xOA * 1000;
+	specHum = specHum.toFixed(1);
+	return specHum;
+}
+
+webMI.callExtension(&quot;SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tooltip&quot;, {&quot;id&quot;:&quot;reference1&quot;, &quot;text&quot;:webMI.query[&quot;tooltip1&quot;] + &quot;&quot;});
+webMI.callExtension(&quot;SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tooltip&quot;, {&quot;id&quot;:&quot;reference2&quot;, &quot;text&quot;:webMI.query[&quot;tooltip2&quot;] + &quot;&quot;});</script>
+</svg>

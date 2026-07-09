@@ -1,0 +1,1 @@
+var globalLanguages = {"en":"English"};

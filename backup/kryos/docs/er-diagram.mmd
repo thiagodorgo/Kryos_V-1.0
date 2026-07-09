@@ -1,0 +1,98 @@
+%% Kryos ER Diagram (Mermaid)
+%% Paste into https://mermaid.live to visualize/export
+
+erDiagram
+    companies {
+        string company_id PK
+        string name
+        string status
+        datetime created_at
+    }
+
+    plants {
+        string plant_id PK
+        string company_id FK
+        string name
+        string timezone
+        string status
+        datetime created_at
+    }
+
+    devices {
+        string device_id PK
+        string plant_id FK
+        string name
+        string type
+        string status
+        datetime created_at
+    }
+
+    agents {
+        string agent_id PK
+        string plant_id FK
+        string name
+        string version
+        string status
+        datetime created_at
+    }
+
+    variables {
+        string variable_id PK
+        string device_id FK
+        string name
+        string unit
+        string data_type
+        string status
+        datetime created_at
+    }
+
+    telemetry {
+        string telemetry_id PK
+        string variable_id FK
+        datetime timestamp
+        number value
+        string quality
+        string status
+        datetime created_at
+    }
+
+    alarms {
+        string alarm_id PK
+        string device_id FK
+        string name
+        string severity
+        string status
+        datetime raised_at
+        datetime acknowledged_at
+    }
+
+    users {
+        string user_id PK
+        string company_id FK
+        string name
+        string email
+        string role
+        string status
+        datetime created_at
+    }
+
+    plans {
+        string plan_id PK
+        string company_id FK
+        number retention_days
+        number telemetry_quota
+        string status
+        datetime created_at
+    }
+
+    companies ||--o{ plants : has
+    companies ||--o{ users : has
+    companies ||--|| plans : has
+
+    plants ||--o{ devices : has
+    plants ||--o{ agents : has
+
+    devices ||--o{ variables : has
+    variables ||--o{ telemetry : has
+
+    devices ||--o{ alarms : has

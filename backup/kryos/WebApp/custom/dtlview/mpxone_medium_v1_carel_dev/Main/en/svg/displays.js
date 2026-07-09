@@ -1,0 +1,1 @@
+{"default":"00000001","prefix":"en/svg/","postfix":".svg","menu":[{"name":"Default","identifier":"MPXone_BossMap.DISPLAYS.Default","display":"00000001"},{"name":"Main","identifier":"MPXone_BossMap.DISPLAYS.Main","display":"00000002"}]}

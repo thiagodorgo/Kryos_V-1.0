@@ -1,0 +1,91 @@
+/*
+ * Custom Fonts
+ * --------------------------------------------------
+ */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(../fonts/Open_Sans/OpenSans-Italic.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(../fonts/Open_Sans/OpenSans-BoldItalic.ttf);
+}
+
+body {
+	padding: 5px;
+}
+
+table {
+	border-collapse: collapse;	
+}
+
+/*
+ * Print Classes used on ListView.js
+ * ---------------------------------
+ */
+th, .thprint {
+	font-family: 'Open Sans';
+	font-size: 8pt;
+	font-weight: bold;
+	padding: 1px 0.5em;
+	border-width: 1px;
+	border-color: #DDD;
+	border-style: solid;
+}
+
+td, .tdprint {
+	font-family: 'Open Sans';
+	font-size: 8pt;
+	padding: 1px 0.5em;
+	border-width: 1px;
+	border-color: #DDD;
+	border-style: solid;
+}
+
+/* alarms */
+/* new material colors used for square div */
+.alarmColor1 {
+	background-color: #F44336;
+}
+
+.alarmColor2 {
+	background-color: #FF9800;
+}
+
+.alarmColor3 {
+	background-color: #FFEB3B;
+}
+
+.alarmColor4{
+	background-color: #CDDC39;
+}
+
+/*
+ * Print Classes used on HistoryReport.java, InstantReport.java
+ * ------------------------------------------------------------
+ */
+.title {
+	font-family: 'Open Sans';
+ 	font-size: 16px;
+}
+
+.header {
+	font-family: 'Open Sans';
+ 	font-size: 12px;
+}

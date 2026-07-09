@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="100%" version="1.2" height="100%" visibility="hidden" atv:oe="2G6GA171L9CCG8NFCHE8Q4FIFC9A6F88FBHB9K7DE9FGJGKCHKQ6GDQB5G868D3LA" preserveAspectRatio="xMidYMid" viewBox="0 0 528 211" xmlns="http://www.w3.org/2000/svg">
+ <clipPath id="clip">
+  <rect x="0" y="0" height="211" width="528"/>
+ </clipPath>
+ <script xlink:href="../../webmi.js" type="text/ecmascript"/>
+ <desc>Provides an on-screen keyboard display for string input.</desc>
+ <title>Alphanumerical keyboard</title>
+ <defs>
+  <linearGradient id="linear_0" y1="-0.0183441" x1="1" y2="1" gradientUnits="objectBoundingBox" x2="1">
+   <stop offset="0" stop-color="#494949"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+ </defs>
+ <metadata/>
+ <g clip-path="url(#clip)">
+  <rect width="35" x="0.5" y="35.447" fill="url(#linear_0)" height="35" stroke="#646464" id="id_0" atv:refpx="18" stroke-width="1" atv:refpy="52.947"/>
+  <rect width="35" x="35.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_1" atv:refpx="53" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="70.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_2" atv:refpx="88" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="105.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_3" atv:refpx="123" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="140.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_4" atv:refpx="158" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="175.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_5" atv:refpx="193" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="210.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_6" atv:refpx="228" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="245.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_7" atv:refpx="263" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="280.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_8" atv:refpx="298" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="315.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_9" atv:refpx="333" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="350.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_10" atv:refpx="368" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="385.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_11" atv:refpx="403" stroke-width="1" atv:refpy="53"/>
+  <rect width="35" x="420.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_12" atv:refpx="438" stroke-width="1" atv:refpy="53"/>
+  <rect width="72" x="455.5" y="35.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_13" atv:refpx="491.5" stroke-width="1" atv:refpy="53"/>
+  <rect width="54" x="0.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_26" atv:refpx="27.5" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="55.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_27" atv:refpx="73" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="54.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_28" atv:refpx="73" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="89.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_32" atv:refpx="108" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="124.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_33" atv:refpx="143" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="159.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_34" atv:refpx="178" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="194.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_35" atv:refpx="213" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="229.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_36" atv:refpx="248" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="264.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_37" atv:refpx="283" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="299.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_38" atv:refpx="318" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="334.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_39" atv:refpx="353" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="369.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_40" atv:refpx="388" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="404.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_41" atv:refpx="423" stroke-width="1" atv:refpy="88"/>
+  <rect width="35" x="439.5" y="70.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_42" atv:refpx="458" stroke-width="1" atv:refpy="88"/>
+  <polygon points="474.5,70.5 474.5,105.5 484.5,105.5 484.5,140.5 527.5,140.5 527.5,70.5" fill="url(#linear_0)" stroke="#646464" id="id_43" atv:refpx="501.25" stroke-width="1" atv:refpy="105.5"/>
+  <rect width="64" x="0.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_44" atv:refpx="32.5" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="64.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_45" atv:refpx="82" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="99.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_46" atv:refpx="117" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="134.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_47" atv:refpx="152" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="169.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_48" atv:refpx="187" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="204.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_49" atv:refpx="222" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="239.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_50" atv:refpx="257" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="274.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_51" atv:refpx="292" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="309.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_52" atv:refpx="327" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="344.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_53" atv:refpx="362" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="379.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_54" atv:refpx="397" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="414.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_55" atv:refpx="432" stroke-width="1" atv:refpy="123"/>
+  <rect width="35" x="449.5" y="105.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_16" atv:refpx="467" stroke-width="1" atv:refpy="123"/>
+  <rect width="51" x="0.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_57" atv:refpx="26" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="51.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_15" atv:refpx="69" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="86.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_58" atv:refpx="104" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="121.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_59" atv:refpx="139" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="156.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_60" atv:refpx="174" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="191.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_61" atv:refpx="209" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="226.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_62" atv:refpx="244" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="261.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_63" atv:refpx="279" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="296.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_64" atv:refpx="315" stroke-width="1" atv:refpy="158"/>
+  <rect width="34.999" x="331.5" y="140.5" fill="url(#linear_0)" rx="0" height="34.999" ry="0" stroke="#646464" id="id_65" atv:refpx="349.999" stroke-width="1" atv:refpy="157.999"/>
+  <rect width="35" x="366.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_66" atv:refpx="385" stroke-width="1" atv:refpy="158"/>
+  <rect width="35" x="401.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_67" atv:refpx="420" stroke-width="1" atv:refpy="158"/>
+  <rect width="91" x="436.5" y="140.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_68" atv:refpx="482.5" stroke-width="1" atv:refpy="158"/>
+  <rect width="328" x="102.5" y="175.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_69" atv:refpx="266.5" stroke-width="1" atv:refpy="193"/>
+  <rect width="102" x="0.5" y="175.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_70" atv:refpx="51.5" stroke-width="1" atv:refpy="193"/>
+  <rect width="97" x="430.5" y="175.5" fill="url(#linear_0)" height="35" stroke="#646464" id="id_71" atv:refpx="529" stroke-width="1" atv:refpy="193"/>
+  <g id="id_22" atv:refpx="261.75" atv:refpy="122.974">
+   <g id="id_21">
+    <text x="47.5" y="60" fill="#feffff" font-family="Arial" id="One" font-weight="bold" atv:refpx="94.999" atv:refpy="89.499" font-size="20">1</text>
+    <text x="82.5" y="60" fill="#feffff" font-family="Arial" id="Two" font-weight="bold" atv:refpx="165.999" atv:refpy="89.499" font-size="20">2</text>
+    <text x="117.5" y="60" fill="#feffff" font-family="Arial" id="Three" font-weight="bold" atv:refpx="235.999" atv:refpy="89.499" font-size="20">3</text>
+    <text x="152.5" y="60" fill="#feffff" font-family="Arial" id="Four" font-weight="bold" atv:refpx="306.499" atv:refpy="89.499" font-size="20">4</text>
+    <text x="187.777" y="60" fill="#feffff" font-family="Arial" id="Five" font-weight="bold" atv:refpx="376.553" atv:refpy="89.499" font-size="20">5</text>
+    <text x="222.5" y="60" fill="#feffff" font-family="Arial" id="Six" font-weight="bold" atv:refpx="445.999" atv:refpy="89.499" font-size="20">6</text>
+    <text x="257.5" y="60" fill="#feffff" font-family="Arial" id="Seven" font-weight="bold" atv:refpx="515.999" atv:refpy="89.499" font-size="20">7</text>
+    <text x="292.5" y="60" fill="#feffff" font-family="Arial" id="Eight" font-weight="bold" atv:refpx="585.999" atv:refpy="89.499" font-size="20">8</text>
+    <text x="327.5" y="60" fill="#feffff" font-family="Arial" id="Nine" font-weight="bold" atv:refpx="655.999" atv:refpy="89.499" font-size="20">9</text>
+    <text x="362.5" y="60" fill="#feffff" font-family="Arial" id="Zero" font-weight="bold" atv:refpx="725.999" atv:refpy="89.499" font-size="20">0</text>
+    <text x="397.5" y="60" fill="#feffff" font-family="Arial" id="HotS" font-weight="bold" atv:refpx="794.124" atv:refpy="89.499" font-size="20">ß</text>
+    <g id="id_14" atv:refpx="492.229" atv:refpy="18" transform="matrix(1,0,0,1,0,-35)">
+     <line stroke="#feffff" id="id_29" y1="87.999" atv:refpx="497.572" x1="520.6" y2="88" atv:refpy="-577.501" stroke-width="3" x2="474.543"/>
+     <polygon points="462.528,88 480.5,81.5 480.5,94.5" fill="#feffff" stroke="none" id="id_30" atv:refpx="812.409" atv:refpy="-578.926" stroke-width="3"/>
+    </g>
+    <text x="12.5" y="59.947" fill="#feffff" font-family="Arial" id="Caret" font-weight="bold" atv:refpx="23.998" atv:refpy="89.392" font-size="20">^</text>
+    <text x="10.5" y="95" fill="#feffff" font-family="Arial" id="id_72" font-weight="bold" atv:refpx="33.497" atv:refpy="159.497" font-size="20">Tab</text>
+    <text x="8.5" y="130" fill="#feffff" font-family="Arial" id="id_73" font-weight="bold" atv:refpx="36.497" atv:refpy="229.499" font-size="20">Caps</text>
+    <text x="4.499" y="165" fill="#feffff" font-family="Arial" id="id_74" font-weight="bold" atv:refpx="26.496" atv:refpy="299.499" font-size="20">Shift</text>
+    <text x="460" y="165" fill="#feffff" font-family="Arial" id="id_75" font-weight="bold" atv:refpx="937.497" atv:refpy="299.499" font-size="20">Shift</text>
+    <text x="493" y="112.5" fill="#feffff" font-family="Arial" id="id_76" font-weight="bold" atv:refpx="994.498" atv:refpy="194.499" font-size="20">EN</text>
+    <text x="66" y="95" fill="#feffff" font-family="Arial" id="Q" font-weight="bold" atv:refpx="133.498" atv:refpy="159.497" font-size="20">q</text>
+    <text x="99.5" y="95" fill="#feffff" font-family="Arial" id="W" font-weight="bold" atv:refpx="202.498" atv:refpy="159.497" font-size="20">w</text>
+    <text x="136.5" y="95" fill="#feffff" font-family="Arial" id="E" font-weight="bold" atv:refpx="273.999" atv:refpy="159.497" font-size="20">e</text>
+    <text x="173" y="95" fill="#feffff" font-family="Arial" id="R" font-weight="bold" atv:refpx="345.999" atv:refpy="159.498" font-size="20">r</text>
+    <text x="208.5" y="95" fill="#feffff" font-family="Arial" id="T" font-weight="bold" atv:refpx="213.61" atv:refpy="120.444" font-size="20">t</text>
+    <text x="241.5" y="95" fill="#feffff" font-family="Arial" id="Y" font-weight="bold" atv:refpx="247.33" atv:refpy="125.444" font-size="20">z</text>
+    <text x="276" y="95" fill="#feffff" font-family="Arial" id="U" font-weight="bold" atv:refpx="278.055" atv:refpy="122.666" font-size="20">u</text>
+    <text x="314.5" y="95" fill="#feffff" font-family="Arial" id="I" font-weight="bold" atv:refpx="321.165" atv:refpy="118.777" font-size="20">i</text>
+    <text x="346" y="94.999" fill="#feffff" font-family="Arial" id="O" font-weight="bold" atv:refpx="348.052" atv:refpy="119.331" font-size="20">o</text>
+    <text x="381" y="95" fill="#feffff" font-family="Arial" id="P" font-weight="bold" atv:refpx="382.499" atv:refpy="119.333" font-size="20">p</text>
+    <text x="416" y="95" fill="#feffff" font-family="Arial" id="UE" font-weight="bold" atv:refpx="419.165" atv:refpy="118.222" font-size="20">ü</text>
+    <text x="451" y="95" fill="#feffff" font-family="Arial" id="Plus" font-weight="bold" atv:refpx="446.331" atv:refpy="114.186" font-size="20">+</text>
+    <text x="76.5" y="130" fill="#feffff" font-family="Arial" id="A" font-weight="bold" atv:refpx="71.222" atv:refpy="164.887" font-size="20">a</text>
+    <text x="111.5" y="130" fill="#feffff" font-family="Arial" id="S" font-weight="bold" atv:refpx="114.054" atv:refpy="163.221" font-size="20">s</text>
+    <text x="146" y="130" fill="#feffff" font-family="Arial" id="D" font-weight="bold" atv:refpx="141.512" atv:refpy="157.11" font-size="20">d</text>
+    <text x="183.5" y="130" fill="#feffff" font-family="Arial" id="F" font-weight="bold" atv:refpx="223.122" atv:refpy="154.332" font-size="20">f</text>
+    <text x="216" y="130" fill="#feffff" font-family="Arial" id="G" font-weight="bold" atv:refpx="213.09" atv:refpy="156.554" font-size="20">g</text>
+    <text x="251" y="130" fill="#feffff" font-family="Arial" id="H" font-weight="bold" atv:refpx="246.249" atv:refpy="155.998" font-size="20">h</text>
+    <text x="289.5" y="130" fill="#feffff" font-family="Arial" id="J" font-weight="bold" atv:refpx="383.178" atv:refpy="156.554" font-size="20">j</text>
+    <text x="321.5" y="130" fill="#feffff" font-family="Arial" id="K" font-weight="bold" atv:refpx="321.776" atv:refpy="157.664" font-size="20">k</text>
+    <text x="359.5" y="130" fill="#feffff" font-family="Arial" id="L" font-weight="bold" atv:refpx="470.721" atv:refpy="156.554" font-size="20">l</text>
+    <text x="391" y="130" fill="#feffff" font-family="Arial" id="OE" font-weight="bold" atv:refpx="467.447" atv:refpy="155.443" font-size="20">ö</text>
+    <text x="426.5" y="130" fill="#feffff" font-family="Arial" id="AE" font-weight="bold" atv:refpx="563.788" atv:refpy="153.22" font-size="20">ä</text>
+    <text x="461.5" y="130" fill="#feffff" font-family="Arial" id="Hash" font-weight="bold" atv:refpx="924.5" atv:refpy="229.5" font-size="20">#</text>
+    <text x="63.5" y="165" fill="#feffff" font-family="Arial" id="LT" font-weight="bold" atv:refpx="85.551" atv:refpy="197.111" font-size="20">&lt;</text>
+    <text x="99" y="165" fill="#feffff" font-family="Arial" id="Z" font-weight="bold" atv:refpx="108.551" atv:refpy="197.111" font-size="20">y</text>
+    <text x="133.5" y="165" fill="#feffff" font-family="Arial" id="X" font-weight="bold" atv:refpx="135.221" atv:refpy="194.333" font-size="20">x</text>
+    <text x="168.5" y="165" fill="#feffff" font-family="Arial" id="C" font-weight="bold" atv:refpx="166.942" atv:refpy="190.998" font-size="20">c</text>
+    <text x="203.5" y="165" fill="#feffff" font-family="Arial" id="V" font-weight="bold" atv:refpx="209.663" atv:refpy="189.332" font-size="20">v</text>
+    <text x="238" y="165" fill="#feffff" font-family="Arial" id="B" font-weight="bold" atv:refpx="240.127" atv:refpy="188.776" font-size="20">b</text>
+    <text x="273" y="165" fill="#feffff" font-family="Arial" id="N" font-weight="bold" atv:refpx="243.465" atv:refpy="183.776" font-size="20">n</text>
+    <text x="305.5" y="165" fill="#feffff" font-family="Arial" id="M" font-weight="bold" atv:refpx="199.138" atv:refpy="184.888" font-size="20">m</text>
+    <text x="347" y="165" fill="#feffff" font-family="Arial" id="Colon" font-weight="bold" atv:refpx="444.371" atv:refpy="183.584" font-size="20">,</text>
+    <text x="382" y="165" fill="#feffff" font-family="Arial" id="Period" font-weight="bold" atv:refpx="488.99" atv:refpy="186.476" font-size="20">.</text>
+    <text x="415.5" y="165" fill="#feffff" font-family="Arial" id="Dash" font-weight="bold" atv:refpx="526.298" atv:refpy="184.162" font-size="20">-</text>
+    <text x="45" y="200" fill="#feffff" font-family="Arial" id="id_111" font-weight="bold" atv:refpx="92.498" atv:refpy="369.499" font-size="20">X</text>
+    <text x="435" y="60" fill="#feffff" font-family="Arial" id="Acute" font-weight="bold" atv:refpx="871.497" atv:refpy="89.498" font-size="20">´</text>
+    <text x="454.5" y="200" fill="#feffff" font-family="Arial" id="id_17" font-weight="bold" atv:refpx="590.28" atv:refpy="369.499" font-size="20">AltGr</text>
+   </g>
+  </g>
+  <rect width="528" x="0" y="0" fill="#c8c8c8" rx="0" height="35" ry="0" stroke="none" id="id_114" atv:refpx="264" stroke-width="1" atv:refpy="17.5"/>
+  <text x="4.5" y="24.5" fill="#feffff" font-family="Arial" id="textValue" font-weight="bold" atv:refpx="39.991" atv:refpy="17.498" font-size="20"/>
+  <rect width="35" x="35.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyOne" atv:refpx="88.5" atv:refpy="159" stroke-width="1"/>
+  <rect width="35" x="70.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyTwo" atv:refpx="229" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="105.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyThree" atv:refpx="334" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="140.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyFour" atv:refpx="439" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="175.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyFive" atv:refpx="544" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="210.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keySix" atv:refpx="649" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="245.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keySeven" atv:refpx="754" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="280.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyEight" atv:refpx="859" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="315.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyNine" atv:refpx="964" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="35" x="350.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyZero" atv:refpx="1069" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="72" x="455.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyDel" atv:refpx="1402.5" atv:refpy="123.5" stroke-width="1"/>
+  <rect width="54" x="0.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyTab" atv:refpx="28" atv:refpy="264" stroke-width="1"/>
+  <rect width="35" x="54.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyQ" atv:refpx="126.5" atv:refpy="264" stroke-width="1"/>
+  <rect width="35" x="89.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyW" atv:refpx="286" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="124.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyE" atv:refpx="391" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="159.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyR" atv:refpx="496" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="194.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyT" atv:refpx="601" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="229.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyY" atv:refpx="706" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="264.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyU" atv:refpx="811" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="299.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyI" atv:refpx="916" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="334.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyO" atv:refpx="1021" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="369.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyP" atv:refpx="1126" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="35" x="404.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyUE" atv:refpx="1231" atv:refpy="193.5" stroke-width="1"/>
+  <rect width="64" x="0.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyCapslock" atv:refpx="33" atv:refpy="369" stroke-width="1"/>
+  <rect width="35" x="64.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyA" atv:refpx="146.5" atv:refpy="369" stroke-width="1"/>
+  <rect width="35" x="99.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyS" atv:refpx="216.5" atv:refpy="369" stroke-width="1"/>
+  <rect width="35" x="134.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyD" atv:refpx="421" atv:refpy="263.5" stroke-width="1"/>
+  <line fill="#0bd961" id="id_99" stroke="#c57966" stroke-width="3" x1="207" x2="333" y1="151" y2="47"/>
+  <rect width="35" x="169.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyF" atv:refpx="526" atv:refpy="263.5" stroke-width="1"/>
+  <ellipse cx="236" cy="140" fill="#7504b8" id="id_78" rx="64" ry="56" stroke="#420983" stroke-width="2"/>
+  <rect fill="#8011e3" height="12" id="id_23" stroke="#f3e3e2" stroke-width="3" width="74" x="418" y="192"/>
+  <line fill="#19abb7" id="id_100" stroke="#864631" stroke-width="5" x1="455" x2="110" y1="125" y2="5"/>
+  <rect width="35" x="204.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyG" atv:refpx="631" atv:refpy="263.5" stroke-width="1"/>
+  <rect fill="#6d0732" height="107" id="id_89" stroke="#b2a077" stroke-width="2" width="270" x="256" y="89"/>
+  <ellipse cx="142" cy="5" fill="#323952" id="id_87" rx="154" ry="77" stroke="#6d1ede" stroke-width="4"/>
+  <polyline fill="#7c9198" id="id_98" points="490,132 464,81 417,100 295,145 241,195 83,178 480,53 94,72 104,8 444,69 286,88 478,5 505,27 297,100 " stroke="#e353ba" stroke-width="2"/>
+  <rect width="35" x="239.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyH" atv:refpx="736" atv:refpy="263.5" stroke-width="1"/>
+  <polyline fill="#afad85" id="id_91" points="110,101 14,124 21,185 305,92 518,104 85,123 268,167 161,87 238,112 345,46 309,81 254,91 " stroke="#1ca2a8" stroke-width="4"/>
+  <rect width="35" x="274.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyJ" atv:refpx="841" atv:refpy="263.5" stroke-width="1"/>
+  <line fill="#3e7574" id="id_18" stroke="#548d32" stroke-width="2" x1="525" x2="367" y1="122" y2="186"/>
+  <polygon fill="#1470f1" id="id_95" points="383,144 310,66 70,88 294,95 263,86 440,84 58,30 22,166 " stroke="#23a96f" stroke-width="4"/>
+  <rect width="35" x="309.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyK" atv:refpx="946" atv:refpy="263.5" stroke-width="1"/>
+  <polygon fill="#89c244" id="id_81" points="494,28 487,13 348,20 54,44 495,116 195,84 88,38 102,200 " stroke="#95f262" stroke-width="2"/>
+  <rect width="35" x="344.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyL" atv:refpx="1051" atv:refpy="263.5" stroke-width="1"/>
+  <polygon fill="#8854aa" id="id_93" points="525,36 470,147 80,174 508,76 136,208 434,53 " stroke="#5b174f" stroke-width="5"/>
+  <rect width="35" x="379.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyOE" atv:refpx="1156" atv:refpy="263.5" stroke-width="1"/>
+  <line fill="#d693b3" id="id_82" stroke="#b4a739" stroke-width="1" x1="501" x2="98" y1="39" y2="5"/>
+  <rect width="35" x="414.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyAE" atv:refpx="1261" atv:refpy="263.5" stroke-width="1"/>
+  <polyline fill="#d0defa" id="id_84" points="334,113 62,174 194,14 467,188 211,20 179,152 132,162 386,148 486,185 512,27 135,153 426,165 " stroke="#b79902" stroke-width="4"/>
+  <rect width="35" x="449.5" y="105.5" atv:dynamic="true" fill="#1c7eff" height="35" fill-opacity="0" id="keyHash" atv:refpx="1296" atv:refpy="263.5" stroke-width="1"/>
+  <rect width="51" x="0.5" y="140.5" fill="#1c7eff" atv:dynamic="true" rx="0" height="35" ry="0" fill-opacity="0" id="keyShiftLeft" atv:refpx="26" stroke-width="1" atv:refpy="298.5"/>
+  <circle cx="371" cy="92" fill="#a2b84f" id="id_77" r="52" stroke="#83e491" stroke-width="4"/>
+  <circle cx="183" cy="148" fill="#30c9e9" id="id_92" r="35" stroke="#3bace7" stroke-width="5"/>
+  <rect width="35" x="51.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyLT" atv:refpx="190.5" atv:refpy="474" stroke-width="1"/>
+  <line fill="#dbf518" id="id_86" stroke="#de703f" stroke-width="5" x1="522" x2="236" y1="4" y2="177"/>
+  <rect width="35" x="86.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyZ" atv:refpx="190.5" atv:refpy="474" stroke-width="1"/>
+  <rect width="35" x="121.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyX" atv:refpx="260.5" atv:refpy="474" stroke-width="1"/>
+  <polygon fill="#ee17d5" id="id_97" points="244,2 314,30 209,100 492,101 131,112 77,105 48,13 480,66 264,117 160,202 " stroke="#1cb268" stroke-width="2"/>
+  <rect width="35" x="156.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyC" atv:refpx="487" atv:refpy="333.5" stroke-width="1"/>
+  <polygon fill="#c74464" id="id_25" points="103,30 203,27 44,102 131,202 313,95 80,124 152,161 222,139 361,173 " stroke="#30b5ef" stroke-width="2"/>
+  <rect width="35" x="191.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyV" atv:refpx="592" atv:refpy="333.5" stroke-width="1"/>
+  <polyline fill="#b965dd" id="id_80" points="319,31 382,81 353,139 223,175 388,36 278,128 469,28 157,37 218,200 362,4 214,196 456,63 " stroke="#cbea91" stroke-width="1"/>
+  <rect width="35" x="226.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyB" atv:refpx="697" atv:refpy="333.5" stroke-width="1"/>
+  <line fill="#e23ada" id="id_83" stroke="#a5bc44" stroke-width="4" x1="127" x2="165" y1="13" y2="11"/>
+  <rect width="35" x="261.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyN" atv:refpx="802" atv:refpy="333.5" stroke-width="1"/>
+  <polyline fill="#13045a" id="id_94" points="35,210 119,33 25,108 337,44 121,105 54,196 392,185 " stroke="#6056d7" stroke-width="4"/>
+  <line fill="#ec3cbf" id="id_79" stroke="#55c44b" stroke-width="2" x1="486" x2="369" y1="153" y2="63"/>
+  <rect width="35" x="296.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyM" atv:refpx="907" atv:refpy="333.5" stroke-width="1"/>
+  <polyline fill="#11d6f5" id="id_56" points="407,37 83,138 399,56 11,32 107,135 " stroke="#0fe5e9" stroke-width="4"/>
+  <line fill="#6e36b1" id="id_19" stroke="#5cbde0" stroke-width="3" x1="504" x2="320" y1="193" y2="29"/>
+  <polygon fill="#22948f" id="id_88" points="504,189 454,136 51,115 99,170 403,166 " stroke="#59134b" stroke-width="4"/>
+  <rect width="91" x="436.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyShiftRight" atv:refpx="1355" atv:refpy="333.5" stroke-width="1"/>
+  <line fill="#6919ac" id="id_24" stroke="#2314a3" stroke-width="4" x1="112" x2="24" y1="67" y2="193"/>
+  <rect width="328" x="102.5" y="175.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keySpace" atv:refpx="369" atv:refpy="579" stroke-width="1"/>
+  <rect width="102" x="0.5" y="175.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyCancel" atv:refpx="51.5" atv:refpy="368.5" stroke-width="1"/>
+  <rect width="97" x="430.5" y="175.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyAltGr" atv:refpx="1340" atv:refpy="403.5" stroke-width="1"/>
+  <rect width="34.999" x="331.5" y="140.5" fill="#1c7eff" atv:dynamic="true" rx="0" height="34.999" ry="0" fill-opacity="0" id="keyColon" atv:refpx="1011.999" atv:refpy="333.499" stroke-width="1"/>
+  <rect fill="#ba4f04" height="47" id="id_85" stroke="#c2e3f5" stroke-width="4" width="110" x="380" y="73"/>
+  <rect width="35" x="365.966" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyPeriod" atv:refpx="1115.398" atv:refpy="333.5" stroke-width="1"/>
+  <polygon fill="#420983" id="id_31" points="256,123 217,105 181,42 198,38 26,137 243,124 425,176 500,32 " stroke="#ca84f2" stroke-width="1"/>
+  <rect width="35" x="439.5" y="70.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyPlus" atv:refpx="1336" atv:refpy="193.5" stroke-width="1"/>
+  <polygon fill="#b78646" id="id_96" points="496,70 211,60 435,102 520,28 455,125 110,5 265,109 " stroke="#319e86" stroke-width="5"/>
+  <rect width="35" x="385.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyHotS" atv:refpx="1174" atv:refpy="123.5" stroke-width="1"/>
+  <polyline fill="#f7c121" id="id_90" points="275,27 359,2 178,78 119,38 182,38 106,163 20,33 25,155 189,159 526,138 256,190 490,132 464,81 417,100 " stroke="#daa315" stroke-width="2"/>
+  <rect width="35" x="420.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyAcute" atv:refpx="1279" atv:refpy="123.5" stroke-width="1"/>
+  <rect fill="#1cd21e" height="38" id="id_20" stroke="#7d4eca" stroke-width="4" width="287" x="94" y="72"/>
+  <rect width="35" x="401.5" y="140.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyDash" atv:refpx="1222" atv:refpy="333.5" stroke-width="1"/>
+  <rect width="35" x="0.5" y="35.5" fill="#1c7eff" atv:dynamic="true" height="35" fill-opacity="0" id="keyCaret" atv:refpx="18" atv:refpy="88.5" stroke-width="1"/>
+  <polygon points="474.5,70.5 474.5,105 484.5,105 484.5,140.5 528,140.5 528,70.5" fill="#1c7eff" stroke="none" fill-opacity="0" id="keyEnter" atv:refpx="501.444" atv:refpy="104.712" stroke-width="1"/>
+  <script type="text/ecmascript"><![CDATA[webMI.proxy({"":[function(webMI,window,document,self){var keys = {
+	Caret: ['^', '°', ''],
+	One: ['1', '!', ''],
+	Two: ['2', '"', '²'],
+	Three: ['3','§', '³'],
+	Four: ['4', '$', ''],
+	Five: ['5', '%', ''],
+	Six: ['6', '&', ''],
+	Seven: ['7', '/', '{'],
+	Eight: ['8', '(', '['],
+	Nine: ['9', ')', ']'],
+	Zero: ['0', '=', '}'],
+	HotS: ['ß', '?', '\\'],
+	Acute: ['´', '`', ''],
+	Q: ['q', 'Q', '@'],
+	W: ['w', 'W', ''],
+	E: ['e', 'E', '€'],
+	R: ['r', 'R', ''],
+	T: ['t', 'T', ''],
+	Y: ['z', 'Z', ''],
+	U: ['u', 'U', ''],
+	I: ['i', 'I', ''],
+	O: ['o', 'O', ''],
+	P: ['p', 'P', ''],
+	UE: ['ü', 'Ü', ''],
+	Plus: ['+', '*', '~'],
+	A: ['a', 'A', ''],
+	S: ['s', 'S', ''],
+	D: ['d', 'D', ''],
+	F: ['f', 'F', ''],
+	G: ['g', 'G', ''],
+	H: ['h', 'H', ''],
+	J: ['j', 'J', ''],
+	K: ['k', 'K', ''],
+	L: ['l', 'L', ''],
+	OE: ['ö', 'Ö', ''],
+	AE: ['ä', 'Ä', ''],
+	Hash: ['#', '\'', ''],
+	LT: ['<', '>', '|'],
+	Z: ['y', 'Y', ''],
+	X: ['x', 'X', ''],
+	C: ['c', 'C', ''],
+	V: ['v', 'V', ''],
+	B: ['b', 'B', ''],
+	N: ['n', 'N', ''],
+	M: ['m', 'M', 'µ'],
+	Colon: [',', ';', ''],
+	Period: ['.', ':', ''],
+	Dash: ['-', '_', '']
+};
+
+switch("en") {
+	case "en":
+		keys.Caret	= ['`', '~', ''];
+		keys.Two	= ['2', '@', ''];
+		keys.Three	= ['3', '#', ''];
+		keys.Six	= ['6', '^', ''];
+		keys.Seven	= ['7', '&', ''];
+		keys.Eight	= ['8', '*', ''];
+		keys.Nine	= ['9', '(', ''];
+		keys.Zero	= ['0', ')', ''];
+		keys.HotS	= ['-', '_', ''];
+		keys.Acute	= ['=', '+', ''];
+		keys.Y		= ['y', 'Y', ''];
+		keys.UE		= ['[', '{', ''];
+		keys.Plus	= [']', '}', ''];
+		keys.OE		= [';', ':', ''];
+		keys.AE		= ['\'', '"', ''];
+		keys.Hash	= ['\\', '|', ''];
+		keys.LT		= ['\\', '|', ''];
+		keys.Z		= ['z', 'Z', ''];
+		keys.Colon	= [',', '<', ''];
+		keys.Period	= ['.', '>', ''];
+		keys.Dash	= ['/', '?', ''];
+		setAllKeys();
+		break;
+}
+
+var specialKeys = [
+	'keyTab',
+	'keyCapslock',
+	'keyEnter',
+	'keyCancel',
+	'keyShiftLeft',
+	'keyShiftRight',
+	'keySpace'
+];
+
+var q = webMI.query;
+var delTimeout;
+var mouseDownOpacity = 0.75;
+var mouseUpOpacity = 0;
+var shift = false;
+var capslock = false;
+var altgr = false;
+var enteredTabs = [];
+var tabspace = new Array(parseInt(q.tabstop)).join('\u00A0');
+var actualText;
+
+setText(webMI.query.value);
+
+function setAllKeys() {
+	var j = altgr ? 2 : shift || capslock ? 1 : 0;
+
+	for (var i in keys)
+		webMI.gfx.setText(i, keys[i][j]);
+}
+
+function mouseFunction(mouseEvent, button, fillOpacity) {
+	var _function = function(e) {
+		webMI.gfx.setFillOpacity(button, fillOpacity);
+	};
+
+	webMI.addEvent(button, mouseEvent, _function);
+
+	if (mouseEvent == 'mouseup')
+		webMI.addEvent(button, 'mouseout', _function);
+}
+
+function makeStars(length) {
+	return new Array(length + 1).join("*");
+}
+
+function setText(text) {
+	actualText = text;
+
+	if (text !== undefined && webMI.query["password"] == "Yes")
+		text = makeStars(text.length - (tabspace.length - 1) * enteredTabs.length);
+
+	webMI.gfx.setText("textValue", text);
+}
+
+function mouseSetFunction(button, value, shiftValue, altgrValue) {
+
+	webMI.addEvent(button, 'click', function(e) {
+		var text = actualText;
+
+		if (!text) text = '';
+		if (altgr) {
+			text += altgrValue;
+			setAllKeys();
+			altgrFunction();
+		} else if (shift || capslock) {
+			text += shiftValue;
+
+			if (!capslock) {
+				shift = false;
+				setAllKeys();
+			}
+		} else {
+			text += value;
+		}
+
+		setText(text);
+	});
+
+}
+
+for (var i in keys) {
+	var key = 'key' + i;
+
+	mouseFunction('mousedown', key, mouseDownOpacity);
+	mouseFunction('mouseup', 	 key, mouseUpOpacity);
+
+	mouseSetFunction(key, keys[i][0], keys[i][1], keys[i][2]);
+}
+
+for (var i in specialKeys) {
+	mouseFunction('mousedown', specialKeys[i], mouseDownOpacity);
+	mouseFunction('mouseup', specialKeys[i], mouseUpOpacity);
+}
+
+webMI.addEvent('keyDel', 'mousedown', function(e) {
+	var removechars = 1;
+
+	if (enteredTabs.length && actualText.length == enteredTabs[enteredTabs.length - 1]) {
+		removechars = tabspace.length;
+		enteredTabs.pop();
+	}
+
+	var text = actualText.substring(0, actualText.length - removechars);
+	webMI.gfx.setFillOpacity('keyDel', mouseDownOpacity);
+
+	setText(text);
+
+	delTimeout = setTimeout(function() {
+		enteredTabs = [];
+		setText('');
+	}, 1000);
+});
+
+var delMouseUp = function(e) {
+	webMI.gfx.setFillOpacity('keyDel', mouseUpOpacity);
+
+	clearTimeout(delTimeout);
+};
+
+var shiftFunction = function(e) {
+	if (!capslock) {
+		shift = !shift;
+	}
+
+	shiftCapslockFunction();
+};
+
+var shiftCapslockFunction = function(e) {
+	if (altgr) {
+		altgrFunction();
+	}
+
+	setAllKeys();
+};
+
+var okFunction = function(e) {
+	var text = actualText;
+
+	if (q.target) {
+		webMI.data.write(q.target, text);
+	}
+
+	webMI.trigger.fire("valuechanged", text, "");
+
+	if (q.trigger)
+		webMI.trigger.fire(q.trigger, text);
+
+	webMI.display.closeWindow();
+};
+
+webMI.addEvent('keyCapslock', 'click', function(e) {
+	shift = false;
+	capslock = !capslock;
+	shiftCapslockFunction();
+});
+
+function altgrFunction() {
+	altgr = !altgr;
+	webMI.gfx.setFillOpacity('keyAltGr', altgr ? mouseDownOpacity : mouseUpOpacity);
+	setAllKeys();
+}
+
+
+webMI.addEvent('keyCancel', 'click', function(e) { webMI.display.closeWindow(); });
+
+webMI.addEvent('keyDel', 'mouseup', delMouseUp);
+webMI.addEvent('keyDel', 'mouseout',delMouseUp);
+webMI.addEvent('keyShiftLeft', 'click', shiftFunction);
+webMI.addEvent('keyShiftRight', 'click', shiftFunction);
+webMI.addEvent('keyAltGr', 'click', altgrFunction);
+webMI.addEvent('keyEnter', 'click', okFunction);
+webMI.addEvent('keyTab', 'click', function() {
+	var text = actualText + tabspace;
+	enteredTabs.push(text.length);
+	setText(text);
+});
+mouseSetFunction('keySpace', '\u00A0', '\u00A0');
+},{},{"password":"No","tabstop":"4","value":""}]},window);]]></script>
+ </g>
+</svg>

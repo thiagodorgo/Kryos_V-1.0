@@ -1,0 +1,548 @@
+body {
+	overflow-y: hidden;
+	margin: 0px 0px 0px 0px;
+	user-select: none;
+	-o-user-select:none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+canvas {
+	display: block;
+	/*z-index: 1;*/
+	width: 100%;
+	height: 100%;
+}
+
+.vs_table {
+	/*width: 100%;*/
+	/*it is required on mobile*/
+	border-collapse: collapse;
+	border-width: 0px;
+	border-spacing: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_render {
+	border-collapse: collapse;
+	border-width: 0px;
+	border-spacing: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_tr {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_tr0 {
+	/*height: 40px;*/
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_tr1 {
+	/*height: 30px;*/
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_td {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.vs_td0 {
+	background-color: #FFFFFF;
+	font-size: 12px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	/*width: 760px;*/
+}
+
+.vs_td1 {
+	text-align: center;
+	width: 35px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	display: none;
+}
+
+.vs_ruler {
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	overflow-y: auto;
+}
+
+.vs_schedule {
+	position: relative;
+}
+
+.vs_scroll {
+	width: 100%;
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	overflow-y: auto;
+}
+
+.vs_group {
+	display: inline-block;
+	/*z-index: 2;*/
+	pointer-events: none;
+	position: absolute;
+	top: 31px;
+	left: 10px;
+	font-size: 12px;
+}
+
+.vs_date {
+	display: inline-block;
+	/*z-index: 2;*/
+	/*pointer-events: none;*/
+	position: absolute;
+	left: 9px;
+	top: 10px;
+	font-size: 14px;
+}
+
+.vs_btn_copy_normal {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/copy_normal.png");
+	cursor: pointer;
+}
+
+.vs_btn_copy_press {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/copy_press.png");
+	cursor: pointer;
+}
+
+.vs_btn_copy_disabled {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/copy_disabled.png");
+	cursor: pointer;
+}
+
+.vs_btn_paste_normal {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/paste_normal.png");
+	cursor: pointer;
+}
+
+.vs_btn_paste_press {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/paste_press.png");
+	cursor: pointer;
+}
+
+.vs_btn_paste_disabled {
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/scheduler/skin/paste_disabled.png");
+	cursor: pointer;
+}
+
+/* Dashboard */
+.vs_btn_on_normal {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/on_on_black.png");
+	cursor: pointer;
+}
+
+.vs_btn_on_press {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/on_on_black.png");
+	cursor: pointer;
+}
+
+.vs_btn_on_disabled {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/on_off.png");
+	cursor: pointer;
+}
+
+.vs_btn_off_normal {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/off_on_black.png");
+	cursor: pointer;
+}
+
+.vs_btn_off_press {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/off_on_black.png");
+	cursor: pointer;
+}
+
+.vs_btn_off_disabled {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/actions/off_off.png");
+	cursor: pointer;
+}
+
+.vs_in_analog {
+	color: #FFFFFF;
+    background-color: #000000;	
+	font-size: 14pt;
+	font-style: bold;
+}
+
+.vs_checkbox {
+	cursor: pointer;
+}
+
+/* Dialogs */
+.vs_overlay {
+	display: none;
+	z-index: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+}
+
+.vs_btn_normal {
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	background-image: url("../images/scheduler/skin/button_normal.png");
+	cursor: pointer;
+}
+
+.vs_btn_press {
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	background-image: url("../images/scheduler/skin/button_press.png");
+	cursor: pointer;	
+}
+
+.vs_btn_disabled {
+	display: block;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	background-image: url("../images/scheduler/skin/button_disabled.png");
+	cursor: pointer;
+}
+
+.vs_btn_text {
+	position: relative;
+	top: 5px;
+	color: white;
+	user-select: none;
+	-o-user-select:none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+/* Set Interval dialog */
+.vs_set_interval {
+	display: block;
+	z-index: 0;
+	position: fixed;
+	width: 450px;
+	height: 300px;
+	top: 45%;
+	left: 50%;
+	margin-top: -150px;
+    margin-left: -225px;	
+	background-image: url("../images/scheduler/skin/popup_background.png");
+}
+
+.vs_sel_time {
+	color: #FFFFFF;
+    background-color: #000000;	
+	font-size: 14pt;
+	font-style: bold;
+}
+/*
+#tfGroupName {
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+
+#tfSchedule {
+	position: absolute;
+	left: 22px;
+	top: 51px;
+}
+
+#tfStart {
+	position: absolute;
+	left: 22px;
+	top: 92px;
+}
+
+#divStart {
+	position: absolute;
+	left: 22px;
+	top: 118px;
+}
+
+#tfStop {
+	position: absolute;
+	left: 240px;
+	top: 92px;
+}
+
+#divStop {
+	position: absolute;
+	left: 240px;
+	top: 118px;
+}
+
+#tfAnalog {
+	position: absolute;
+	left: 22px;
+	top: 201px;
+}
+
+
+#inAnalog {
+	position: absolute;
+	left: 237px;
+	top: 195px;
+	color: #FFFFFF;
+    background-color: #000000;	
+	font-size: 14pt;
+	font-style: bold;
+}
+
+#btnOK {
+	position: absolute;
+	left: 60px;
+	top: 250px;
+}
+
+#btnCancel {
+	position: absolute;
+	left: 175px;
+	top: 250px;
+}
+
+#btnRemove {
+	position: absolute;
+	left: 290px;
+	top: 250px;
+}
+*/
+/* Exception Date Dialog */
+.vs_exception_date {
+	display: block;
+	z-index: 0;
+	position: fixed;
+	width: 450px;
+	height: 350px;
+	top: 45%;
+	left: 50%;
+	margin-top: -175px;
+    margin-left: -225px;	
+	background-image: url("../images/scheduler/skin/popup2_background.png");
+}
+/*
+#tfExceptionDate {
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+
+#tfExceptionNote {
+	position: absolute;
+	left: 10px;
+	top: 240px;
+}
+
+#divExRadio {
+	position: absolute;
+	width: 280px;
+	left: 10px;
+	top: 260px;
+	text-align: left;
+}
+
+#divEnabled {
+	position: absolute;
+	width: 150px;
+	left: 287px;
+	top: 260px;
+	text-align: right;
+}
+
+#divCalendar {
+	position: absolute;
+	left: 10px;
+	top: 40px;
+}
+*/
+.vs_btn_left_normal {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/left_arrow_normal.png");
+	cursor: pointer;
+}
+
+.vs_btn_left_press {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/left_arrow_disabled.png");
+	cursor: pointer;
+}
+
+.vs_btn_left_disabled {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/left_arrow_press.png");
+	cursor: pointer;
+}
+
+.vs_btn_right_normal {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/right_arrow_normal.png");
+	cursor: pointer;
+}
+
+.vs_btn_right_press {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/right_arrow_disabled.png");
+	cursor: pointer;
+}
+
+.vs_btn_right_disabled {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/scheduler/skin/right_arrow_press.png");
+	cursor: pointer;
+}
+
+.vs_calendar_table {
+	/*border: 1px solid black;*/
+	width: 95%;
+	background-color: white;
+}
+
+.vs_calendar_tr {
+	height: 26px;
+	align: text-middle;
+}
+
+.vs_calendar_tmonth {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;	
+}
+
+.vs_calendar_hday {
+	width: 14.25%; /*60px;*/
+	text-align: center;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.vs_calendar_tday {
+	text-align: center;
+	height: 25px;
+}
+
+.vs_calendar_day {
+	cursor: pointer;
+	text-align: center;
+	height: 25px;
+}
+
+.vs_calendar_day_empty {
+	cursor: default;
+	text-align: center;
+	height: 25px;
+}
+
+.vs_calendar_day_highlight {
+	background-color: lightgrey;
+	cursor: pointer;
+	text-align: center;
+	height: 25px;
+}
+
+.vs_calendar_day_selected {
+	background-color: lightgrey;
+	border: 4px solid red;
+	cursor: pointer;
+	text-align: center;
+	height: 25px;
+}
+
+/*override bootstrap z-index styling that crashes local browser*/
+.input-group .form-control {
+	z-index: auto !important;
+}
+
+.btn-group>.btn.active {
+	z-index: auto !important;
+}
+
+/*
+#btnOKEx {
+	position: absolute;
+	left: 60px;
+	top: 300px;
+}
+
+#btnCancelEx {
+	position: absolute;
+	left: 175px;
+	top: 300px;
+}
+
+#btnRemoveEx {
+	position: absolute;
+	left: 290px;
+	top: 300px;
+}
+*/

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbs_configuration>
+  <device addr="1" name="Test Device" code="test">
+    <reg addr="0" code="temp" />
+    <reg addr="1" code="hum" />
+  </device>
+</mbs_configuration>

@@ -1,0 +1,286 @@
+
+
+/* Tutorial */
+
+#tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+#tutorial-control-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+#tutorial-control-panel > div {
+    background: #3d6fca;
+    max-width: 50%;
+    margin: auto;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 10px 1px #0007;
+    pointer-events: all;
+}
+
+#tutorial-control-panel-header {
+    display: flex;
+    padding: 14px;
+}
+
+#tutorial-control-panel-wait {
+    width: 28px;
+    height: 28px;
+    margin-left: 8px;
+    mix-blend-mode: lighten;
+    opacity: 0;
+}
+
+#tutorial-control-panel-header p {
+    display: inline-block;
+    margin: 2px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#tutorial-control-panel-title-short,
+#tutorial-control-panel-title-long {
+    flex: 1;
+    text-align: center;
+    color: #d4e0fe !important;
+}
+
+#tutorial-control-panel-title-long b {
+    color: #ffffff;
+}
+
+#tutorial-control-panel span.tutorial-icon {
+    background: #d4e0fe;
+    margin-left: 8px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: #3d6fca;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#tutorial-control-panel span.tutorial-icon:first-child {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+#tutorial-control-panel span.tutorial-icon:hover {
+    background: #ffffff;
+    opacity: 1 !important;
+}
+
+#tutorial-control-panel span.tutorial-icon:active {
+    background: #d4e0fe;
+}
+
+#tutorial-control-panel span.tutorial-icon.disabled {
+    background: #d4e0fe !important;
+    opacity: 0.3;
+    cursor: default !important;
+}
+
+#tutorial-control-panel span.tutorial-icon span {
+    font-size: 17px;
+    top: 2px;
+}
+
+#tutorial-control-panel-resume,
+#tutorial-control-panel-stop {
+    padding: 4px 8px !important;
+}
+
+#tutorial-control-panel-resume {
+    display: none;
+}
+
+#tutorial-control-panel-steps-list {
+    max-height: 300px;
+    padding: 16px;
+    background: #d4e0fe;
+    overflow-y: auto;
+}
+
+#tutorial-control-panel-steps-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+#tutorial-control-panel-steps-list::-webkit-scrollbar-track {
+  background: #3058a1;
+}
+
+#tutorial-control-panel-steps-list::-webkit-scrollbar-thumb {
+  background: #a8bfe9;
+}
+
+#tutorial-control-panel-steps-list::-webkit-scrollbar-thumb:hover {
+  background: #81a2df;
+}
+
+#tutorial-control-panel-steps-list p {
+    color: #3d6fca;
+}
+
+#tutorial-control-panel-steps-list p:last-of-type {
+    margin: 0;
+}
+
+#tutorial-control-panel-steps-list p.done {
+    text-decoration: line-through;
+}
+
+#tutorial-control-panel-steps-list p.active {
+    font-weight: bold;
+}
+
+#tutorial-control-panel-steps-list p span {
+    color: #81a2df;
+}
+
+.tutorial-highlight {
+    position: fixed;
+    border: 3px solid #3d6fca;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 1px #0007;
+}
+
+.tutorial-label {
+    position: fixed;
+    max-width: 400px;
+    padding: 8px;
+    border: 3px solid #3d6fca;
+    border-radius: 8px;
+    background: rgba(61, 111, 202, 0.9); /* Can't use hex notation because mboss's Chromium doesn't support it */
+    color: #ffffff;
+    box-shadow: 0 0 10px 1px #0007;
+    pointer-events: all;
+    user-select: none;
+}
+
+.tutorial-label p {
+    margin: 0;
+}
+
+.tutorial-label i {
+    color: rgba(255, 255, 255, 0.69);
+}
+
+.tutorial-label .tutorial-label-option {
+    display: inline-block;
+    float: right;
+    margin: 8px 0 0 8px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #d4e0fe;
+    color: #3d6fca;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tutorial-label .tutorial-label-option:hover {
+    background: #ffffff;
+}
+
+.tutorial-label .tutorial-label-option:active {
+    background: #d4e0fe;
+}
+
+.tutorial-label .tutorial-label-option-disabled,
+.tutorial-label .tutorial-label-option-disabled:hover,
+.tutorial-label .tutorial-label-option-disabled:active {
+    background: rgba(255, 255, 255, 0.38); !important;
+    color: rgba(61, 111, 202, 0.69); !important;
+    cursor: default !important;
+}
+
+@media screen and (max-width: 1200px) {
+
+    #tutorial-control-panel > div {
+        max-width: 96%;
+    }
+
+    #tutorial-control-panel-header > p {
+        margin-top: 3px;
+        font-size: 15px;
+    }
+
+    #tutorial-control-panel-title-long {
+        display: none !important;
+    }
+
+    #tutorial-control-panel-title-short {
+        padding-right: 28px;
+    }
+
+    .tutorial-label {
+        max-width: 300px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #tutorial-control-panel-title-short {
+        display: none !important;
+    }
+}
+
+#tutorial-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.47);;
+    z-index: 10;
+}
+
+#tutorial-dialog > div {
+    position: fixed;
+    top: 32px;
+    width: 400px;
+    margin-left: -200px;
+    padding: 8px;
+    border: 3px solid #3d6fca;
+    border-radius: 8px;
+    background: rgba(61, 111, 202, 0.9);
+    color: #ffffff;
+    box-shadow: 0 0 10px 1px #0007;
+    pointer-events: all;
+    user-select: none;
+}
+
+#tutorial-dialog > div > p {
+    text-align: center;
+}
+
+#tutorial-dialog > div > div {
+    display: flex;
+}
+
+#tutorial-dialog div > span {
+    display: inline-block;
+    flex: 1;
+    margin: 8px 0 0 0;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #d4e0fe;
+    text-align: center;
+    color: #3d6fca;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#tutorial-dialog div > span ~ span {
+    margin-left: 8px;
+}

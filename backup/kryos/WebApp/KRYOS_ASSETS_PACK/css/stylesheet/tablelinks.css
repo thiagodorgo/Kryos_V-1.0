@@ -1,0 +1,28 @@
+.bordotab {
+	font-family: Verdana, Arial, Helvetica, sans-serif; /* Font */
+	font-size: 10px; /* Dimensione dei caratteri */
+	color: #000000; /* Colore dei caratteri */
+	background-color: #333333; /* Colore di sfondo della tabella */
+}
+.classetd {
+	font-family: Verdana, Arial, Helvetica, sans-serif; /* Font */
+	font-size: 10px; /* Dimensione dei caratteri */
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 4px;
+	padding-right: 1px;
+	color: #000099; /* Colore dei caratteri */
+	background-color: #EFEECF; /* Colore di sfondo delle celle della tabella */
+	border-bottom-width: 0px; /* Spessore bordo inferiore */
+	border-bottom-style: solid; /* Aspetto bordo inferiore */
+	border-bottom-color: #000000; /* Colore bordo inferiore */
+	border-right-width: 0px; /* Spessore bordo destro */
+	border-right-style: solid; /* Aspetto bordo destro */
+	border-right-color: #000000; /* Colore bordo destro */
+	border-left-width: 0px;	/* Spessore bordo sinistro */
+	border-left-style: solid; /* Aspetto bordo sinistro */
+	border-left-color: #000000; /* Colore bordo sinistro */
+	border-top-width: 1px; /* Spessore bordo superiore */
+	border-top-style: solid; /* Aspetto bordo superiore */
+	border-top-color: #FFFFFF; /* Colore bordo superiore */
+}

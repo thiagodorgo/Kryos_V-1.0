@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="30" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="1.1" xmlns="http://www.w3.org/2000/svg" height="80" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:cc="http://creativecommons.org/ns#" sodipodi:docname="Nuovo documento 26" id="svg4233" inkscape:version="0.48.4 r9939" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:atv="http://webmi.atvise.com/2007/svgext">
+ <defs id="defs4235">
+  <linearGradient id="linear_1" y1="0" x1="0" y2="1" gradientUnits="objectBoundingBox" x2="1">
+   <stop offset="0" stop-color="#dcdcdc" stop-opacity="0.7058823529411765"/>
+   <stop offset="1" stop-color="#dcdcdc" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="linear_2" y1="0" x1="0" y2="1" gradientUnits="objectBoundingBox" x2="1">
+   <stop offset="0" stop-color="#969696" stop-opacity="0.7058823529411765"/>
+   <stop offset="1" stop-color="#969696" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="linear_3" y1="0" x1="0" y2="0.0181818" gradientUnits="objectBoundingBox" x2="1.41818">
+   <stop offset="0" stop-color="#505050" stop-opacity="0.7058823529411765"/>
+   <stop offset="1" stop-color="#505050" stop-opacity="0"/>
+  </linearGradient>
+ </defs>
+ <sodipodi:namedview inkscape:zoom="15.839192" inkscape:window-x="1912" inkscape:window-y="-8" bordercolor="#666666" id="base" inkscape:pageopacity="0.0" inkscape:window-maximized="1" pagecolor="#ffffff" inkscape:window-width="1920" showgrid="true" inkscape:cx="5.7792377" inkscape:cy="7.0884453" inkscape:snap-bbox="true" inkscape:window-height="1018" borderopacity="1.0" inkscape:pageshadow="2" inkscape:current-layer="layer1" inkscape:document-units="px">
+  <inkscape:grid empspacing="5" snapvisiblegridlinesonly="true" enabled="true" visible="true" type="xygrid" id="grid4259"/>
+ </sodipodi:namedview>
+ <metadata id="metadata4238">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+  <atv:gridconfig width="20" enabled="false" height="20" gridstyle="lines"/>
+  <atv:snapconfig width="10" enabled="false" height="10"/>
+ </metadata>
+ <path sodipodi:nodetypes="cccccc" stroke-dasharray="none" fill="url(#linear_3)" inkscape:label="Livello 1" inkscape:groupmode="layer" stroke="#000000" inkscape:connector-curvature="0" stroke-linejoin="round" style="stroke-dashoffset:0;stroke-miterlimit:3.86400008" id="rect3809-4" stroke-linecap="round" atv:refpx="15" stroke-width="0.5" atv:refpy="1012.362" d="M29.25,79.25L9.593,79.25C4.425,79.25 0.741,75.482 0.748,70.192L0.748,9.807C0.739,4.265 4.425,0.749 9.593,0.749L29.25,0.749"/>
+</svg>

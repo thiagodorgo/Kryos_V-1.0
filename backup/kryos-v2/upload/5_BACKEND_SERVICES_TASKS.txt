@@ -1,0 +1,1635 @@
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\anyio\abc\_tasks.py
+============================================================
+
+from __future__ import annotations
+
+import sys
+from abc import ABCMeta, abstractmethod
+from collections.abc import Awaitable, Callable
+from types import TracebackType
+from typing import TYPE_CHECKING, Any, Protocol, overload
+
+if sys.version_info >= (3, 13):
+    from typing import TypeVar
+else:
+    from typing_extensions import TypeVar
+
+if sys.version_info >= (3, 11):
+    from typing import TypeVarTuple, Unpack
+else:
+    from typing_extensions import TypeVarTuple, Unpack
+
+if TYPE_CHECKING:
+    from .._core._tasks import CancelScope
+
+T_Retval = TypeVar("T_Retval")
+T_contra = TypeVar("T_contra", contravariant=True, default=None)
+PosArgsT = TypeVarTuple("PosArgsT")
+
+
+class TaskStatus(Protocol[T_contra]):
+    @overload
+    def started(self: TaskStatus[None]) -> None: ...
+
+    @overload
+    def started(self, value: T_contra) -> None: ...
+
+    def started(self, value: T_contra | None = None) -> None:
+        """
+        Signal that the task has started.
+
+        :param value: object passed back to the starter of the task
+        """
+
+
+class TaskGroup(metaclass=ABCMeta):
+    """
+    Groups several asynchronous tasks together.
+
+    :ivar cancel_scope: the cancel scope inherited by all child tasks
+    :vartype cancel_scope: CancelScope
+
+    .. note:: On asyncio, support for eager task factories is considered to be
+        **experimental**. In particular, they don't follow the usual semantics of new
+        tasks being scheduled on the next iteration of the event loop, and may thus
+        cause unexpected behavior in code that wasn't written with such semantics in
+        mind.
+    """
+
+    cancel_scope: CancelScope
+
+    @abstractmethod
+    def start_soon(
+        self,
+        func: Callable[[Unpack[PosArgsT]], Awaitable[Any]],
+        *args: Unpack[PosArgsT],
+        name: object = None,
+    ) -> None:
+        """
+        Start a new task in this task group.
+
+        :param func: a coroutine function
+        :param args: positional arguments to call the function with
+        :param name: name of the task, for the purposes of introspection and debugging
+
+        .. versionadded:: 3.0
+        """
+
+    @abstractmethod
+    async def start(
+        self,
+        func: Callable[..., Awaitable[Any]],
+        *args: object,
+        name: object = None,
+    ) -> Any:
+        """
+        Start a new task and wait until it signals for readiness.
+
+        The target callable must accept a keyword argument ``task_status`` (of type
+        :class:`TaskStatus`). Awaiting on this method will return whatever was passed to
+        ``task_status.started()`` (``None`` by default).
+
+        .. note:: The :class:`TaskStatus` class is generic, and the type argument should
+            indicate the type of the value that will be passed to
+            ``task_status.started()``.
+
+        :param func: a coroutine function that accepts the ``task_status`` keyword
+            argument
+        :param args: positional arguments to call the function with
+        :param name: an optional name for the task, for introspection and debugging
+        :return: the value passed to ``task_status.started()``
+        :raises RuntimeError: if the task finishes without calling
+            ``task_status.started()``
+
+        .. seealso:: :ref:`start_initialize`
+
+        .. versionadded:: 3.0
+        """
+
+    @abstractmethod
+    async def __aenter__(self) -> TaskGroup:
+        """Enter the task group context and allow starting new tasks."""
+
+    @abstractmethod
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> bool:
+        """Exit the task group context waiting for all tasks to finish."""
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\anyio\_core\_tasks.py
+============================================================
+
+from __future__ import annotations
+
+import math
+from collections.abc import Generator
+from contextlib import contextmanager
+from types import TracebackType
+
+from ..abc._tasks import TaskGroup, TaskStatus
+from ._eventloop import get_async_backend
+
+
+class _IgnoredTaskStatus(TaskStatus[object]):
+    def started(self, value: object = None) -> None:
+        pass
+
+
+TASK_STATUS_IGNORED = _IgnoredTaskStatus()
+
+
+class CancelScope:
+    """
+    Wraps a unit of work that can be made separately cancellable.
+
+    :param deadline: The time (clock value) when this scope is cancelled automatically
+    :param shield: ``True`` to shield the cancel scope from external cancellation
+    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
+        current thread
+    """
+
+    def __new__(
+        cls, *, deadline: float = math.inf, shield: bool = False
+    ) -> CancelScope:
+        return get_async_backend().create_cancel_scope(shield=shield, deadline=deadline)
+
+    def cancel(self, reason: str | None = None) -> None:
+        """
+        Cancel this scope immediately.
+
+        :param reason: a message describing the reason for the cancellation
+
+        """
+        raise NotImplementedError
+
+    @property
+    def deadline(self) -> float:
+        """
+        The time (clock value) when this scope is cancelled automatically.
+
+        Will be ``float('inf')`` if no timeout has been set.
+
+        """
+        raise NotImplementedError
+
+    @deadline.setter
+    def deadline(self, value: float) -> None:
+        raise NotImplementedError
+
+    @property
+    def cancel_called(self) -> bool:
+        """``True`` if :meth:`cancel` has been called."""
+        raise NotImplementedError
+
+    @property
+    def cancelled_caught(self) -> bool:
+        """
+        ``True`` if this scope suppressed a cancellation exception it itself raised.
+
+        This is typically used to check if any work was interrupted, or to see if the
+        scope was cancelled due to its deadline being reached. The value will, however,
+        only be ``True`` if the cancellation was triggered by the scope itself (and not
+        an outer scope).
+
+        """
+        raise NotImplementedError
+
+    @property
+    def shield(self) -> bool:
+        """
+        ``True`` if this scope is shielded from external cancellation.
+
+        While a scope is shielded, it will not receive cancellations from outside.
+
+        """
+        raise NotImplementedError
+
+    @shield.setter
+    def shield(self, value: bool) -> None:
+        raise NotImplementedError
+
+    def __enter__(self) -> CancelScope:
+        raise NotImplementedError
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> bool:
+        raise NotImplementedError
+
+
+@contextmanager
+def fail_after(
+    delay: float | None, shield: bool = False
+) -> Generator[CancelScope, None, None]:
+    """
+    Create a context manager which raises a :class:`TimeoutError` if does not finish in
+    time.
+
+    :param delay: maximum allowed time (in seconds) before raising the exception, or
+        ``None`` to disable the timeout
+    :param shield: ``True`` to shield the cancel scope from external cancellation
+    :return: a context manager that yields a cancel scope
+    :rtype: :class:`~typing.ContextManager`\\[:class:`~anyio.CancelScope`\\]
+    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
+        current thread
+
+    """
+    current_time = get_async_backend().current_time
+    deadline = (current_time() + delay) if delay is not None else math.inf
+    with get_async_backend().create_cancel_scope(
+        deadline=deadline, shield=shield
+    ) as cancel_scope:
+        yield cancel_scope
+
+    if cancel_scope.cancelled_caught and current_time() >= cancel_scope.deadline:
+        raise TimeoutError
+
+
+def move_on_after(delay: float | None, shield: bool = False) -> CancelScope:
+    """
+    Create a cancel scope with a deadline that expires after the given delay.
+
+    :param delay: maximum allowed time (in seconds) before exiting the context block, or
+        ``None`` to disable the timeout
+    :param shield: ``True`` to shield the cancel scope from external cancellation
+    :return: a cancel scope
+    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
+        current thread
+
+    """
+    deadline = (
+        (get_async_backend().current_time() + delay) if delay is not None else math.inf
+    )
+    return get_async_backend().create_cancel_scope(deadline=deadline, shield=shield)
+
+
+def current_effective_deadline() -> float:
+    """
+    Return the nearest deadline among all the cancel scopes effective for the current
+    task.
+
+    :return: a clock value from the event loop's internal clock (or ``float('inf')`` if
+        there is no deadline in effect, or ``float('-inf')`` if the current scope has
+        been cancelled)
+    :rtype: float
+    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
+        current thread
+
+    """
+    return get_async_backend().current_effective_deadline()
+
+
+def create_task_group() -> TaskGroup:
+    """
+    Create a task group.
+
+    :return: a task group
+    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
+        current thread
+
+    """
+    return get_async_backend().create_task_group()
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\resources\fine_tuning\jobs\jobs.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing import Union, Iterable, Optional
+from typing_extensions import Literal
+
+import httpx
+
+from .... import _legacy_response
+from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ...._utils import (
+    maybe_transform,
+    async_maybe_transform,
+)
+from ...._compat import cached_property
+from .checkpoints import (
+    Checkpoints,
+    AsyncCheckpoints,
+    CheckpointsWithRawResponse,
+    AsyncCheckpointsWithRawResponse,
+    CheckpointsWithStreamingResponse,
+    AsyncCheckpointsWithStreamingResponse,
+)
+from ...._resource import SyncAPIResource, AsyncAPIResource
+from ...._response import to_streamed_response_wrapper, async_to_streamed_response_wrapper
+from ....pagination import SyncCursorPage, AsyncCursorPage
+from ...._base_client import (
+    AsyncPaginator,
+    make_request_options,
+)
+from ....types.fine_tuning import job_list_params, job_create_params, job_list_events_params
+from ....types.fine_tuning.fine_tuning_job import FineTuningJob
+from ....types.fine_tuning.fine_tuning_job_event import FineTuningJobEvent
+
+__all__ = ["Jobs", "AsyncJobs"]
+
+
+class Jobs(SyncAPIResource):
+    @cached_property
+    def checkpoints(self) -> Checkpoints:
+        return Checkpoints(self._client)
+
+    @cached_property
+    def with_raw_response(self) -> JobsWithRawResponse:
+        return JobsWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> JobsWithStreamingResponse:
+        return JobsWithStreamingResponse(self)
+
+    def create(
+        self,
+        *,
+        model: Union[str, Literal["babbage-002", "davinci-002", "gpt-3.5-turbo"]],
+        training_file: str,
+        hyperparameters: job_create_params.Hyperparameters | NotGiven = NOT_GIVEN,
+        integrations: Optional[Iterable[job_create_params.Integration]] | NotGiven = NOT_GIVEN,
+        seed: Optional[int] | NotGiven = NOT_GIVEN,
+        suffix: Optional[str] | NotGiven = NOT_GIVEN,
+        validation_file: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Creates a fine-tuning job which begins the process of creating a new model from
+        a given dataset.
+
+        Response includes details of the enqueued job including job status and the name
+        of the fine-tuned models once complete.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+
+        Args:
+          model: The name of the model to fine-tune. You can select one of the
+              [supported models](https://platform.openai.com/docs/guides/fine-tuning/what-models-can-be-fine-tuned).
+
+          training_file: The ID of an uploaded file that contains training data.
+
+              See [upload file](https://platform.openai.com/docs/api-reference/files/create)
+              for how to upload a file.
+
+              Your dataset must be formatted as a JSONL file. Additionally, you must upload
+              your file with the purpose `fine-tune`.
+
+              The contents of the file should differ depending on if the model uses the
+              [chat](https://platform.openai.com/docs/api-reference/fine-tuning/chat-input) or
+              [completions](https://platform.openai.com/docs/api-reference/fine-tuning/completions-input)
+              format.
+
+              See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+              for more details.
+
+          hyperparameters: The hyperparameters used for the fine-tuning job.
+
+          integrations: A list of integrations to enable for your fine-tuning job.
+
+          seed: The seed controls the reproducibility of the job. Passing in the same seed and
+              job parameters should produce the same results, but may differ in rare cases. If
+              a seed is not specified, one will be generated for you.
+
+          suffix: A string of up to 18 characters that will be added to your fine-tuned model
+              name.
+
+              For example, a `suffix` of "custom-model-name" would produce a model name like
+              `ft:gpt-3.5-turbo:openai:custom-model-name:7p4lURel`.
+
+          validation_file: The ID of an uploaded file that contains validation data.
+
+              If you provide this file, the data is used to generate validation metrics
+              periodically during fine-tuning. These metrics can be viewed in the fine-tuning
+              results file. The same data should not be present in both train and validation
+              files.
+
+              Your dataset must be formatted as a JSONL file. You must upload your file with
+              the purpose `fine-tune`.
+
+              See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+              for more details.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._post(
+            "/fine_tuning/jobs",
+            body=maybe_transform(
+                {
+                    "model": model,
+                    "training_file": training_file,
+                    "hyperparameters": hyperparameters,
+                    "integrations": integrations,
+                    "seed": seed,
+                    "suffix": suffix,
+                    "validation_file": validation_file,
+                },
+                job_create_params.JobCreateParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    def retrieve(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Get info about a fine-tuning job.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return self._get(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    def list(
+        self,
+        *,
+        after: str | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncCursorPage[FineTuningJob]:
+        """
+        List your organization's fine-tuning jobs
+
+        Args:
+          after: Identifier for the last job from the previous pagination request.
+
+          limit: Number of fine-tuning jobs to retrieve.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
+            "/fine_tuning/jobs",
+            page=SyncCursorPage[FineTuningJob],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "after": after,
+                        "limit": limit,
+                    },
+                    job_list_params.JobListParams,
+                ),
+            ),
+            model=FineTuningJob,
+        )
+
+    def cancel(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Immediately cancel a fine-tune job.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return self._post(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    def list_events(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        after: str | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncCursorPage[FineTuningJobEvent]:
+        """
+        Get status updates for a fine-tuning job.
+
+        Args:
+          after: Identifier for the last event from the previous pagination request.
+
+          limit: Number of events to retrieve.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return self._get_api_list(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}/events",
+            page=SyncCursorPage[FineTuningJobEvent],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "after": after,
+                        "limit": limit,
+                    },
+                    job_list_events_params.JobListEventsParams,
+                ),
+            ),
+            model=FineTuningJobEvent,
+        )
+
+
+class AsyncJobs(AsyncAPIResource):
+    @cached_property
+    def checkpoints(self) -> AsyncCheckpoints:
+        return AsyncCheckpoints(self._client)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncJobsWithRawResponse:
+        return AsyncJobsWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncJobsWithStreamingResponse:
+        return AsyncJobsWithStreamingResponse(self)
+
+    async def create(
+        self,
+        *,
+        model: Union[str, Literal["babbage-002", "davinci-002", "gpt-3.5-turbo"]],
+        training_file: str,
+        hyperparameters: job_create_params.Hyperparameters | NotGiven = NOT_GIVEN,
+        integrations: Optional[Iterable[job_create_params.Integration]] | NotGiven = NOT_GIVEN,
+        seed: Optional[int] | NotGiven = NOT_GIVEN,
+        suffix: Optional[str] | NotGiven = NOT_GIVEN,
+        validation_file: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Creates a fine-tuning job which begins the process of creating a new model from
+        a given dataset.
+
+        Response includes details of the enqueued job including job status and the name
+        of the fine-tuned models once complete.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+
+        Args:
+          model: The name of the model to fine-tune. You can select one of the
+              [supported models](https://platform.openai.com/docs/guides/fine-tuning/what-models-can-be-fine-tuned).
+
+          training_file: The ID of an uploaded file that contains training data.
+
+              See [upload file](https://platform.openai.com/docs/api-reference/files/create)
+              for how to upload a file.
+
+              Your dataset must be formatted as a JSONL file. Additionally, you must upload
+              your file with the purpose `fine-tune`.
+
+              The contents of the file should differ depending on if the model uses the
+              [chat](https://platform.openai.com/docs/api-reference/fine-tuning/chat-input) or
+              [completions](https://platform.openai.com/docs/api-reference/fine-tuning/completions-input)
+              format.
+
+              See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+              for more details.
+
+          hyperparameters: The hyperparameters used for the fine-tuning job.
+
+          integrations: A list of integrations to enable for your fine-tuning job.
+
+          seed: The seed controls the reproducibility of the job. Passing in the same seed and
+              job parameters should produce the same results, but may differ in rare cases. If
+              a seed is not specified, one will be generated for you.
+
+          suffix: A string of up to 18 characters that will be added to your fine-tuned model
+              name.
+
+              For example, a `suffix` of "custom-model-name" would produce a model name like
+              `ft:gpt-3.5-turbo:openai:custom-model-name:7p4lURel`.
+
+          validation_file: The ID of an uploaded file that contains validation data.
+
+              If you provide this file, the data is used to generate validation metrics
+              periodically during fine-tuning. These metrics can be viewed in the fine-tuning
+              results file. The same data should not be present in both train and validation
+              files.
+
+              Your dataset must be formatted as a JSONL file. You must upload your file with
+              the purpose `fine-tune`.
+
+              See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+              for more details.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self._post(
+            "/fine_tuning/jobs",
+            body=await async_maybe_transform(
+                {
+                    "model": model,
+                    "training_file": training_file,
+                    "hyperparameters": hyperparameters,
+                    "integrations": integrations,
+                    "seed": seed,
+                    "suffix": suffix,
+                    "validation_file": validation_file,
+                },
+                job_create_params.JobCreateParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    async def retrieve(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Get info about a fine-tuning job.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return await self._get(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    def list(
+        self,
+        *,
+        after: str | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[FineTuningJob, AsyncCursorPage[FineTuningJob]]:
+        """
+        List your organization's fine-tuning jobs
+
+        Args:
+          after: Identifier for the last job from the previous pagination request.
+
+          limit: Number of fine-tuning jobs to retrieve.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
+            "/fine_tuning/jobs",
+            page=AsyncCursorPage[FineTuningJob],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "after": after,
+                        "limit": limit,
+                    },
+                    job_list_params.JobListParams,
+                ),
+            ),
+            model=FineTuningJob,
+        )
+
+    async def cancel(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> FineTuningJob:
+        """
+        Immediately cancel a fine-tune job.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return await self._post(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=FineTuningJob,
+        )
+
+    def list_events(
+        self,
+        fine_tuning_job_id: str,
+        *,
+        after: str | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[FineTuningJobEvent, AsyncCursorPage[FineTuningJobEvent]]:
+        """
+        Get status updates for a fine-tuning job.
+
+        Args:
+          after: Identifier for the last event from the previous pagination request.
+
+          limit: Number of events to retrieve.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not fine_tuning_job_id:
+            raise ValueError(f"Expected a non-empty value for `fine_tuning_job_id` but received {fine_tuning_job_id!r}")
+        return self._get_api_list(
+            f"/fine_tuning/jobs/{fine_tuning_job_id}/events",
+            page=AsyncCursorPage[FineTuningJobEvent],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "after": after,
+                        "limit": limit,
+                    },
+                    job_list_events_params.JobListEventsParams,
+                ),
+            ),
+            model=FineTuningJobEvent,
+        )
+
+
+class JobsWithRawResponse:
+    def __init__(self, jobs: Jobs) -> None:
+        self._jobs = jobs
+
+        self.create = _legacy_response.to_raw_response_wrapper(
+            jobs.create,
+        )
+        self.retrieve = _legacy_response.to_raw_response_wrapper(
+            jobs.retrieve,
+        )
+        self.list = _legacy_response.to_raw_response_wrapper(
+            jobs.list,
+        )
+        self.cancel = _legacy_response.to_raw_response_wrapper(
+            jobs.cancel,
+        )
+        self.list_events = _legacy_response.to_raw_response_wrapper(
+            jobs.list_events,
+        )
+
+    @cached_property
+    def checkpoints(self) -> CheckpointsWithRawResponse:
+        return CheckpointsWithRawResponse(self._jobs.checkpoints)
+
+
+class AsyncJobsWithRawResponse:
+    def __init__(self, jobs: AsyncJobs) -> None:
+        self._jobs = jobs
+
+        self.create = _legacy_response.async_to_raw_response_wrapper(
+            jobs.create,
+        )
+        self.retrieve = _legacy_response.async_to_raw_response_wrapper(
+            jobs.retrieve,
+        )
+        self.list = _legacy_response.async_to_raw_response_wrapper(
+            jobs.list,
+        )
+        self.cancel = _legacy_response.async_to_raw_response_wrapper(
+            jobs.cancel,
+        )
+        self.list_events = _legacy_response.async_to_raw_response_wrapper(
+            jobs.list_events,
+        )
+
+    @cached_property
+    def checkpoints(self) -> AsyncCheckpointsWithRawResponse:
+        return AsyncCheckpointsWithRawResponse(self._jobs.checkpoints)
+
+
+class JobsWithStreamingResponse:
+    def __init__(self, jobs: Jobs) -> None:
+        self._jobs = jobs
+
+        self.create = to_streamed_response_wrapper(
+            jobs.create,
+        )
+        self.retrieve = to_streamed_response_wrapper(
+            jobs.retrieve,
+        )
+        self.list = to_streamed_response_wrapper(
+            jobs.list,
+        )
+        self.cancel = to_streamed_response_wrapper(
+            jobs.cancel,
+        )
+        self.list_events = to_streamed_response_wrapper(
+            jobs.list_events,
+        )
+
+    @cached_property
+    def checkpoints(self) -> CheckpointsWithStreamingResponse:
+        return CheckpointsWithStreamingResponse(self._jobs.checkpoints)
+
+
+class AsyncJobsWithStreamingResponse:
+    def __init__(self, jobs: AsyncJobs) -> None:
+        self._jobs = jobs
+
+        self.create = async_to_streamed_response_wrapper(
+            jobs.create,
+        )
+        self.retrieve = async_to_streamed_response_wrapper(
+            jobs.retrieve,
+        )
+        self.list = async_to_streamed_response_wrapper(
+            jobs.list,
+        )
+        self.cancel = async_to_streamed_response_wrapper(
+            jobs.cancel,
+        )
+        self.list_events = async_to_streamed_response_wrapper(
+            jobs.list_events,
+        )
+
+    @cached_property
+    def checkpoints(self) -> AsyncCheckpointsWithStreamingResponse:
+        return AsyncCheckpointsWithStreamingResponse(self._jobs.checkpoints)
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\fine_tuning_job.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing import List, Union, Optional
+from typing_extensions import Literal
+
+from ..._models import BaseModel
+from .fine_tuning_job_wandb_integration_object import FineTuningJobWandbIntegrationObject
+
+__all__ = ["FineTuningJob", "Error", "Hyperparameters"]
+
+
+class Error(BaseModel):
+    code: str
+    """A machine-readable error code."""
+
+    message: str
+    """A human-readable error message."""
+
+    param: Optional[str] = None
+    """The parameter that was invalid, usually `training_file` or `validation_file`.
+
+    This field will be null if the failure was not parameter-specific.
+    """
+
+
+class Hyperparameters(BaseModel):
+    n_epochs: Union[Literal["auto"], int]
+    """The number of epochs to train the model for.
+
+    An epoch refers to one full cycle through the training dataset. "auto" decides
+    the optimal number of epochs based on the size of the dataset. If setting the
+    number manually, we support any number between 1 and 50 epochs.
+    """
+
+
+class FineTuningJob(BaseModel):
+    id: str
+    """The object identifier, which can be referenced in the API endpoints."""
+
+    created_at: int
+    """The Unix timestamp (in seconds) for when the fine-tuning job was created."""
+
+    error: Optional[Error] = None
+    """
+    For fine-tuning jobs that have `failed`, this will contain more information on
+    the cause of the failure.
+    """
+
+    fine_tuned_model: Optional[str] = None
+    """The name of the fine-tuned model that is being created.
+
+    The value will be null if the fine-tuning job is still running.
+    """
+
+    finished_at: Optional[int] = None
+    """The Unix timestamp (in seconds) for when the fine-tuning job was finished.
+
+    The value will be null if the fine-tuning job is still running.
+    """
+
+    hyperparameters: Hyperparameters
+    """The hyperparameters used for the fine-tuning job.
+
+    See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+    for more details.
+    """
+
+    model: str
+    """The base model that is being fine-tuned."""
+
+    object: Literal["fine_tuning.job"]
+    """The object type, which is always "fine_tuning.job"."""
+
+    organization_id: str
+    """The organization that owns the fine-tuning job."""
+
+    result_files: List[str]
+    """The compiled results file ID(s) for the fine-tuning job.
+
+    You can retrieve the results with the
+    [Files API](https://platform.openai.com/docs/api-reference/files/retrieve-contents).
+    """
+
+    seed: int
+    """The seed used for the fine-tuning job."""
+
+    status: Literal["validating_files", "queued", "running", "succeeded", "failed", "cancelled"]
+    """
+    The current status of the fine-tuning job, which can be either
+    `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.
+    """
+
+    trained_tokens: Optional[int] = None
+    """The total number of billable tokens processed by this fine-tuning job.
+
+    The value will be null if the fine-tuning job is still running.
+    """
+
+    training_file: str
+    """The file ID used for training.
+
+    You can retrieve the training data with the
+    [Files API](https://platform.openai.com/docs/api-reference/files/retrieve-contents).
+    """
+
+    validation_file: Optional[str] = None
+    """The file ID used for validation.
+
+    You can retrieve the validation results with the
+    [Files API](https://platform.openai.com/docs/api-reference/files/retrieve-contents).
+    """
+
+    estimated_finish: Optional[int] = None
+    """
+    The Unix timestamp (in seconds) for when the fine-tuning job is estimated to
+    finish. The value will be null if the fine-tuning job is not running.
+    """
+
+    integrations: Optional[List[FineTuningJobWandbIntegrationObject]] = None
+    """A list of integrations to enable for this fine-tuning job."""
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\fine_tuning_job_event.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing_extensions import Literal
+
+from ..._models import BaseModel
+
+__all__ = ["FineTuningJobEvent"]
+
+
+class FineTuningJobEvent(BaseModel):
+    id: str
+
+    created_at: int
+
+    level: Literal["info", "warn", "error"]
+
+    message: str
+
+    object: Literal["fine_tuning.job.event"]
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\fine_tuning_job_integration.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+
+
+from .fine_tuning_job_wandb_integration_object import FineTuningJobWandbIntegrationObject
+
+FineTuningJobIntegration = FineTuningJobWandbIntegrationObject
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\fine_tuning_job_wandb_integration.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing import List, Optional
+
+from ..._models import BaseModel
+
+__all__ = ["FineTuningJobWandbIntegration"]
+
+
+class FineTuningJobWandbIntegration(BaseModel):
+    project: str
+    """The name of the project that the new run will be created under."""
+
+    entity: Optional[str] = None
+    """The entity to use for the run.
+
+    This allows you to set the team or username of the WandB user that you would
+    like associated with the run. If not set, the default entity for the registered
+    WandB API key is used.
+    """
+
+    name: Optional[str] = None
+    """A display name to set for the run.
+
+    If not set, we will use the Job ID as the name.
+    """
+
+    tags: Optional[List[str]] = None
+    """A list of tags to be attached to the newly created run.
+
+    These tags are passed through directly to WandB. Some default tags are generated
+    by OpenAI: "openai/finetune", "openai/{base-model}", "openai/{ftjob-abcdef}".
+    """
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\fine_tuning_job_wandb_integration_object.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing_extensions import Literal
+
+from ..._models import BaseModel
+from .fine_tuning_job_wandb_integration import FineTuningJobWandbIntegration
+
+__all__ = ["FineTuningJobWandbIntegrationObject"]
+
+
+class FineTuningJobWandbIntegrationObject(BaseModel):
+    type: Literal["wandb"]
+    """The type of the integration being enabled for the fine-tuning job"""
+
+    wandb: FineTuningJobWandbIntegration
+    """The settings for your integration with Weights and Biases.
+
+    This payload specifies the project that metrics will be sent to. Optionally, you
+    can set an explicit display name for your run, add tags to your run, and set a
+    default entity (team, username, etc) to be associated with your run.
+    """
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\job_create_params.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing import List, Union, Iterable, Optional
+from typing_extensions import Literal, Required, TypedDict
+
+__all__ = ["JobCreateParams", "Hyperparameters", "Integration", "IntegrationWandb"]
+
+
+class JobCreateParams(TypedDict, total=False):
+    model: Required[Union[str, Literal["babbage-002", "davinci-002", "gpt-3.5-turbo"]]]
+    """The name of the model to fine-tune.
+
+    You can select one of the
+    [supported models](https://platform.openai.com/docs/guides/fine-tuning/what-models-can-be-fine-tuned).
+    """
+
+    training_file: Required[str]
+    """The ID of an uploaded file that contains training data.
+
+    See [upload file](https://platform.openai.com/docs/api-reference/files/create)
+    for how to upload a file.
+
+    Your dataset must be formatted as a JSONL file. Additionally, you must upload
+    your file with the purpose `fine-tune`.
+
+    The contents of the file should differ depending on if the model uses the
+    [chat](https://platform.openai.com/docs/api-reference/fine-tuning/chat-input) or
+    [completions](https://platform.openai.com/docs/api-reference/fine-tuning/completions-input)
+    format.
+
+    See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+    for more details.
+    """
+
+    hyperparameters: Hyperparameters
+    """The hyperparameters used for the fine-tuning job."""
+
+    integrations: Optional[Iterable[Integration]]
+    """A list of integrations to enable for your fine-tuning job."""
+
+    seed: Optional[int]
+    """The seed controls the reproducibility of the job.
+
+    Passing in the same seed and job parameters should produce the same results, but
+    may differ in rare cases. If a seed is not specified, one will be generated for
+    you.
+    """
+
+    suffix: Optional[str]
+    """
+    A string of up to 18 characters that will be added to your fine-tuned model
+    name.
+
+    For example, a `suffix` of "custom-model-name" would produce a model name like
+    `ft:gpt-3.5-turbo:openai:custom-model-name:7p4lURel`.
+    """
+
+    validation_file: Optional[str]
+    """The ID of an uploaded file that contains validation data.
+
+    If you provide this file, the data is used to generate validation metrics
+    periodically during fine-tuning. These metrics can be viewed in the fine-tuning
+    results file. The same data should not be present in both train and validation
+    files.
+
+    Your dataset must be formatted as a JSONL file. You must upload your file with
+    the purpose `fine-tune`.
+
+    See the [fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+    for more details.
+    """
+
+
+class Hyperparameters(TypedDict, total=False):
+    batch_size: Union[Literal["auto"], int]
+    """Number of examples in each batch.
+
+    A larger batch size means that model parameters are updated less frequently, but
+    with lower variance.
+    """
+
+    learning_rate_multiplier: Union[Literal["auto"], float]
+    """Scaling factor for the learning rate.
+
+    A smaller learning rate may be useful to avoid overfitting.
+    """
+
+    n_epochs: Union[Literal["auto"], int]
+    """The number of epochs to train the model for.
+
+    An epoch refers to one full cycle through the training dataset.
+    """
+
+
+class IntegrationWandb(TypedDict, total=False):
+    project: Required[str]
+    """The name of the project that the new run will be created under."""
+
+    entity: Optional[str]
+    """The entity to use for the run.
+
+    This allows you to set the team or username of the WandB user that you would
+    like associated with the run. If not set, the default entity for the registered
+    WandB API key is used.
+    """
+
+    name: Optional[str]
+    """A display name to set for the run.
+
+    If not set, we will use the Job ID as the name.
+    """
+
+    tags: List[str]
+    """A list of tags to be attached to the newly created run.
+
+    These tags are passed through directly to WandB. Some default tags are generated
+    by OpenAI: "openai/finetune", "openai/{base-model}", "openai/{ftjob-abcdef}".
+    """
+
+
+class Integration(TypedDict, total=False):
+    type: Required[Literal["wandb"]]
+    """The type of integration to enable.
+
+    Currently, only "wandb" (Weights and Biases) is supported.
+    """
+
+    wandb: Required[IntegrationWandb]
+    """The settings for your integration with Weights and Biases.
+
+    This payload specifies the project that metrics will be sent to. Optionally, you
+    can set an explicit display name for your run, add tags to your run, and set a
+    default entity (team, username, etc) to be associated with your run.
+    """
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\job_list_events_params.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing_extensions import TypedDict
+
+__all__ = ["JobListEventsParams"]
+
+
+class JobListEventsParams(TypedDict, total=False):
+    after: str
+    """Identifier for the last event from the previous pagination request."""
+
+    limit: int
+    """Number of events to retrieve."""
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\job_list_params.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing_extensions import TypedDict
+
+__all__ = ["JobListParams"]
+
+
+class JobListParams(TypedDict, total=False):
+    after: str
+    """Identifier for the last job from the previous pagination request."""
+
+    limit: int
+    """Number of fine-tuning jobs to retrieve."""
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\openai\types\fine_tuning\jobs\fine_tuning_job_checkpoint.py
+============================================================
+
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing import Optional
+from typing_extensions import Literal
+
+from ...._models import BaseModel
+
+__all__ = ["FineTuningJobCheckpoint", "Metrics"]
+
+
+class Metrics(BaseModel):
+    full_valid_loss: Optional[float] = None
+
+    full_valid_mean_token_accuracy: Optional[float] = None
+
+    step: Optional[float] = None
+
+    train_loss: Optional[float] = None
+
+    train_mean_token_accuracy: Optional[float] = None
+
+    valid_loss: Optional[float] = None
+
+    valid_mean_token_accuracy: Optional[float] = None
+
+
+class FineTuningJobCheckpoint(BaseModel):
+    id: str
+    """The checkpoint identifier, which can be referenced in the API endpoints."""
+
+    created_at: int
+    """The Unix timestamp (in seconds) for when the checkpoint was created."""
+
+    fine_tuned_model_checkpoint: str
+    """The name of the fine-tuned checkpoint model that is created."""
+
+    fine_tuning_job_id: str
+    """The name of the fine-tuning job that this checkpoint was created from."""
+
+    metrics: Metrics
+    """Metrics at the step number during the fine-tuning job."""
+
+    object: Literal["fine_tuning.job.checkpoint"]
+    """The object type, which is always "fine_tuning.job.checkpoint"."""
+
+    step_number: int
+    """The step number that the checkpoint was created at."""
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\tqdm\contrib\utils_worker.py
+============================================================
+
+"""
+IO/concurrency helpers for `tqdm.contrib`.
+"""
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
+
+from ..auto import tqdm as tqdm_auto
+
+__author__ = {"github.com/": ["casperdcl"]}
+__all__ = ['MonoWorker']
+
+
+class MonoWorker(object):
+    """
+    Supports one running task and one waiting task.
+    The waiting task is the most recent submitted (others are discarded).
+    """
+    def __init__(self):
+        self.pool = ThreadPoolExecutor(max_workers=1)
+        self.futures = deque([], 2)
+
+    def submit(self, func, *args, **kwargs):
+        """`func(*args, **kwargs)` may replace currently waiting task."""
+        futures = self.futures
+        if len(futures) == futures.maxlen:
+            running = futures.popleft()
+            if not running.done():
+                if len(futures):  # clear waiting
+                    waiting = futures.pop()
+                    waiting.cancel()
+                futures.appendleft(running)  # re-insert running
+        try:
+            waiting = self.pool.submit(func, *args, **kwargs)
+        except Exception as e:
+            tqdm_auto.write(str(e))
+        else:
+            futures.append(waiting)
+            return waiting
+
+
+============================================================
+FILE: .\backend\.venv\Lib\site-packages\uvicorn\workers.py
+============================================================
+
+from __future__ import annotations
+
+import asyncio
+import logging
+import signal
+import sys
+import warnings
+from typing import Any
+
+from gunicorn.arbiter import Arbiter
+from gunicorn.workers.base import Worker
+
+from uvicorn.config import Config
+from uvicorn.main import Server
+
+warnings.warn(
+    "The `uvicorn.workers` module is deprecated. Please use `uvicorn-worker` package instead.\n"
+    "For more details, see https://github.com/Kludex/uvicorn-worker.",
+    DeprecationWarning,
+)
+
+
+class UvicornWorker(Worker):
+    """
+    A worker class for Gunicorn that interfaces with an ASGI consumer callable,
+    rather than a WSGI callable.
+    """
+
+    CONFIG_KWARGS: dict[str, Any] = {"loop": "auto", "http": "auto"}
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+
+        logger = logging.getLogger("uvicorn.error")
+        logger.handlers = self.log.error_log.handlers
+        logger.setLevel(self.log.error_log.level)
+        logger.propagate = False
+
+        logger = logging.getLogger("uvicorn.access")
+        logger.handlers = self.log.access_log.handlers
+        logger.setLevel(self.log.access_log.level)
+        logger.propagate = False
+
+        config_kwargs: dict = {
+            "app": None,
+            "log_config": None,
+            "timeout_keep_alive": self.cfg.keepalive,
+            "timeout_notify": self.timeout,
+            "callback_notify": self.callback_notify,
+            "limit_max_requests": self.max_requests,
+            "forwarded_allow_ips": self.cfg.forwarded_allow_ips,
+        }
+
+        if self.cfg.is_ssl:
+            ssl_kwargs = {
+                "ssl_keyfile": self.cfg.ssl_options.get("keyfile"),
+                "ssl_certfile": self.cfg.ssl_options.get("certfile"),
+                "ssl_keyfile_password": self.cfg.ssl_options.get("password"),
+                "ssl_version": self.cfg.ssl_options.get("ssl_version"),
+                "ssl_cert_reqs": self.cfg.ssl_options.get("cert_reqs"),
+                "ssl_ca_certs": self.cfg.ssl_options.get("ca_certs"),
+                "ssl_ciphers": self.cfg.ssl_options.get("ciphers"),
+            }
+            config_kwargs.update(ssl_kwargs)
+
+        if self.cfg.settings["backlog"].value:
+            config_kwargs["backlog"] = self.cfg.settings["backlog"].value
+
+        config_kwargs.update(self.CONFIG_KWARGS)
+
+        self.config = Config(**config_kwargs)
+
+    def init_process(self) -> None:
+        self.config.setup_event_loop()
+        super().init_process()
+
+    def init_signals(self) -> None:
+        # Reset signals so Gunicorn doesn't swallow subprocess return codes
+        # other signals are set up by Server.install_signal_handlers()
+        # See: https://github.com/encode/uvicorn/issues/894
+        for s in self.SIGNALS:
+            signal.signal(s, signal.SIG_DFL)
+
+        signal.signal(signal.SIGUSR1, self.handle_usr1)
+        # Don't let SIGUSR1 disturb active requests by interrupting system calls
+        signal.siginterrupt(signal.SIGUSR1, False)
+
+    def _install_sigquit_handler(self) -> None:
+        """Install a SIGQUIT handler on workers.
+
+        - https://github.com/encode/uvicorn/issues/1116
+        - https://github.com/benoitc/gunicorn/issues/2604
+        """
+
+        loop = asyncio.get_running_loop()
+        loop.add_signal_handler(signal.SIGQUIT, self.handle_exit, signal.SIGQUIT, None)
+
+    async def _serve(self) -> None:
+        self.config.app = self.wsgi
+        server = Server(config=self.config)
+        self._install_sigquit_handler()
+        await server.serve(sockets=self.sockets)
+        if not server.started:
+            sys.exit(Arbiter.WORKER_BOOT_ERROR)
+
+    def run(self) -> None:
+        return asyncio.run(self._serve())
+
+    async def callback_notify(self) -> None:
+        self.notify()
+
+
+class UvicornH11Worker(UvicornWorker):
+    CONFIG_KWARGS = {"loop": "asyncio", "http": "h11"}

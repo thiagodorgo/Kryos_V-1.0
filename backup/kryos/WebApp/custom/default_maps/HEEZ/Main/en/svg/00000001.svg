@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="1920" atv:contentwidth="1842" version="1.2" height="1030" atv:contentheight="840" visibility="hidden" atv:oe="2F5F9060J8ABE7GCDDB4N0CDS7M5JB54C7E76G49B5CCGCH8EGN2D9N6IBL1L90H7" xmlns="http://www.w3.org/2000/svg">
+ <desc>Suggested for 1920x1080 screen resolution</desc>
+ <title>PVPRO navbar@1920x1080</title>
+ <defs/>
+ <metadata/>
+ <circle cx="1209" cy="296" fill="#69e6f2" id="id_28" r="69" stroke="#b7cffc" stroke-width="5"/>
+ <circle cx="1761" cy="363" fill="#18b7eb" id="id_27" r="731" stroke="#1b1951" stroke-width="3"/>
+ <g transform="matrix(2.4,0,0,1.7167,0,0)">
+  <svg width="800" x="0" y="0" height="600" id="id_4" atv:refpx="1254.984" atv:refpy="515.025">
+   <defs/>
+   <metadata/>
+   <rect fill="#edff26" height="203" id="id_19" stroke="#894bc7" stroke-width="2" width="283" x="1217" y="823"/>
+   <circle cx="1699" cy="469" fill="#f72188" id="id_18" r="217" stroke="#e6bf45" stroke-width="3"/>
+   <rect width="796" x="2" y="2" fill="none" height="596" stroke="#000000" id="id_4_stroke" atv:refpx="400" stroke-width="2" atv:refpy="299.999"/>
+   <polyline fill="#7d56b3" id="id_13" points="1151,547 1272,188 460,324 288,137 1504,58 1874,935 176,928 981,925 308,614 693,874 " stroke="#9272aa" stroke-width="3"/>
+   <circle cx="13" cy="319" fill="#f0690e" id="id_12" r="339" stroke="#32ac1b" stroke-width="4"/>
+   <circle cx="1525" cy="655" fill="#ff3ecf" id="id_1" r="708" stroke="#5d76e5" stroke-width="3"/>
+   <circle cx="1208" cy="608" fill="#860582" id="id_32" r="689" stroke="#5f2e7c" stroke-width="4"/>
+   <circle cx="525" cy="741" fill="#ec10fc" id="id_16" r="23" stroke="#c88fdc" stroke-width="5"/>
+   <g id="id_4_iframegroup" atv:refpx="0" atv:refpy="0">
+    <line fill="#3faf0f" id="id_26" stroke="#d1cabf" stroke-width="3" x1="260" x2="533" y1="24" y2="194"/>
+    <atv:foreignObject width="800" x="0" y="0" height="600" id="id_4_iframediv">
+     <iframe allowTransparency="true" style="width:100%;height:100%" id="id_4_myframe" frameborder="0" scrolling="no" xmlns="http://www.w3.org/1999/xhtml">iframe</iframe>
+    </atv:foreignObject>
+   </g>
+   <polygon fill="#b085dd" id="id_33" points="1883,46 583,735 995,38 1500,19 1613,587 1764,145 1455,200 939,769 1235,25 241,841 1178,829 714,248 " stroke="#82dea9" stroke-width="3"/>
+   <polyline fill="#8a54d0" id="id_31" points="1793,660 1434,955 972,655 514,739 131,925 299,202 79,920 565,112 778,269 1428,666 1062,501 1218,349 962,274 " stroke="#46f95f" stroke-width="4"/>
+   <atv:foreignObject width="800" x="0" y="0" height="600" id="id_4_zoomareadiv">
+    <div style="width:100%;height:100%;background-color:white;opacity:0;filter:alpha(opacity=0);" id="id_4_zoomarea" scrolling="no" xmlns="http://www.w3.org/1999/xhtml"/>
+   </atv:foreignObject>
+   <circle cx="1021" cy="285" fill="#9a0c07" id="id_29" r="159" stroke="#b5e95a" stroke-width="3"/>
+   <polygon fill="#6eff74" id="id_24" points="1628,676 609,812 571,816 1638,342 654,434 1670,977 984,916 1849,805 1778,791 " stroke="#def3fe" stroke-width="1"/>
+   <text x="549" y="344.5" fill="#000000" font-family="Verdana" id="id_4_label" atv:refpx="400" atv:refpy="300" font-size="48" transform="matrix(0.625,0,0,0.9231,0,0)">IFRAME</text>
+   <ellipse cx="1700" cy="739" fill="#11715d" id="id_21" rx="566" ry="409" stroke="#7f24e4" stroke-width="1"/>
+   <ellipse cx="1055" cy="506" fill="#06848b" id="id_3" rx="447" ry="160" stroke="#85214e" stroke-width="2"/>
+   <polyline fill="#7e9b94" id="id_20" points="489,512 1704,939 8,280 0,773 1595,871 227,437 1075,58 " stroke="#d2d949" stroke-width="5"/>
+   <polygon fill="#c5d154" id="id_17" points="1719,535 1068,510 26,1004 1545,0 50,392 480,448 517,630 747,821 1642,386 687,100 1145,186 967,212 140,13 " stroke="#d45052" stroke-width="3"/>
+   <atv:foreignObject width="0" x="0" y="0" height="0" id="id_4_zoomboxdiv">
+    <div style="width: 100%; height:100%;" xmlns="http://www.w3.org/1999/xhtml"/>
+   </atv:foreignObject>
+   <polyline fill="#172b6a" id="id_30" points="141,160 738,545 1423,889 1259,554 1363,1017 " stroke="#5ce145" stroke-width="2"/>
+   <text x="415.5" y="414.11" fill="#000000" font-family="Verdana" id="id_4_label2" atv:refpx="400" atv:refpy="369.61" font-size="48" transform="matrix(0.625,0,0,0.9231,0,0)">(display container)</text>
+   <polygon fill="#898aa1" id="id_6" points="101,472 712,439 1096,956 1638,1019 958,947 516,411 1831,250 1626,171 886,942 675,799 390,215 1893,565 " stroke="#dd43ab" stroke-width="4"/>
+   <polygon fill="#a429ed" id="id_2" points="1430,481 337,618 1806,967 279,462 594,547 1273,703 385,917 37,344 " stroke="#2d405a" stroke-width="2"/>
+  </svg>
+ </g>
+ <script xlink:href="../../webmi.js" type="text/ecmascript"/>
+ <script xlink:href="../../include_style.js" type="text/ecmascript"/>
+ <script type="text/ecmascript"><![CDATA[webMI.proxy({"":[function(webMI,window,document,self){},{"id_4":["1",{"display":{v:"00000002"},"frameName":{v:"content"},"isNavigationFrame":{v:"true"}}]},{}],"1":[function(webMI,window,document,self){var isNavigationFrame = webMI.query["isNavigationFrame"] == "true";
+var url = webMI.query["url"];
+var display = webMI.query["display"];
+var targetUrl = url;
+targetUrl = (targetUrl != undefined) ? targetUrl : webMI.display.createURL(display,{"base":webMI.query.base});
+var frameName = webMI.query["frameName"];
+var defaultFrameName = "";
+var firstCCDExceeded = true;
+var myFrame = document.getElementById("myframe");
+var myLoadingscreen = null;
+var myExcldFrame = null;
+var urlPrefix = "";
+var urlPostfix = "";
+var currentActiveFrame = myFrame;
+var consistencyHandler = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Consistency Handler");
+var tabHandler = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tab Handler");
+
+var mousedownpos1 = null;
+var mousedownpos2 = null;
+var mousedownpospan = null;
+var olddisplaystyle = null;
+
+var zoomAreaDiv = document.getElementById("zoomareadiv");
+var zoomBoxDiv = document.getElementById("zoomboxdiv");
+
+var myIframe = document.getElementById(frameName);
+var myIframeDiv = document.getElementById("iframediv");
+
+var iframegroup = document.getElementById("iframegroup");
+
+var zoomArea = document.getElementById("zoomarea");
+
+var preloadGroup = document.getElementById("preload_group");
+
+var preloaded = false;
+var excludePreloaded = [];
+var includePreloaded = [];
+var preloadedFrames = {};
+var runOnce = true;
+var resumeCallbackObjects = [];
+
+if (webMI.display.isVML())
+	myFrame.style.position = "absolute";
+
+function isInArray(arr,elem,replace){
+	for (var iA=0;iA<arr.length;iA++){
+		if ((typeof elem == "string") && (elem == arr[iA] || elem == urlPrefix+arr[iA]+urlPostfix)) {
+			if (replace && elem != replace){ arr[iA] = replace;}
+			return true;
+		} else if ((typeof elem == "object") && arr[iA] == elem){
+			return true;
+		}
+	}
+	return false;
+};
+function createLoadingScreen(loadingscreen){
+	myLoadingscreen = webMI.dom.createElement("http://www.w3.org/1999/xhtml", "div");
+	myLoadingscreen.style.fontFamily = "Arial";
+	myLoadingscreen.style.overflow = "hidden";
+	myLoadingscreen.style.position = "absolute";
+	myLoadingscreen.style.left = "0";
+	myLoadingscreen.style.top = "0";
+	myLoadingscreen.style.height = "100%";
+	myLoadingscreen.style.width = "100%";
+	myLoadingscreen.style.zIndex = "999";
+	myLoadingscreen.style.backgroundColor = "#CCCCCC";
+	myLoadingscreen.style.cursor = "wait";
+	loadingscreen.parentNode.appendChild(myLoadingscreen);
+};
+function setLoadingScreenMessage(urlString,c1,c2){
+	var msg = "Loading "+urlString.substring(urlString.lastIndexOf('/')+1)+" ("+c1+"/"+c2+")";
+	myLoadingscreen.innerHTML = "<div style='position:absolute;top:300px;width:100%;text-align:center'>"+msg+"</div>";
+};
+function createIFrame(url){
+	var frame = webMI.dom.createElement("http://www.w3.org/1999/xhtml", "iframe");
+	frame.frameBorder = "0";
+	frame.scrolling = "no";
+	frame.style.width = "100%";
+	frame.style.height = "100%";
+	if (url) frame.src = url;
+	return frame;
+};
+function attachLoadEvent(frame, additional, callback){
+	if (!tabHandler.hasIFrameEvent(frame)){
+		webMI.addEvent(frame, "load", function(e) {
+			if (additional!=null) additional();
+			addOnLoadFrame(frame);
+			addOnLoadAllFrame(frame,callback);
+		});
+		tabHandler.setIFrameHasEvent(frame);
+	}
+};
+function addOnLoadFrame(frame){
+	tabHandler.setIFrameLoaded(frame,true);
+	tabHandler.registerDisplay(frame.contentWindow.document);
+	var contentWin;
+	if ((contentWin = frame.contentWindow) && contentWin.webMI){
+		contentWin.webMI.addOnfocus(function(){
+			if (contentWin != null)
+				tabHandler.getFocused(contentWin.document);
+		});
+		contentWin.webMI.addOnunload(function(){
+			try {contentWin} catch(err){return;}
+			if (contentWin != null){
+				tabHandler.removeDoc(contentWin.document);
+			}
+		});
+	}
+	var element = frame.contentDocument ? frame.contentDocument : contentWin.document;
+	webMI.addEvent(element, ["click","keypress","touchstart"], function(e) {
+		webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.AutoLogout", {"action":"restartTimer"});
+	});
+	webMI.addEvent(element, "touchstart", function(e) {
+		webMI.display.showPopup(0, 0, null);
+	});
+	consistencyHandler.read();
+};
+function addOnLoadAllFrame(frame,callback){
+	if (!tabHandler.areAllIFrameLoaded()) {if (frame && frameName==defaultFrameName){tabHandler.addAfterIFrameLoad(callback);} return;};
+	tabHandler.beforeFirstUse(frame.contentWindow.document,false,callback);
+	tabHandler.runAfterIFrameLoad();
+};
+
+webMI.addOnload(function() {
+	if (isNavigationFrame) {
+		if (zoomAreaDiv != null && zoomBoxDiv != null) {
+			zoomAreaDiv.style.zIndex = "100";
+			zoomBoxDiv.style.zIndex = "100";
+			zoomAreaDiv.style.display = "none";
+			zoomBoxDiv.style.display = "none";
+			zoomBoxDiv.style.border = "1px solid black";
+			zoomAreaDiv.style.cursor = "crosshair";
+			webMI.addEvent(zoomArea, "mousedown", zoomMouseDown);
+			webMI.addEvent(zoomArea, "mousemove", zoomMouseMove);
+			webMI.addEvent(zoomArea, "mouseup", zoomMouseUp);
+			webMI.addEvent(zoomBoxDiv, "mousedown", zoomMouseDown);
+			webMI.addEvent(zoomBoxDiv, "mousemove", zoomMouseMove);
+			webMI.addEvent(zoomBoxDiv, "mouseup", zoomMouseUp);
+		}
+
+		webMI.keys.addDownListener(function() {
+			if (!mousedownpos1 && !olddisplaystyle) {
+				mousedownpospan = null;
+				olddisplaystyle = "block";
+				zoomAreaDiv.style.display = "block";
+				zoomAreaDiv.style.cursor = "move";
+			}
+		}, 18);
+
+		webMI.keys.addUpListener(function() {
+			if (olddisplaystyle) {
+				zoomAreaDiv.style.cursor = "crosshair";
+				zoomAreaDiv.style.display = "none";
+				olddisplaystyle = null;
+			}
+		}, 18);
+
+		webMI.addOnfocus(function(e) {
+			mousedownpos1 = null;
+			mousedownpos2 = null;
+			updateZoomBox();
+			zoomAreaDiv.style.display = "none";
+		});
+
+		addTriggers();
+	}
+	webMI.gfx.setVisible("stroke", false);
+	webMI.gfx.setVisible("label", false);
+	webMI.gfx.setVisible("label2", false);
+
+	webMI.trigger.fire("com.atvise.display_structure", function(e, preload, excludePreload, includePreload, loadingscreen, firstConnect) {
+		if (e != null) {
+			var displayConfig = e;
+			urlPrefix = "/"+displayConfig["prefix"];
+			urlPostfix = displayConfig["postfix"];
+			preloaded = preload;
+
+			if (preloaded) {
+				webMI.trigger.connect("register.preload.resume", function(e) {
+					resumeCallbackObjects.push(e.value);
+				});
+			}
+
+			excludePreloaded = excludePreload;
+			includePreloaded = includePreload;
+			var defaultPage = (firstConnect.defaultUrl == "")?webMI.display.createURL(displayConfig["default"]):firstConnect.defaultUrl;
+			var firstFire = firstConnect.value && (webMI.query.isDefault == "true");
+			if (firstFire) {
+				firstConnect.value = false;
+				firstConnect.defaultFrameName = frameName;
+				defaultFrameName = frameName;
+				webMI.display.setOpenUrlHandler(function(url,frame) {
+					frame = (typeof frame != "string" || frame==null)?firstConnect.defaultFrameName:frame;
+					function changeDisplay(){
+						var iframe = tabHandler.getIFrame(frame);
+						if (iframe == null) iframe = tabHandler.getIFrame(firstConnect.defaultFrameName);
+						if (iframe != null){
+							if (frame != firstConnect.defaultFrameName){
+								changeFrame_(url,iframe)
+							} else {
+								(iframe!=null) && changeFrame(url,iframe);
+							}
+						}
+					}
+					if (tabHandler.areAllIFrameLoaded()){
+						changeDisplay();
+					} else {
+						tabHandler.addAfterIFrameLoad(changeDisplay);
+					}
+				});
+				webMI.addEvent(webMI.data, "clientvariableschange", function(e) {
+					if ("CCDexceeded" in e && e["CCDexceeded"]){
+						if (firstCCDExceeded){
+							alert("CCD exceeded!");
+							firstCCDExceeded = false;
+						} else console.warn("CCD exceeded!");
+					}
+				});
+			}
+			if (firstFire && (preload || (!preload && includePreloaded.length > 0))) {
+				var displays = [];
+				var urls = [];
+				var ucount1 = 0, ucount2 = 0;
+				function allLoadedCallback(frame){
+					if (runOnce){
+						runOnce = false;
+						changeFrame(targetUrl);
+						loadingscreen.parentNode.removeChild(myLoadingscreen);
+					} else {
+						frame && frameName == firstConnect.defaultFrameName && tabHandler.getFocused(frame.contentWindow.document);
+					}
+				}
+				function extractMenu(menu,prefix,allSub) {
+					var NORMAL = 0; var ALL_BELOW = 1; var NONE_BELOW = 2;
+					allSub = allSub||NORMAL;
+					for (var i in menu) {
+						var menuItem = menu[i];
+						var menuItemName = (menuItem.identifier)?menuItem.identifier:prefix+"."+menuItem.name;
+						if (menuItem.sub) {
+							if (allSub == ALL_BELOW || isInArray(includePreloaded,menuItemName)){
+								extractMenu(menuItem.sub,menuItemName,ALL_BELOW);
+							} else if (allSub == NONE_BELOW || isInArray(excludePreloaded,menuItemName)){
+								extractMenu(menuItem.sub,menuItemName,NONE_BELOW);
+							} else {
+								extractMenu(menuItem.sub,menuItemName,allSub);
+							}
+						}
+						if (menuItem.display && allSub == ALL_BELOW){
+							includePreloaded[includePreloaded.length] = menuItem.display;
+							displays.push(menuItem.display);
+						} else if (menuItem.url && allSub == ALL_BELOW){
+							includePreloaded[includePreloaded.length] = menuItem.url;
+							urls.push(menuItem.url);
+						} else if (menuItem.display && allSub == NONE_BELOW){
+							excludePreloaded[excludePreloaded.length] = menuItem.display;
+						} else if (menuItem.url && allSub == NONE_BELOW){
+							excludePreloaded[excludePreloaded.length] = menuItem.url;
+						} else if (menuItem.display && preload && (excludePreloaded.length == 0 || !isInArray(excludePreloaded,menuItemName,menuItem.display))) {
+							displays.push(menuItem.display);
+						} else if (menuItem.display && !preload && isInArray(includePreloaded,menuItemName,menuItem.display)) {
+							displays.push(menuItem.display);
+						} else if (menuItem.url  && (excludePreloaded.length == 0 || !isInArray(excludePreloaded,menuItem.url))) {
+							urls.push(menuItem.url);
+						} else if (menuItem.url  && !preload && isInArray(includePreloaded,menuItem.url)) {
+							urls.push(menuItem.url);
+						}
+					}
+				};
+				function addFrame(frameArray, isDisplay) {
+					var url = frameArray.pop();
+					if (url != undefined) {
+						url = isDisplay ? webMI.display.createURL(url) : url;
+						if (url == targetUrl || url == defaultPage) {
+							addFrame(frameArray, isDisplay);
+						} else {
+							var preloadedFrame = createIFrame(url);
+							preloadedFrames[url] = preloadedFrame;
+							tabHandler.pushIFrame("",preloadedFrame);
+							setLoadingScreenMessage(url,++ucount1,ucount2);
+							attachLoadEvent(preloadedFrame, 
+								function(){	
+									addFrame(frameArray, isDisplay);
+									preloadedFrame.contentWindow.webMI && preloadedFrame.contentWindow.webMI.data.pause();}, 
+								allLoadedCallback);
+							webMI.gfx.addForeignObject({x:0, y:0, width:800, height:600, childNodes: [preloadedFrame]}, iframegroup);
+						}
+					}
+				};
+				extractMenu(displayConfig.menu,"AGENT.DISPLAYS");
+				ucount2 = displays.length+urls.length;
+				if (includePreloaded.length == 0 && ucount2>0) ucount2--;
+				else ucount2++
+				createLoadingScreen(loadingscreen);
+				preloadedFrames[targetUrl] = myFrame;
+				tabHandler.pushIFrame(frameName,myFrame);
+				setLoadingScreenMessage(targetUrl,++ucount1,ucount2)
+				if (displays != undefined) {
+					addFrame(displays, true);
+				}
+				if (urls != undefined) {
+					addFrame(urls, false);
+				}
+				attachLoadEvent(myFrame,null,function(){allLoadedCallback(myFrame)});
+				myFrame.src = targetUrl;				
+				myExcldFrame = createIFrame();
+				preloadedFrames["exclude"] = myExcldFrame;
+				tabHandler.pushIFrame("",myExcldFrame);
+				tabHandler.setIFrameLoaded(myExcldFrame,true);
+				(webMI.gfx.addForeignObject({x:0, y:0, width:800, height:600, childNodes: [myExcldFrame]}, iframegroup)).style.display = "none";
+			} else {
+				tabHandler.pushIFrame(frameName,myFrame);
+				changeFrame_(targetUrl,myFrame);
+			}
+		}
+	});
+});
+
+
+function zoomMouseDown(e) {
+	if(!e)
+		e = window.event;
+
+	if (e.preventDefault)
+		e.preventDefault();
+
+	if (olddisplaystyle != null) {
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getViewBox();
+		mousedownpospan = {x: e.clientX, y: e.clientY, viewBoxX: viewBox[0], viewBoxY: viewBox[1]};
+		zoomAreaDiv.style.cursor = "move";
+	} else {
+		if (!mousedownpos1)
+			mousedownpos1 = {x: e.clientX, y: e.clientY};
+		else
+			mousedownpos2 = {x: e.clientX, y: e.clientY};
+
+		updateZoomBox();
+	}
+}
+
+function zoomMouseMove(e) {
+	if(!e)
+		e = window.event;
+
+	if (mousedownpospan) {
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getViewBox();
+		var viewBoxX = mousedownpospan.viewBoxX + viewBox[2] * (mousedownpospan.x - e.clientX) / parseFloat(myIframeDiv.style.width);
+		var viewBoxY = mousedownpospan.viewBoxY + viewBox[3] * (mousedownpospan.y - e.clientY) / parseFloat(myIframeDiv.style.height);
+		webMImyIframe.display.setViewBox(viewBoxX, viewBoxY, viewBox[2], viewBox[3]);
+	} else {
+		mousedownpos2 = {x: e.clientX, y: e.clientY};
+		updateZoomBox();
+	}
+}
+
+function updateZoomBox() {
+	if(mousedownpos1 != null && mousedownpos2 != null) {
+		var w = Math.abs(mousedownpos1.x - mousedownpos2.x);
+		var h = Math.abs(mousedownpos1.y - mousedownpos2.y);
+
+		if (w > 1) --w;
+		if (h > 1) --h;
+
+		zoomBoxDiv.style.display = "block";
+		zoomBoxDiv.style.top = (mousedownpos1.y < mousedownpos2.y ? mousedownpos1.y : mousedownpos2.y) + "px";
+		zoomBoxDiv.style.left = (mousedownpos1.x < mousedownpos2.x ? mousedownpos1.x : mousedownpos2.x) + "px";
+		zoomBoxDiv.style.height = h + "px";
+		zoomBoxDiv.style.width = w + "px";
+	} else
+		zoomBoxDiv.style.display = "none";
+}
+
+function zoomMouseUp(e) {
+	if(!e)
+		e = window.event;
+
+	if (mousedownpospan) {
+		mousedownpospan = null;
+		zoomAreaDiv.style.cursor = "move";
+	} else if (mousedownpos1 && mousedownpos2 && mousedownpos1.x != mousedownpos2.x && mousedownpos1.y != mousedownpos2.y) {
+		var mainArea = {
+			x: myIframeDiv.offsetLeft,
+			y: myIframeDiv.offsetTop,
+			w: parseFloat(myIframeDiv.style.width),
+			h: parseFloat(myIframeDiv.style.height)
+		};
+		var h = parseFloat(zoomBoxDiv.style.height) / mainArea.h;
+		var w = parseFloat(zoomBoxDiv.style.width) / mainArea.w;
+		var x = (parseFloat(zoomBoxDiv.style.left) - mainArea.x) / mainArea.w;
+		var y = (parseFloat(zoomBoxDiv.style.top) - mainArea.y) / mainArea.h;
+
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getViewBox();
+		viewBox[0] = x * viewBox[2] + viewBox[0];
+		viewBox[1] = y * viewBox[3] + viewBox[1];
+		viewBox[3] = h * viewBox[3];
+		viewBox[2] = w * viewBox[2];
+		webMImyIframe.display.setViewBox(viewBox[0], viewBox[1], viewBox[2], viewBox[3]);
+
+		mousedownpos1 = null;
+		mousedownpos2 = null;
+		updateZoomBox();
+		zoomAreaDiv.style.display = "none";
+	}
+}
+
+function changeFrame_(url,frame){
+	firstCCDExceeded = true;
+	consistencyHandler.renew();
+	tabHandler.changeDisplay();
+	frame.style.display = "";
+
+	var cf = function() {
+		frame.src = url;
+		attachLoadEvent(frame, null, function(){tabHandler.getFocused(frame.contentWindow.document)});
+	};
+
+	//Fix Opera timeout problem
+	if (navigator.userAgent.indexOf("Opera") > -1) {
+		setTimeout(function(){
+			frame.src = null;
+			cf();
+		}, 1);
+	} else {
+		cf();
+	}
+}
+
+function changeFrame(url, frame) {
+	var pureUrl = (url.indexOf("?")>-1)?url.substring(0,url.indexOf("?")):url;
+	for (var i in preloadedFrames) {
+			preloadedFrames[i].contentWindow.webMI && preloadedFrames[i].contentWindow.webMI.data.pause();
+			preloadedFrames[i].parentNode.style.display = "none";
+	}
+	if (!preloaded && includePreloaded.length == 0 ) {
+		myFrame.parentNode.style.display = "";
+		changeFrame_(url, frame||myFrame);
+	} else if ( (!preloaded && !isInArray(includePreloaded,pureUrl)) || (preloaded && isInArray(excludePreloaded,pureUrl)) ) {
+		myExcldFrame.parentNode.style.display = "";
+		currentActiveFrame = myExcldFrame;
+		myIframeDiv = myExcldFrame.parentNode;
+		changeFrame_(url, myExcldFrame);
+	} else {
+		var find = false;
+		tabHandler.blurFocused();
+		for (var i in preloadedFrames) {
+			if (i == url || i == url.substring(0,url.indexOf("?")) ) {
+				find = true;
+				firstCCDExceeded = true;
+				preloadedFrames[i].parentNode.style.display = "";
+				var contentDocument = preloadedFrames[i].contentWindow.document;
+				for (var j = 0; j < resumeCallbackObjects.length; ++j) {
+					if (contentDocument == resumeCallbackObjects[j].document)
+						resumeCallbackObjects[j].callback();
+				}
+				preloadedFrames[i].contentWindow.webMI && preloadedFrames[i].contentWindow.webMI.data.resume();
+				currentActiveFrame = preloadedFrames[i];
+				myIframeDiv = preloadedFrames[i].parentNode;
+				tabHandler.getFocused(preloadedFrames[i].contentWindow.document);
+			}
+		}
+		if (!find){ // alarmlist, historylist
+			if (myExcldFrame == null ) myExcldFrame = frame||myFrame;
+			myExcldFrame.parentNode.style.display = "";
+			currentActiveFrame = myExcldFrame;
+			myIframeDiv = myExcldFrame.parentNode;
+			changeFrame_(url, myExcldFrame);
+		}
+	}
+}
+
+function addTriggers() {
+	webMI.trigger.connect("getSource_" + frameName, function(e) {
+		var src = currentActiveFrame.src;
+		if (currentActiveFrame.src.indexOf("/") > -1) {
+			var parts = currentActiveFrame.src.split("/");
+			src = parts[parts.length-1];
+		}
+		if (src.indexOf("?") > -1) {
+			src = src.substring(0, src.indexOf("?"));
+		}
+		e.value(src, currentActiveFrame.contentWindow.webMI);
+	});
+	webMI.trigger.connect("changeDisplay_" + frameName, function(e) {
+		var url = e.value;
+		var query;
+
+		if (typeof e.value == "object") {
+			url = e.value.url;
+			query = e.value.query;
+		} else {
+			var indexOfQuestionMark = url.indexOf("?", 1);
+			if (indexOfQuestionMark > 0) {
+				query = url.substring(indexOfQuestionMark + 1);
+				url = url.substring(0, indexOfQuestionMark);
+			}
+		}
+
+		if (url != undefined)
+			webMI.display.openUrl(webMI.display.createURL(url), query, frameName);
+	});
+	// 0...x, 1...y, 2...w, 3...h
+	var zoomFactor = 0.1;
+	webMI.trigger.connect("com.atvise.zoomIn_" + frameName, function(e) {
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getViewBox();
+		viewBox[3] /= 1+zoomFactor;
+		viewBox[2] /= 1+zoomFactor;
+		viewBox[0] += viewBox[2] * zoomFactor / 2;
+		viewBox[1] += viewBox[3] * zoomFactor / 2;
+		webMImyIframe.display.setViewBox(viewBox[0], viewBox[1], viewBox[2], viewBox[3]);
+	});
+	webMI.trigger.connect("com.atvise.zoomOut_" + frameName, function(e) {
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getViewBox();
+		viewBox[0] -= viewBox[2] * zoomFactor / 2;
+		viewBox[1] -= viewBox[3] * zoomFactor / 2;
+		viewBox[3] *= 1+zoomFactor;
+		viewBox[2] *= 1+zoomFactor;
+		webMImyIframe.display.setViewBox(viewBox[0], viewBox[1], viewBox[2], viewBox[3]);
+	});
+	webMI.trigger.connect("com.atvise.zoom11_" + frameName, function(e) {
+		var webMImyIframe = currentActiveFrame.contentWindow.webMI;
+		var viewBox = webMImyIframe.display.getInitialViewBox();
+		webMImyIframe.display.setViewBox(viewBox[0], viewBox[1], viewBox[2], viewBox[3]);
+	});
+	webMI.trigger.connect("com.atvise.zoomRect_" + frameName, function(e) {
+		mousedownpospan = null;
+		zoomAreaDiv.style.display = "block";
+	});
+	webMI.trigger.connect("com.atvise.getDefaultDisplay_" + frameName, function(e) {
+		e.value(display,url);
+	});
+}
+
+//workaround for [AT-D-3223]
+
+if (navigator.userAgent.indexOf("Firefox") != -1) {
+	if (webMI.display.getURLPrefix() == "") {
+		console.warn("Reloading because of empty URL prefix - Firefox Bug 301325");
+		window.window.location.reload();
+	}
+}
+},{},{"frameName":"myframe","isDefault":"true","isNavigationFrame":"false"}]},window);]]></script>
+</svg>

@@ -1,0 +1,1 @@
+var webMIConfig = {"frame.displaytype":"svg","frame.documentdomain":false};

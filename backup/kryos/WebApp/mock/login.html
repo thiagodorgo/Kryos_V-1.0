@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebApp Mock - Login</title>
+    <style>
+      :root {
+        --bg-1: #0b0f16;
+        --bg-2: #171c26;
+        --card: #0f1420;
+        --card-2: #171e2c;
+        --text: #eef1f7;
+        --muted: #97a2b4;
+        --line: #2b3446;
+        --accent: #f2aa22;
+        --accent-2: #f7c35a;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Bahnschrift", "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(680px 420px at 15% 15%, #1f2a3d 0%, transparent 60%),
+          radial-gradient(520px 360px at 85% 10%, #2a1f12 0%, transparent 55%),
+          linear-gradient(140deg, var(--bg-1), var(--bg-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 24px;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(0px);
+        opacity: 0.55;
+        z-index: 0;
+      }
+
+      body::before {
+        width: 420px;
+        height: 420px;
+        left: -80px;
+        bottom: -140px;
+        background: radial-gradient(circle, rgba(242, 170, 34, 0.5), transparent 70%);
+        animation: floatA 12s ease-in-out infinite;
+      }
+
+      body::after {
+        width: 360px;
+        height: 360px;
+        right: -90px;
+        top: -120px;
+        background: radial-gradient(circle, rgba(63, 112, 232, 0.35), transparent 70%);
+        animation: floatB 14s ease-in-out infinite;
+      }
+
+      @keyframes floatA {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-18px); }
+      }
+
+      @keyframes floatB {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(22px); }
+      }
+
+      .shell {
+        width: min(980px, 100%);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card {
+        background: linear-gradient(135deg, var(--card), var(--card-2));
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        animation: rise 0.7s ease-out both;
+      }
+
+      @keyframes rise {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo {
+        width: 160px;
+        height: auto;
+        filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(242, 170, 34, 0.15);
+        border: 1px solid rgba(242, 170, 34, 0.4);
+        color: var(--accent-2);
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        width: fit-content;
+      }
+
+      .brand h1 {
+        margin: 10px 0 8px;
+        font-size: 26px;
+        letter-spacing: 0.4px;
+      }
+
+      .brand p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .feature-list li {
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-size: 13px;
+        animation: fadeList 0.8s ease-out both;
+      }
+
+      .feature-list li:nth-child(1) { animation-delay: 0.1s; }
+      .feature-list li:nth-child(2) { animation-delay: 0.2s; }
+      .feature-list li:nth-child(3) { animation-delay: 0.3s; }
+
+      @keyframes fadeList {
+        from { transform: translateY(10px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      .form h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+
+      .form p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(6, 9, 16, 0.5);
+        border: 1px solid var(--line);
+        margin-bottom: 12px;
+      }
+
+      .field img {
+        width: 18px;
+        height: 18px;
+        filter: brightness(0) invert(0.9);
+      }
+
+      .field input {
+        flex: 1;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 14px;
+        outline: none;
+      }
+
+      .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--accent), #f18a1b);
+        color: #1c1304;
+        box-shadow: 0 10px 24px rgba(242, 170, 34, 0.35);
+      }
+
+      .btn.ghost {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--text);
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .note {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+
+        .brand {
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="card brand">
+        <div>
+          <span class="badge">offline mock</span>
+          <img class="logo" src="../images/top/boss_logo_login.svg" alt="Logo">
+          <h1>Supervisor Web</h1>
+          <p>Interface mock para validar layout e assets sem backend ativo.</p>
+        </div>
+        <ul class="feature-list">
+          <li>Imagens e estilos reais do projeto.</li>
+          <li>Sem validacao de usuario ou permissao.</li>
+          <li>Use para demonstrar fluxo visual.</li>
+        </ul>
+      </section>
+
+      <section class="card form">
+        <h2>Acesso</h2>
+        <p>Preencha qualquer valor para simular a tela.</p>
+        <div class="field">
+          <img src="../images/top/man_on.png" alt="">
+          <input type="text" placeholder="Usuario">
+        </div>
+        <div class="field">
+          <img src="../images/top/pswd.svg" alt="">
+          <input type="password" placeholder="Senha">
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="button">Entrar</button>
+          <a class="btn ghost" href="app.html">Abrir mock do app</a>
+        </div>
+        <div class="note">
+          Sem backend: nao ha validacao, sessao ou dados em tempo real.
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

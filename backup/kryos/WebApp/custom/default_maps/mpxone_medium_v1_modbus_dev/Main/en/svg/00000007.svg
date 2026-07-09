@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="485.3" version="1.2" height="216" visibility="hidden" atv:oe="2F6FA070J8ABE7GCDDB4N0CDS7M5JB54C7E76G49B5CCGCI8GGP2F9P6KC72793HB" xmlns="http://www.w3.org/2000/svg">
+ <defs/>
+ <metadata/>
+ <circle cx="121" cy="58" fill="#65857b" id="id_27" r="17" stroke="#62bbab" stroke-width="5"/>
+ <rect width="485.024" x="-0.262" y="-0.131" fill="none" height="216" stroke="#676766" id="id_0" atv:refpx="248.25" stroke-width="0.7" atv:refpy="148.869"/>
+ <line fill="#fb0a87" id="id_10" stroke="#2a50c0" stroke-width="3" x1="314" x2="8" y1="37" y2="61"/>
+ <line fill="#fc5ddf" id="id_12" stroke="#6fa2d3" stroke-width="4" x1="180" x2="208" y1="30" y2="192"/>
+ <rect width="24.7" x="-0.18" y="-0.3" fill="none" height="216" stroke="#676766" id="id_1" atv:refpx="18.17" stroke-width="0.7" atv:refpy="148.7"/>
+ <ellipse cx="176" cy="91" fill="#1d967e" id="id_11" rx="12" ry="44" stroke="#497a92" stroke-width="5"/>
+ <rect fill="#02e0b4" height="45" id="id_5" stroke="#f0c304" stroke-width="5" width="139" x="261" y="39"/>
+ <text x="-1.999" y="208.221" fill="#676766" font-family="Roboto-Regular" text-anchor="start" id="id_24" atv:refpx="16.501" atv:refpy="152.189" font-size="23" transform="matrix(0,-1,1,0,-187.2204,175.2216)">Defrost event</text>
+ <line fill="#2beae0" id="id_35" stroke="#d40fd0" stroke-width="4" x1="478" x2="221" y1="52" y2="120"/>
+ <circle cx="111" cy="103" fill="#0d607f" id="id_23" r="103" stroke="#566652" stroke-width="3"/>
+ <text x="51.198" y="93.494" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_26" atv:refpx="-195.339" atv:refpy="15.026" font-size="23">Start time</text>
+ <polygon fill="#cdd27a" id="id_20" points="81,66 399,130 121,167 379,41 27,120 233,33 406,1 83,76 50,33 384,23 372,2 458,138 " stroke="#02fedc" stroke-width="3"/>
+ <polygon fill="#527ac0" id="id_19" points="207,123 441,90 402,89 195,8 10,138 460,141 181,212 263,169 405,41 453,30 353,82 " stroke="#0b12e8" stroke-width="3"/>
+ <circle cx="133" cy="17" fill="#e6c56a" id="id_6" r="145" stroke="#21c57c" stroke-width="2"/>
+ <text x="457.115" y="93.021" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_42" atv:refpx="518.036" atv:refpy="-248.88" font-size="23">00</text>
+ <ellipse cx="195" cy="57" fill="#64e2c8" id="id_22" rx="210" ry="36" stroke="#548f0c" stroke-width="1"/>
+ <polygon fill="#a7068d" id="id_18" points="248,79 39,39 121,117 130,138 440,153 422,86 430,201 152,210 321,168 85,38 " stroke="#a68533" stroke-width="4"/>
+ <text x="411.138" y="92.499" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_43" atv:refpx="472.059" atv:refpy="-249.402" font-size="23">12</text>
+ <ellipse cx="204" cy="21" fill="#349d8b" id="id_16" rx="183" ry="34" stroke="#330348" stroke-width="2"/>
+ <polyline fill="#1f412e" id="id_9" points="436,119 264,33 140,166 460,36 97,118 143,179 217,180 " stroke="#fe9230" stroke-width="3"/>
+ <polygon fill="#e0a14d" id="id_33" points="475,109 470,110 307,105 420,1 150,174 309,15 " stroke="#c1c14a" stroke-width="4"/>
+ <text x="457.115" y="92.499" visibility="hidden" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_59" atv:refpx="518.037" atv:refpy="-249.402" font-size="23">00</text>
+ <polygon fill="#781b4a" id="id_31" points="218,136 359,113 170,68 122,143 291,161 380,56 442,72 417,190 " stroke="#158be3" stroke-width="3"/>
+ <ellipse cx="167" cy="157" fill="#6c32d4" id="id_7" rx="104" ry="48" stroke="#d9a1c4" stroke-width="2"/>
+ <circle cx="116" cy="154" fill="#be4761" id="id_32" r="163" stroke="#f91bf7" stroke-width="3"/>
+ <text x="411.138" y="92.499" visibility="hidden" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_60" atv:refpx="472.06" atv:refpy="-249.402" font-size="23">00</text>
+ <line fill="#96ff8b" id="id_17" stroke="#f63afc" stroke-width="4" x1="203" x2="266" y1="30" y2="145"/>
+ <polygon fill="#b61f0c" id="id_29" points="288,85 373,120 416,151 78,83 392,152 303,87 115,119 359,92 49,112 480,134 84,74 391,151 39,152 434,56 " stroke="#17bb0e" stroke-width="5"/>
+ <text x="424.126" y="93.021" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_44" atv:refpx="455.677" atv:refpy="-248.88" font-size="23">:</text>
+ <rect fill="#347b2e" height="37" id="id_4" stroke="#0ca40c" stroke-width="2" width="89" x="96" y="33"/>
+ <rect fill="#2b5bcd" height="34" id="id_30" stroke="#b944f6" stroke-width="3" width="24" x="318" y="180"/>
+ <polyline fill="#e2ffd2" id="id_25" points="46,144 111,181 132,77 184,94 269,76 288,114 370,8 204,152 454,182 415,9 484,134 183,141 " stroke="#ea080c" stroke-width="1"/>
+ <text x="51.198" y="45.451" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_34" atv:refpx="-101.909" atv:refpy="-34.616" font-size="23">Days</text>
+ <polyline fill="#e67166" id="id_15" points="52,198 287,49 66,108 354,68 51,122 267,106 2,15 89,103 482,206 64,89 316,134 224,94 163,108 " stroke="#5e63d4" stroke-width="2"/>
+ <polyline fill="#2a296a" id="id_3" points="146,186 106,155 362,96 187,78 127,95 352,111 286,21 146,116 283,181 344,91 323,68 190,156 " stroke="#a249e0" stroke-width="5"/>
+ <ellipse cx="362" cy="56" fill="#9543e4" id="id_28" rx="173" ry="11" stroke="#6b2abb" stroke-width="2"/>
+ <text x="457.115" y="45.531" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_36" atv:refpx="495.355" atv:refpy="-297.969" font-size="23">0</text>
+ <ellipse cx="17" cy="211" fill="#c635d2" id="id_2" rx="173" ry="40" stroke="#71fff2" stroke-width="1"/>
+ <polygon fill="#872a50" id="id_37" points="477,192 261,145 56,105 437,130 150,74 21,113 290,176 196,37 231,162 255,67 294,129 314,37 8,61 481,194 " stroke="#c02c1f" stroke-width="1"/>
+ <text x="51.198" y="140.412" fill="#999997" font-family="Roboto-Regular" text-anchor="start" id="id_39" atv:refpx="195.812" atv:refpy="-104.787" font-size="23">Power defrost</text>
+ <rect fill="#df6fa2" height="4" id="id_21" stroke="#d34bd6" stroke-width="2" width="236" x="208" y="192"/>
+ <circle cx="3" cy="152" fill="#967e49" id="id_14" r="110" stroke="#7a9267" stroke-width="5"/>
+ <ellipse cx="165" cy="40" fill="#e0b4f0" id="id_13" rx="41" ry="78" stroke="#c30417" stroke-width="2"/>
+ <text x="457.115" y="141.316" fill="#676766" font-family="Roboto-Bold" text-anchor="end" id="id_56" atv:refpx="449.016" atv:refpy="133.915" font-size="23">0</text>
+ <rect fill="#eae0d4" height="64" id="id_8" stroke="#0fd09d" stroke-width="5" width="48" x="382" y="152"/>
+ <script xlink:href="../../webmi.js" type="text/ecmascript"/>
+ <script xlink:href="../../include_style.js" type="text/ecmascript"/>
+ <script type="text/ecmascript"><![CDATA[webMI.proxy({"":[function(webMI,window,document,self){webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 5 - Giorno/i | BAS_td5_d__", function(e) {
+var id = "id_36";
+var value = e.value;
+if (value == 0)
+	webMI.gfx.setText(id, "Disabled");
+if (value == 1)
+	webMI.gfx.setText(id, "Monday");
+if (value == 2)
+	webMI.gfx.setText(id, "Tuesday");
+if (value == 3)
+	webMI.gfx.setText(id, "Wednesday");
+if (value == 4)
+	webMI.gfx.setText(id, "Thursday");
+if (value == 5)
+	webMI.gfx.setText(id, "Friday");
+if (value == 6)
+	webMI.gfx.setText(id, "Saturday");
+if (value == 7)
+	webMI.gfx.setText(id, "Sunday");
+if (value == 8)
+	webMI.gfx.setText(id, "Monday to Friday");
+if (value == 9)
+	webMI.gfx.setText(id, "Monday to Saturday");
+if (value == 10)
+	webMI.gfx.setText(id, "Saturday and Sunday");
+if (value == 11)
+	webMI.gfx.setText(id, "All days");
+
+});
+
+
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 5 - Minuto | BAS_td5_m__", function(e) {
+var id = "id_42";
+var value = e.value;
+webMI.gfx.setText(id, value);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 5 - Ora | BAS_td5_h__", function(e) {
+var id = "id_43";
+var value = e.value;
+webMI.gfx.setText(id, value);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Digitals.sbrinamento 5 - Power defrost | BAS_td5_P__", function(e) {
+var id = "id_56";
+var value = e.value;
+if (value == false)
+	webMI.gfx.setText(id, "Disabled");
+if (value == true)
+	webMI.gfx.setText(id, "Enabled");
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 5 - Minuto | BAS_td5_m__", function(e) {
+var id = "id_59";
+var value = e.value;
+if (0 <= value && value < 1)
+	webMI.gfx.setVisible(id, true);
+if (1 <= value && value < 60)
+	webMI.gfx.setVisible(id, false);
+
+});
+
+webMI.data.subscribe("10.10.12.151/$dev$.Integers.sbrinamento 5 - Ora | BAS_td5_h__", function(e) {
+var id = "id_60";
+var value = e.value;
+if (0 <= value && value < 1)
+	webMI.gfx.setVisible(id, true);
+if (1 <= value && value < 23)
+	webMI.gfx.setVisible(id, false);
+
+});
+},{},{}]},window);]]></script>
+</svg>

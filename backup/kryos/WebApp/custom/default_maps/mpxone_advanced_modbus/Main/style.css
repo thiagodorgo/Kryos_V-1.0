@@ -1,0 +1,4 @@
+/* Load same fonts of native UI */
+@font-face {font-family: 'Roboto-Bold'; src: url(/boss/app/mstrmaps/svgmaps/Roboto-Bold.ttf);}
+@font-face {font-family: 'Roboto'; src: url(/boss/app/mstrmaps/svgmaps/Roboto-Regular.ttf);}
+@font-face {font-family: 'Roboto-Regular'; src: url(/boss/app/mstrmaps/svgmaps/Roboto-Regular.ttf);}

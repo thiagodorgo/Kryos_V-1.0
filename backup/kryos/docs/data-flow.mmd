@@ -1,0 +1,28 @@
+```mermaid
+flowchart LR
+    plc[PLCs / Devices\n(Modbus/BACnet/IO)] --> edge[Kryos Edge\nLeitura\nParser XML\nNormalizacao\nBuffer Offline]
+    edge --> broker[MQTT Broker]
+    edge --> gateway[HTTPS (fallback)\nAuth/Provisionamento/Admin]
+    broker --> cloud[Kryos Cloud (FastAPI)]
+    cloud --> broker
+    cloud --> db[(Persistencia\nMySQL / RDS)]
+    db --> alarms[Motor de Alarmes]
+    db --> ia[Servico de IA]
+    cloud --> web[Frontend Web]
+    cloud --> mobile[Aplicativo Mobile]
+
+    subgraph Edge
+        edge
+    end
+
+    subgraph Cloud
+        gateway
+        broker
+        cloud
+        db
+        alarms
+        ia
+        web
+        mobile
+    end
+```

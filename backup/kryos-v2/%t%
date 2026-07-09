@@ -1,0 +1,3 @@
+import backend.app.db as db  
+rows=db.query('SELECT id, protocol, status, started_at, finished_at FROM scan_sessions ORDER BY id DESC LIMIT 1')  
+print(rows)  

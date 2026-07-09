@@ -1,0 +1,244 @@
+<mbs_configuration writeenable="1" autostart="1" connection="TCP/IP" port="502" gatewaymode="0" allowlan="1">
+<device addr="1" name="SKID-01-COMP-GLICOL -18ºC">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="30" code="m31_C1_conf_partida"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="30" code="m05_PS_geral"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="30" code="m33_C2_conf_partida"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="30" code="m35_C3_conf_partida"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="30" code="m06_PD_geral"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="30" code="OFFLINE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="30" code="A01_falha_sonda_PS1.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="30" code="m10_SH"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="30" code="A02_falha_sonda_PS2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="30" code="A03_falha_sonda_PD1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="30" code="A04_falha_sonda_PD2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="30" code="A05_falha_sonda_TS.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="30" code="A06_baixo_SH.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="30" code="A07_pressao_baixa.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="30" code="A08_pressao_alta.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="9" dev="30" code="A09_bloqueio_refrig.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="9" dev="30" code="A10_emergencia.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="9" dev="30" code="A11_baixa_TS.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="15" flags="rw" line="9" dev="30" code="A12_C1_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="16" flags="rw" line="9" dev="30" code="A13_C1_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="17" flags="rw" line="9" dev="30" code="A14_C2_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="18" flags="rw" line="9" dev="30" code="A15_C2_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="19" flags="rw" line="9" dev="30" code="A16_C3_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="20" flags="rw" line="9" dev="30" code="A17_C3_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="21" flags="rw" line="9" dev="30" code="A18_C4_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="22" flags="rw" line="9" dev="30" code="A19_C4_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="23" flags="rw" line="9" dev="30" code="A20_C5_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="24" flags="rw" line="9" dev="30" code="A21_C5_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="25" flags="rw" line="9" dev="30" code="A22_nivel_agua_nok.Trigger"></coil>
+</device>
+<device addr="2" name="SKID-01-BOMB-GLICOL -18ºC">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="31" code="m31_B1_ligada"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="31" code="ao01_sinal_inv_PI"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="31" code="m33_B2_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="31" code="m34_fluxo_falha"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="31" code="U01_PGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="31" code="OFFLINE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="31" code="A01_falha_fluxo.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="31" code="U02_TRGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="31" code="A02_falha_B1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="31" code="A03_falha_B2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="31" code="A04_alta_temp_retor_glicol.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="31" code="A05_SPDB_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="31" code="A06_STRGL_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="31" code="A07_hi_press_gl.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="31" code="A08_B1_B2_prot_flux.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="9" dev="31" code="A09_STR1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="9" dev="31" code="A10_STR2_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="9" dev="31" code="A11_STR3_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="15" flags="rw" line="9" dev="31" code="A12_STR4_falha.Trigger"></coil>
+</device>
+<device addr="3" name="SKID-01-TR1-GLICOL -18ºC">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="32" code="s_din5"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="32" code="Po1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="32" code="d73"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="32" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="32" code="Po3"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="32" code="s_LO"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="32" code="s_HI"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="32" code="Po4"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="32" code="s_Ldt"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="32" code="s_Edc"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="9" dev="32" code="airoff"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="32" code="s_EFS"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="32" code="s_bLO"></coil>
+<reg type="holding+input register" mapping="auto" addr="8" flags="rw" line="9" dev="32" code="Po2"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="32" code="s_EE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="32" code="s_EF"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="32" code="Ht0"></coil>
+</device>
+<device addr="4" name="SKID-01-TR2-GLICOL -18ºC">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="33" code="s_din5"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="33" code="Po1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="33" code="d73"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="33" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="33" code="Po3"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="33" code="s_LO"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="33" code="s_HI"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="33" code="Po4"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="33" code="s_Ldt"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="33" code="s_Edc"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="9" dev="33" code="airoff"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="33" code="s_EFS"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="33" code="s_bLO"></coil>
+<reg type="holding+input register" mapping="auto" addr="8" flags="rw" line="9" dev="33" code="Po2"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="33" code="s_EE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="33" code="s_EF"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="33" code="Ht0"></coil>
+</device>
+<device addr="5" name="SKID-02-COMP-GLICOL">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="40" code="m31_C1_conf_partida"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="40" code="ai05_TS"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="40" code="m33_C2_conf_partida"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="40" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="40" code="ai06_C1_TD"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="40" code="A01_falha_sonda_PS1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="40" code="A02_falha_sonda_PS2.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="40" code="ai07_C2_TD"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="40" code="A03_falha_sonda_PD1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="40" code="A04_falha_sonda_PD2.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="9" dev="40" code="m05_PS_geral"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="40" code="A05_falha_sonda_TS.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="40" code="A06_baixo_SH.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="8" flags="rw" line="9" dev="40" code="m06_PD_geral"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="40" code="A07_pressao_baixa.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="40" code="A08_pressao_alta.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="10" flags="rw" line="9" dev="40" code="m10_SH"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="40" code="A09_bloqueio_refrig.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="9" dev="40" code="A10_emergencia.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="9" dev="40" code="A11_baixa_TS.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="9" dev="40" code="A12_C1_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="15" flags="rw" line="9" dev="40" code="A13_C1_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="16" flags="rw" line="9" dev="40" code="A14_C2_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="17" flags="rw" line="9" dev="40" code="A15_C2_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="18" flags="rw" line="9" dev="40" code="A16_C3_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="19" flags="rw" line="9" dev="40" code="A17_C3_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="20" flags="rw" line="9" dev="40" code="A18_C4_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="21" flags="rw" line="9" dev="40" code="A19_C4_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="22" flags="rw" line="9" dev="40" code="A20_C5_sonda_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="23" flags="rw" line="9" dev="40" code="A21_C5_alta_TD.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="24" flags="rw" line="9" dev="40" code="A22_nivel_agua_nok.Trigger"></coil>
+</device>
+<device addr="6" name="SKID-02-BOMB-BOLEADORA">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="41" code="m31_B1_ligada"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="41" code="U01_PGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="41" code="m33_B2_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="41" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="41" code="U02_TRGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="41" code="A01_falha_fluxo.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="41" code="A02_falha_B1.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="41" code="U03_TGL_TR1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="41" code="A03_falha_B2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="41" code="A04_alta_temp_retor_glicol.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="41" code="A05_SPDB_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="41" code="A06_STRGL_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="41" code="A07_hi_press_gl.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="41" code="A08_B1_B2_prot_flux.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="41" code="A09_STR1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="9" dev="41" code="A10_STR2_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="9" dev="41" code="A11_STR3_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="9" dev="41" code="A12_STR4_falha.Trigger"></coil>
+</device>
+<device addr="7" name="SKID-02-BOMB-CONSUMO">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="42" code="m31_B1_ligada"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="42" code="U01_PGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="42" code="m33_B2_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="42" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="42" code="U02_TRGL"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="42" code="A01_falha_fluxo.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="42" code="A02_falha_B1.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="42" code="U03_TGL_TR1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="42" code="A03_falha_B2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="42" code="A04_alta_temp_retor_glicol.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="42" code="A05_SPDB_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="42" code="A06_STRGL_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="42" code="A07_hi_press_gl.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="42" code="A08_B1_B2_prot_flux.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="42" code="A09_STR1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="9" dev="42" code="A10_STR2_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="9" dev="42" code="A11_STR3_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="9" dev="42" code="A12_STR4_falha.Trigger"></coil>
+</device>
+<device addr="8" name="SKID-02-TR-BOLEADORA">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="43" code="s_din5"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="43" code="Po1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="43" code="d73"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="43" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="43" code="Po3"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="43" code="s_LO"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="43" code="s_HI"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="43" code="Po4"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="43" code="s_Ldt"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="43" code="s_Edc"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="9" dev="43" code="airoff"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="43" code="s_EFS"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="43" code="s_bLO"></coil>
+<reg type="holding+input register" mapping="auto" addr="8" flags="rw" line="9" dev="43" code="Po2"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="43" code="s_EE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="43" code="s_EF"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="43" code="Ht0"></coil>
+</device>
+<device addr="9" name="SKID-02-TR-CONSUMO">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="9" dev="44" code="s_din5"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="9" dev="44" code="Po1"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="9" dev="44" code="d73"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="9" dev="44" code="OFFLINE"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="9" dev="44" code="Po3"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="9" dev="44" code="s_LO"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="9" dev="44" code="s_HI"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="9" dev="44" code="Po4"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="9" dev="44" code="s_Ldt"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="9" dev="44" code="s_Edc"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="9" dev="44" code="airoff"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="9" dev="44" code="s_EFS"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="9" dev="44" code="s_bLO"></coil>
+<reg type="holding+input register" mapping="auto" addr="8" flags="rw" line="9" dev="44" code="Po2"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="9" dev="44" code="s_EE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="9" dev="44" code="s_EF"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="9" dev="44" code="Ht0"></coil>
+</device>
+<device addr="10" name="SKID-03-TR-RESF-AGUA-CONSUMO">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="10" dev="2" code="m30_B1_requisitos"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="10" dev="2" code="U03_TE1_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="10" dev="2" code="m31_B1_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="10" dev="2" code="m32_B2_requisitos"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="10" dev="2" code="U04_TS1_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="10" dev="2" code="m33_B2_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="10" dev="2" code="m34_fluxo_falha"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="10" dev="2" code="U05_TE2_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="10" dev="2" code="OFFLINE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="10" dev="2" code="A01_falha_fluxo.Trigger"></coil>
+<reg type="holding+input register" mapping="auto" addr="6" flags="rw" line="10" dev="2" code="U06_TS2_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="10" dev="2" code="A02_falha_B1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="10" dev="2" code="A03_falha_B2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="10" dev="2" code="A04_bx_temp_agua.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="10" dev="2" code="A08_B1_B2_prot_flux.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="10" dev="2" code="A09_STE1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="10" dev="2" code="A10_STS1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="10" dev="2" code="A11_STE2_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="10" dev="2" code="A12_STS2_falha.Trigger"></coil>
+</device>
+<device addr="11" name="SKID-03-AGUA-CONSUMO">
+<coil type="coil+discrete input" mapping="auto" addr="0" flags="rw" line="10" dev="3" code="m30_B1_requisitos"></coil>
+<reg type="holding+input register" mapping="auto" addr="0" flags="rw" line="10" dev="3" code="U01_PAA"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="1" flags="rw" line="10" dev="3" code="m31_B1_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="2" flags="rw" line="10" dev="3" code="m32_B2_requisitos"></coil>
+<reg type="holding+input register" mapping="auto" addr="2" flags="rw" line="10" dev="3" code="U03_TE1_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="3" flags="rw" line="10" dev="3" code="m33_B2_ligada"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="4" flags="rw" line="10" dev="3" code="m34_fluxo_falha"></coil>
+<reg type="holding+input register" mapping="auto" addr="4" flags="rw" line="10" dev="3" code="U04_TS1_TR"></reg>
+<coil type="coil+discrete input" mapping="auto" addr="5" flags="rw" line="10" dev="3" code="OFFLINE"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="6" flags="rw" line="10" dev="3" code="A01_falha_fluxo.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="7" flags="rw" line="10" dev="3" code="A02_falha_B1.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="8" flags="rw" line="10" dev="3" code="A03_falha_B2.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="9" flags="rw" line="10" dev="3" code="A04_bx_temp_agua.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="10" flags="rw" line="10" dev="3" code="A05_PAA_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="11" flags="rw" line="10" dev="3" code="A07_hi_PAA.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="12" flags="rw" line="10" dev="3" code="A08_B1_B2_prot_flux.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="13" flags="rw" line="10" dev="3" code="A09_STE1_falha.Trigger"></coil>
+<coil type="coil+discrete input" mapping="auto" addr="14" flags="rw" line="10" dev="3" code="A10_STS1_falha.Trigger"></coil>
+</device>
+</mbs_configuration>
