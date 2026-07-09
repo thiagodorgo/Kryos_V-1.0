@@ -1,0 +1,35 @@
+stage: structure-only
+
+required:
+  repository:
+    - CLAUDE.md exists
+    - README.md exists
+    - .claude exists
+    - docs exists
+    - specs exists
+    - quality exists
+    - security exists
+    - backup preserved as backup memory
+  modules:
+    - every service has README.md
+    - every service has module.yaml
+    - every service has quality-gates.yaml
+    - every service has CLAUDE.md
+    - every shared module has README.md
+    - every shared module has module.yaml
+    - every shared module has quality-gates.yaml
+  safety:
+    - no secrets
+    - no deployment
+    - no backup modification
+    - no business implementation in structure stage
+
+future:
+  - unit tests
+  - integration tests
+  - tenant isolation tests
+  - financial invariant tests
+  - event contract tests
+  - security scan
+  - performance tests
+  - release gates

@@ -1,0 +1,28 @@
+id: edge-collector
+name: Edge Collector
+type: edge-service
+package: com.kryos.platform.edgecollector
+riskLevel: high
+stage: structure-only
+responsibilities:
+  - future edge acquisition
+dependsOn: []
+publishesEvents: []
+consumesEvents: []
+databases:
+  postgres:
+    planned: false
+    schemas: []
+  redis:
+    planned: false
+  rabbitmq:
+    planned: false
+  questdb:
+    planned: false
+  clickhouse:
+    planned: false
+requiredQualityGates:
+  - no-business-code
+requiredHumanApprovalFor:
+  - edge protocol implementation
+notes: Structure-only edge manifest.

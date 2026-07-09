@@ -1,0 +1,7 @@
+{
+  "stage": "structure-only",
+  "allowedCommands": ["git status", "git diff", "find", "ls", "mvn validate", "mvn -B validate"],
+  "approvalRequiredCommands": ["git commit", "git push", "docker compose down -v", "kubectl", "terraform"],
+  "deniedPatterns": [".env", ".env.*", "secrets/**", "rm -rf", "terraform apply", "kubectl apply", "kubectl delete", "backup/**"],
+  "notes": "Conservative defaults for future Claude Code work. Backup memory is protected and production deployment actions are not allowed by default."
+}

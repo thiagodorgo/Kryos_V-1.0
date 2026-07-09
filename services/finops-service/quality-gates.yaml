@@ -1,0 +1,13 @@
+stage: structure-only
+required:
+  - readme-present
+  - module-manifest-present
+  - claude-instructions-present
+  - no-business-code
+  - no-secrets
+  - backup-memory-not-modified
+future:
+  - unit-tests
+  - integration-tests
+  - security-review
+  - critical-review

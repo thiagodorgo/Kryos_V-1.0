@@ -1,0 +1,11 @@
+id: domain-kernel
+name: Domain Kernel
+type: shared-library
+stage: structure-only
+riskLevel: medium
+responsibilities:
+  - future shared platform responsibility
+requiredQualityGates:
+  - readme-present
+  - module-manifest-present
+  - no-business-code
