@@ -1,0 +1,31 @@
+id: metering-service
+name: Metering Service
+type: service
+package: com.kryos.platform.meteringservice
+riskLevel: medium
+stage: structure-only
+responsibilities:
+  - future bounded service responsibility
+dependsOn: []
+publishesEvents: []
+consumesEvents: []
+databases:
+  postgres:
+    planned: false
+    schemas: []
+  redis:
+    planned: false
+  rabbitmq:
+    planned: false
+  questdb:
+    planned: false
+  clickhouse:
+    planned: false
+requiredQualityGates:
+  - readme-present
+  - module-manifest-present
+  - no-business-code
+requiredHumanApprovalFor:
+  - domain implementation
+  - external integration
+notes: Structure-only manifest.

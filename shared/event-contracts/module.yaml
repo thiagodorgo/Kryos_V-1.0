@@ -1,0 +1,11 @@
+id: event-contracts
+name: Event Contracts
+type: shared-library
+stage: structure-only
+riskLevel: medium
+responsibilities:
+  - future shared platform responsibility
+requiredQualityGates:
+  - readme-present
+  - module-manifest-present
+  - no-business-code

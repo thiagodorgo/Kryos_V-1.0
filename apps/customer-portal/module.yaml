@@ -1,0 +1,10 @@
+id: customer-portal
+name: Customer Portal
+type: app
+stage: structure-only
+riskLevel: medium
+responsibilities:
+  - future user interface boundary
+requiredQualityGates:
+  - readme-present
+  - no-business-code

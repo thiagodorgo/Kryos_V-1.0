@@ -1,0 +1,10 @@
+id: saas-admin-console
+name: Saas Admin Console
+type: app
+stage: structure-only
+riskLevel: medium
+responsibilities:
+  - future user interface boundary
+requiredQualityGates:
+  - readme-present
+  - no-business-code

@@ -1,0 +1,22 @@
+# Local development only. Not production configuration.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: industrial_platform
+    ports: ["5432:5432"]
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: dev
+      RABBITMQ_DEFAULT_PASS: dev
+    ports: ["5672:5672", "15672:15672"]
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+  questdb:
+    image: questdb/questdb:8.1.4
+    ports: ["9000:9000", "8812:8812", "9009:9009"]
+# ClickHouse is planned for future local analytics validation and is intentionally not enabled here.
