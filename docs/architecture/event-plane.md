@@ -1,19 +1,25 @@
 # Event Plane
 
 ## Purpose
-Describe future architecture responsibilities.
+Avaliar telemetria normalizada contra regras de alarme e manter a trilha de auditoria imutável de toda ação governada na plataforma.
 
-## Future Responsibilities
-- Planned responsibilities for industrial observability and operational intelligence.
+## Responsibilities
+- Motor de regras de alarme: limites, histerese, tempo de permanência, prioridade, escalonamento tipo Guardian (alert-engine).
+- Registrar de forma imutável login, mudança de configuração, ACK/inibição de alarme, escrita de parâmetro e decisão de agente (audit-service).
 
-## Planned Components
-- Future components will be specified before implementation.
+## Components in this plane
+- alert-engine
+- audit-service
+
+## Mensageria (RabbitMQ)
+Este plano publica/consome mensagens no exchange `kryos.event`, conforme `docs/adr/0005-rabbitmq-unified-messaging-backbone.md`.
 
 ## Risks
-- Premature coupling, stale documentation, and implementation without quality gates.
+- Fadiga de alarme se regras não suprimirem falso-positivo conhecido (degelo, abertura de porta) na origem do Device Profile.
+- Trilha de auditoria mutável ou incompleta comprometendo evidência para cliente/auditor regulatório.
 
 ## Status
 structure-only
 
 ## Not Implemented
-No domain behavior, API, database, messaging, deployment, or production agent is implemented here.
+Nenhum comportamento de domínio, API, banco de dados, mensageria real ou agente de produção está implementado nesta pasta. Este documento descreve o desenho arquitetural aprovado, não código existente.
