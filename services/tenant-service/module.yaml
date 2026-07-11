@@ -5,27 +5,36 @@ package: com.kryos.platform.tenantservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
+- Provisionar tenant + papéis padrão + usuário fundador em uma única transação.
+- Manter a hierarquia de sites/plantas/dispositivos usada por todo o restante da plataforma.
+- Publicar mudança de tenant para que outros serviços (billing, module-registry) reajam.
+dependsOn:
+- shared/messaging-common
+- shared/domain-kernel
+- shared/tenant-context
+publishesEvents:
+- kryos.control:{tenant}.tenant.provisioned
+- kryos.control:{tenant}.hierarchy.updated
 consumesEvents: []
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: tenants, sites, hierarquia de ativos
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Control Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

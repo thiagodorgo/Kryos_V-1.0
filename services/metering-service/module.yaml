@@ -5,27 +5,39 @@ package: com.kryos.platform.meteringservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Agregar uso a partir dos eventos publicados por outros planos (nunca por leitura
+  direta de banco de outro serviço).
+- Publicar uso agregado periodicamente para billing e finops consumirem.
+dependsOn:
+- shared/messaging-common
+- shared/billing-common
+- shared/tenant-context
+publishesEvents:
+- kryos.control:{tenant}.usage.aggregated
+consumesEvents:
+- kryos.data:{tenant}.telemetry.raw.realtime
+- kryos.data:{tenant}.telemetry.raw.history
+- kryos.operational:{tenant}.notification.dispatched
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: quotas e limites correntes por tenant
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
-    planned: false
+    planned: true
+    purpose: agregação de uso de longo prazo
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Control Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

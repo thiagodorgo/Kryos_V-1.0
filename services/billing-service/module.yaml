@@ -5,27 +5,38 @@ package: com.kryos.platform.billingservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Gerenciar plano contratado (dispositivos, retenção, canais, módulos, usuários, tier
+  de marca branca).
+- Ativar/suspender tenant por status de contrato, sempre com degradação graciosa (nunca
+  apagar dado dentro da retenção).
+dependsOn:
+- shared/messaging-common
+- shared/billing-common
+- shared/tenant-context
+publishesEvents:
+- kryos.control:{tenant}.plan.changed
+- kryos.control:{tenant}.subscription.suspended
+consumesEvents:
+- kryos.control:{tenant}.usage.aggregated
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: planos, assinaturas, status de contrato
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Control Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

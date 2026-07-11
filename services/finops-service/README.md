@@ -1,15 +1,28 @@
 # Finops Service
 
-## Purpose
-Future service module for the industrial platform. It will own bounded responsibilities assigned during later planning.
+**Plano:** Control Plane
 
-## Current Stage
-Structure only. No business implementation yet.
+## Purpose
+Observabilidade de custo de infraestrutura por tenant/módulo, informando margem por plano — visão interna da Kryos, não do cliente.
 
 ## Responsibilities
-- Future service-specific domain responsibilities.
-- Future API or event participation when approved.
-- Future operational and audit documentation.
+- Cruzar uso medido com custo de infraestrutura real por tenant/módulo.
+- Expor margem por plano para decisão comercial (não exposto ao cliente final).
+
+## Messaging (RabbitMQ)
+- Não publica mensagens.
+- consome de `kryos.control` com routing key `{tenant}.usage.aggregated`
+
+## Dependencies
+- `shared/messaging-common`
+- `shared/billing-common`
+- `shared/tenant-context`
+
+## Data Stores
+- **clickhouse** — custo agregado por tenant/módulo
+
+## Current Stage
+Structure only. No business implementation yet — this README describes the approved design, not existing code.
 
 ## Not Implemented Yet
 - domain model;
@@ -24,4 +37,6 @@ Structure only. No business implementation yet.
 Refer to:
 - CLAUDE.md;
 - module.yaml;
-- quality-gates.yaml.
+- quality-gates.yaml;
+- docs/adr/0005-rabbitmq-unified-messaging-backbone.md (mensageria);
+- .claude/agents/domain/rabbitmq-domain-agent.md (revisão de topologia).

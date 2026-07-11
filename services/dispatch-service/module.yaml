@@ -5,27 +5,36 @@ package: com.kryos.platform.dispatchservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Atribuir incidente a técnico/parceiro conforme escopo e disponibilidade.
+- Rastrear checklist de atendimento, causa raiz e peças usadas.
+- Registrar encerramento com evidência (foto, leitura pós-reparo).
+dependsOn:
+- shared/messaging-common
+- shared/tenant-context
+publishesEvents:
+- kryos.operational:{tenant}.dispatch.assigned
+- kryos.operational:{tenant}.dispatch.completed
+consumesEvents:
+- kryos.operational:{tenant}.incident.opened
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: atribuições, checklist, evidência de atendimento
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Operational Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

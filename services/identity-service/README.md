@@ -1,15 +1,31 @@
 # Identity Service
 
-## Purpose
-Future service module for the industrial platform. It will own bounded responsibilities assigned during later planning.
+**Plano:** Control Plane
 
-## Current Stage
-Structure only. No business implementation yet.
+## Purpose
+Autenticação, RBAC por grupo/site, 2FA e (futuro) SSO/LDAP corporativo.
 
 ## Responsibilities
-- Future service-specific domain responsibilities.
-- Future API or event participation when approved.
-- Future operational and audit documentation.
+- Autenticar usuários com política de senha, expiração e bloqueio por tentativa falha.
+- Aplicar 2FA obrigatório para papéis administrativos.
+- Resolver escopo de visibilidade de dispositivos por grupo do usuário, consumido por todo serviço com dado sensível a tenant.
+
+## Messaging (RabbitMQ)
+- publica em `kryos.control` com routing key `{tenant}.user.authenticated`
+- publica em `kryos.control` com routing key `{tenant}.role.changed`
+- Não consome mensagens.
+
+## Dependencies
+- `shared/messaging-common`
+- `shared/security-common`
+- `shared/tenant-context`
+
+## Data Stores
+- **postgres** — usuários, papéis, grupos
+- **redis** — sessão
+
+## Current Stage
+Structure only. No business implementation yet — this README describes the approved design, not existing code.
 
 ## Not Implemented Yet
 - domain model;
@@ -24,4 +40,6 @@ Structure only. No business implementation yet.
 Refer to:
 - CLAUDE.md;
 - module.yaml;
-- quality-gates.yaml.
+- quality-gates.yaml;
+- docs/adr/0005-rabbitmq-unified-messaging-backbone.md (mensageria);
+- .claude/agents/domain/rabbitmq-domain-agent.md (revisão de topologia).

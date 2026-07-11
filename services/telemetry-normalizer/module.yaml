@@ -5,27 +5,37 @@ package: com.kryos.platform.telemetrynormalizer
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Consumir telemetria bruta REAL_TIME e HISTORY separadamente.
+- Aplicar fator/offset/curva do Device Profile e resolver enumerações valor→estado.
+- Publicar telemetria normalizada mantendo a mesma separação de classe.
+dependsOn:
+- shared/messaging-common
+- shared/telemetry-common
+- shared/tenant-context
+publishesEvents:
+- kryos.data:{tenant}.telemetry.normalized.realtime
+- kryos.data:{tenant}.telemetry.normalized.history
+consumesEvents:
+- kryos.data:{tenant}.telemetry.raw.realtime
+- kryos.data:{tenant}.telemetry.raw.history
 databases:
   postgres:
     planned: false
-    schemas: []
   redis:
-    planned: false
+    planned: true
+    purpose: cache de Device Profile para evitar consulta repetida por mensagem
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Data Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

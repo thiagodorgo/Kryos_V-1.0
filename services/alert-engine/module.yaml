@@ -5,27 +5,40 @@ package: com.kryos.platform.alertengine
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Avaliar regras simples e compostas (multi-variável, multi-dispositivo) por tenant.
+- Suprimir falso-positivo conhecido (degelo, abertura de porta) definido no Device
+  Profile.
+- 'Publicar ciclo de vida do alarme: levantado, reconhecido, normalizado, encerrado,
+  escalonado.'
+dependsOn:
+- shared/messaging-common
+- shared/telemetry-common
+- shared/tenant-context
+publishesEvents:
+- kryos.event:{tenant}.alarm.raised
+- kryos.event:{tenant}.alarm.escalated
+- kryos.event:{tenant}.alarm.cleared
+consumesEvents:
+- kryos.data:{tenant}.telemetry.normalized.realtime
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: regras de alarme e estado corrente por dispositivo/variável
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Event Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

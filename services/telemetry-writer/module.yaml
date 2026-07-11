@@ -5,27 +5,36 @@ package: com.kryos.platform.telemetrywriter
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
+- Escrever série temporal particionada por tenant e tempo.
+- Atualizar 'últimos valores' em Redis com latência de leitura p95 ≤ 300ms.
+- Aplicar retenção de histórico conforme o plano contratado do tenant.
+dependsOn:
+- shared/messaging-common
+- shared/telemetry-common
+- shared/tenant-context
 publishesEvents: []
-consumesEvents: []
+consumesEvents:
+- kryos.data:{tenant}.telemetry.normalized.realtime
+- kryos.data:{tenant}.telemetry.normalized.history
 databases:
   postgres:
     planned: false
-    schemas: []
   redis:
-    planned: false
+    planned: true
+    purpose: hot state de últimos valores
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
-    planned: false
+    planned: true
+    purpose: série temporal de telemetria, partição por tenant+tempo
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Data Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

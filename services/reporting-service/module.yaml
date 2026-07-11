@@ -5,27 +5,39 @@ package: com.kryos.platform.reportingservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Gerar relatório a partir de modelo reutilizável (variáveis + período + layout).
+- Calcular MKT (Temperatura Cinética Média) para clientes farma/regulados, além de
+  máx/mín/média simples.
+- Tratar dado ausente como `***` explícito, nunca como zero.
+dependsOn:
+- shared/messaging-common
+- shared/telemetry-common
+- shared/tenant-context
+publishesEvents:
+- kryos.operational:{tenant}.report.generated
+consumesEvents:
+- kryos.operational:{tenant}.report.requested
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: modelos de relatório
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
-    planned: false
+    planned: true
+    purpose: leitura de série temporal para o período do relatório
   clickhouse:
-    planned: false
+    planned: true
+    purpose: leitura de agregações de energia
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Operational Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

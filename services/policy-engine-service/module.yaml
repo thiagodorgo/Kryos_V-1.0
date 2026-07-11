@@ -5,27 +5,39 @@ package: com.kryos.platform.policyengineservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Validar setpoint/comando contra a faixa segura do Device Profile e a permissão do
+  solicitante.
+- Exigir aprovação humana quando a política do tenant demandar.
+- Ser o único serviço autorizado a publicar no canal de comando governado do Edge
+  Plane.
+dependsOn:
+- shared/messaging-common
+- shared/ai-common
+- shared/tenant-context
+- shared/security-common
+publishesEvents:
+- kryos.edge:{tenant}.command.requested
+consumesEvents:
+- kryos.agent:{tenant}.recommendation.created
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: políticas, faixas seguras, histórico de decisão
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Control Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

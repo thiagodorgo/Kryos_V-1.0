@@ -5,27 +5,39 @@ package: com.kryos.platform.notificationservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
-consumesEvents: []
+- Rotear alarme para o canal e destinatário certos conforme prioridade e escala de
+  plantão.
+- Confirmar entrega e escalar automaticamente se não houver ACK dentro do tempo da
+  prioridade.
+- Respeitar preferências de canal por usuário, com teste de canal obrigatório antes
+  de ativar.
+dependsOn:
+- shared/messaging-common
+- shared/tenant-context
+publishesEvents:
+- kryos.operational:{tenant}.notification.dispatched
+consumesEvents:
+- kryos.event:{tenant}.alarm.raised
+- kryos.event:{tenant}.alarm.escalated
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: preferências de canal, escala de plantão, log de entrega
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Operational Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

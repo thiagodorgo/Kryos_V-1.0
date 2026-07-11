@@ -5,27 +5,38 @@ package: com.kryos.platform.identityservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
-publishesEvents: []
+- Autenticar usuários com política de senha, expiração e bloqueio por tentativa falha.
+- Aplicar 2FA obrigatório para papéis administrativos.
+- Resolver escopo de visibilidade de dispositivos por grupo do usuário, consumido
+  por todo serviço com dado sensível a tenant.
+dependsOn:
+- shared/messaging-common
+- shared/security-common
+- shared/tenant-context
+publishesEvents:
+- kryos.control:{tenant}.user.authenticated
+- kryos.control:{tenant}.role.changed
 consumesEvents: []
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: usuários, papéis, grupos
     schemas: []
   redis:
-    planned: false
+    planned: true
+    purpose: sessão
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Control Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'

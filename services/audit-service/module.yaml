@@ -5,27 +5,38 @@ package: com.kryos.platform.auditservice
 riskLevel: medium
 stage: structure-only
 responsibilities:
-  - future bounded service responsibility
-dependsOn: []
+- Consumir eventos de todos os planos que representem ação auditável e gravá-los de
+  forma append-only.
+- Nunca permitir edição ou exclusão de registro de auditoria — apenas leitura e exportação.
+- Servir de evidência para cliente e compliance (HACCP, regulatório).
+dependsOn:
+- shared/messaging-common
+- shared/tenant-context
 publishesEvents: []
-consumesEvents: []
+consumesEvents:
+- kryos.control:{tenant}.#
+- kryos.event:{tenant}.#
+- kryos.agent:{tenant}.#
+- kryos.edge:{tenant}.command.#
 databases:
   postgres:
-    planned: false
+    planned: true
+    purpose: trilha de auditoria append-only
     schemas: []
   redis:
     planned: false
   rabbitmq:
-    planned: false
+    planned: true
+    role: publica/consome via shared/messaging-common conforme ADR-0005
   questdb:
     planned: false
   clickhouse:
     planned: false
 requiredQualityGates:
-  - readme-present
-  - module-manifest-present
-  - no-business-code
+- readme-present
+- module-manifest-present
+- no-business-code
 requiredHumanApprovalFor:
-  - domain implementation
-  - external integration
-notes: Structure-only manifest.
+- domain implementation
+- external integration
+notes: 'Structure-only manifest. Plano: Event Plane. Mensageria conforme docs/adr/0005-rabbitmq-unified-messaging-backbone.md.'
