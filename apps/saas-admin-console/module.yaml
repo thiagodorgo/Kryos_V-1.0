@@ -3,8 +3,11 @@ name: Saas Admin Console
 type: app
 stage: structure-only
 riskLevel: medium
+owningAgent: frontend-construction-agent
 responsibilities:
   - future user interface boundary
+  - internal console for tenants, modules, usage, billing, margin and platform health
+requirementsSpec: ../../docs/frontend/frontend-product-requirements.md
 requiredQualityGates:
   - readme-present
   - no-business-code

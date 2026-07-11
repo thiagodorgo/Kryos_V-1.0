@@ -3,8 +3,11 @@ name: Customer Portal
 type: app
 stage: structure-only
 riskLevel: medium
+owningAgent: frontend-construction-agent
 responsibilities:
   - future user interface boundary
+  - customer-facing monitoring, alarms, reports, energy, predictive and plan-usage screens
+requirementsSpec: ../../docs/frontend/frontend-product-requirements.md
 requiredQualityGates:
   - readme-present
   - no-business-code
